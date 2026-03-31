@@ -285,8 +285,15 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
   const slugs = new Set<string>();
 
   for (const item of catalogData) {
-    const { folderName: folder, images } = item;
+    const { folderName: folder, images: rawImages } = item;
     const { team, season, type, category } = parseFolderName(folder);
+    
+    // Encode images from catalog
+    const images = rawImages.map(img => {
+      if (img.includes('%')) return img; // Already encoded
+      const parts = img.split('/');
+      return parts.map(p => p === 'maillots' ? p : encodeURIComponent(p)).join('/');
+    });
     
     // Construct clean name
     let name = `Maillot ${team}`;
@@ -648,7 +655,7 @@ export function getAllProducts(): Product[] {
     const badImages = getInvalidImages();
     const images = files
       .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
-      .map(f => `/maillots/${folder}/${f}`)
+      .map(f => `/maillots/${encodeURIComponent(folder)}/${encodeURIComponent(f)}`)
       .filter(imgPath => !badImages.has(imgPath));
 
     if (images.length === 0) continue; // Skip if no valid images
@@ -712,24 +719,15 @@ export function getAllProducts(): Product[] {
 
   // ==========================================
   // DEDUPLICATION
-  // Group by normalized name, keep the one with the most images
+  // Use folderName as key to show all 1000 maillots
   // ==========================================
   const deduped = new Map<string, Product>();
   for (const product of products) {
-    const key = product.name
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, ' ')
-      .replace(/[^a-z0-9 ]/g, '');
+    const key = product.folderName;
 
     const existing = deduped.get(key);
     if (!existing) {
       deduped.set(key, product);
-    } else {
-      // Keep the one with more images
-      if (product.images.length > existing.images.length) {
-        deduped.set(key, product);
-      }
     }
   }
 
