@@ -195,6 +195,8 @@ function normalizeTeam(team: string): string {
   t = t.replace(/['.]s\b/g, '')
        .replace(/^[.\s]+/, '') // Remove leading dots or spaces
        .replace(/^\d{4,6}/, '') // Remove leading dates like 2526, 202324, 0607
+       .replace(/\b[sml]?\d?x+l\d?\b/gi, '') // Remove sizes like sxxl, 4xl, s4xl, xl5, etc.
+       .replace(/\b[sml]\b/gi, '') // Remove single letter sizes
        .replace(/team/g, '')
        .replace(/football club/g, '')
        .replace(/fc\b/g, '')
@@ -207,6 +209,21 @@ function normalizeTeam(team: string): string {
        .replace(/hoodie/g, '')
        .replace(/windbreaker/g, '')
        .replace(/suit/g, '')
+       .replace(/fabric/g, '')
+       .replace(/concepts/g, '')
+       .replace(/collaboration/g, '')
+       .replace(/limited/g, '')
+       .replace(/commemorative/g, '')
+       .replace(/outfit/g, '')
+       .replace(/style/g, '')
+       .replace(/advertisement/g, '')
+       .replace(/derby/g, '')
+       .replace(/withads/g, '')
+       .replace(/withoutads/g, '')
+       .replace(/stadium/g, '')
+       .replace(/sxxl/g, '')
+       .replace(/s4xl/g, '')
+       .replace(/\d+$/g, '') // Remove trailing numbers
        .trim();
 
   // Remove leading dots again if any appeared after other cleans
@@ -226,8 +243,21 @@ function normalizeTeam(team: string): string {
     }
   }
   
-  // If no alias found, clean it up and capitalize
-  const cleaned = t.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(' ').trim();
+  // If no alias found, try to extract team name by inserting spaces between camelCase words
+  // This handles cases like "Acffiorentinasxxl" -> "Ac fiorentina"
+  const withSpaces = t
+    .replace(/([a-z])([A-Z])/g, '$1 $2') // Insert space before capital letters in camelCase
+    .replace(/([a-z])([0-9])/g, '$1 $2') // Insert space before numbers
+    .replace(/\s+/g, ' ') // Normalize multiple spaces
+    .trim();
+  
+  // Clean it up and capitalize
+  const cleaned = withSpaces.split(' ')
+    .filter(w => w.length > 0) // Remove empty strings
+    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+    .join(' ')
+    .trim();
+  
   return cleaned || "Maillot de Football";
 }
 
@@ -263,11 +293,21 @@ function parseFolderName(folderName: string) {
 
   // Clean up team name
   let team = name
-    .replace(/away|home|third|retro|game|shirt|jersey|long sleeve|short sleeve|jacket|kids|size|edition|domicile|extérieur|third|gardien|throwback|at |kit|player|anniversary|longsleeved/ig, '')
-    .replace(/\b[SMLXL0-9#-]+\b/g, '') // remove sizes
+    .replace(/away|home|third|retro|game|shirt|jersey|long sleeve|short sleeve|jacket|kids|size|edition|domicile|extérieur|third|gardien|throwback|at |kit|player|anniversary|longsleeved|fabric|concepts|collaboration|limited|commemorative|outfit|style|advertisement|derby|withads|withoutads|stadium/ig, '')
+    .replace(/\b[sml]?\d?x+l\d?\b/gi, '') // remove sizes like sxxl, 4xl
+    .replace(/\b[SML0-9#-]+\b/g, '') // remove remaining sizes/numbers
     .replace(/[-(),]/g, ' ')
     .replace(/\s{2,}/g, ' ')
     .trim();
+
+  // Try to split camelCase words if team name is still concatenated (e.g., "acffiorentina" -> "ac fiorentina")
+  if (team && !/\s/.test(team) && team.length > 3) {
+    // Insert spaces before capital letters in camelCase
+    const spaced = team.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
+    if (spaced !== team) {
+      team = spaced;
+    }
+  }
 
   team = normalizeTeam(team);
   
@@ -326,24 +366,40 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
     const price = isPlayerEdition ? 34 : 29;
     
     const shortDescription = isPlayerEdition
-      ? `Version Player Edition du ${name.toLowerCase()}. Qualité professionnelle, coupe athlétique, tissu technique premium.`
-      : `Découvrez le ${name.toLowerCase()}. Conçu pour les passionnés, ce modèle offre un confort optimal sur le terrain comme au quotidien.`;
+      ? `Achetez le ${name} (Version Player) au meilleur prix sur KIT FOOTBALL. Maillot haute performance, coupe ajustée, tissu premium ultra-respirant. Livraison express 48h.`
+      : `Commandez votre ${name} pas cher (29€) sur KIT FOOTBALL. Maillot de foot haute qualité, idéal pour le terrain ou les supporters. Stock limité, livraison rapide.`;
     
     let longDescription = isPlayerEdition
-      ? `Version Player Edition authentique du ${name.toLowerCase()}. Identique aux maillots portés par les joueurs professionnels.\n\n`
-      : `Affichez fièrement vos couleurs avec ce superbe ${name.toLowerCase()}. Que vous soyez dans les gradins ou sur le terrain, ce modèle allie style et performance.\n\n`;
+      ? `### Version Player Edition - Qualité Professionnelle\n\nPropulsez votre jeu au niveau supérieur avec le **${name} Version Player**. Ce maillot est la réplique exacte de celui porté par les joueurs sur le terrain.\n\n`
+      : `### Maillot ${name} - Édition Supporter\n\nAffichez votre passion pour votre équipe avec le **${name}**. Conçu pour allier confort et style, ce maillot est parfait pour toutes les occasions.\n\n`;
     
-    longDescription += `- **Équipe :** ${team}\n`;
+    longDescription += `#### Caractéristiques techniques :\n`;
+    longDescription += `- **Équipe officielle :** ${team}\n`;
     if (season) longDescription += `- **Saison :** ${season}\n`;
-    longDescription += `- **Type :** ${type}\n`;
-    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Qualité Pro)\n` : `- **Version :** Fan Edition\n`;
-    longDescription += `- **Coupe :** ${isPlayerEdition ? 'Athlétique ajustée' : 'Standard confortable'}\n`;
-    longDescription += `- **Qualité :** ${isPlayerEdition ? 'Tissu technique premium, ultra-respirant' : 'Tissu respirant et confortable'}\n\n`;
-    longDescription += `*Tailles disponibles : S, M, L, XL, XXL. Livraison rapide 48h.*`;
+    longDescription += `- **Type de maillot :** ${type}\n`;
+    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Coupe athlétique ajustée)\n` : `- **Version :** Fan Edition (Coupe standard confortable)\n`;
+    longDescription += `- **Tissu :** Technologie respirante pour une évacuation optimale de la transpiration\n`;
+    longDescription += `- **Détails :** Logos brodés (Fan) ou thermocollés (Player) selon la version\n\n`;
+    longDescription += `#### Pourquoi acheter sur KIT FOOTBALL ?\n`;
+    longDescription += `- **Prix imbattable :** Votre maillot de foot à partir de 29€.\n`;
+    longDescription += `- **Qualité Premium :** Finitions soignées et matériaux durables.\n`;
+    longDescription += `- **Livraison Rapide :** Expédition sous 48h avec suivi.\n`;
+    longDescription += `- **Satisfaction Garantie :** Service client réactif à votre écoute.\n\n`;
+    longDescription += `*Disponible en tailles S, M, L, XL, XXL. Profitez-en avant la rupture de stock !*`;
 
     const isNew = !season || season.includes('24') || season.includes('25') || season.includes('26');
     const isBestSeller = TOP_CLUBS.includes(team) || TOP_NATIONS.includes(team);
     
+    const keywords = [
+      `maillot ${team}`,
+      `maillot ${team} ${season || ''}`,
+      `maillot ${team} ${type}`,
+      `maillot foot ${team} pas cher`,
+      `achat maillot ${team}`,
+      `boutique ${team}`,
+      `kit football ${team}`
+    ].filter(k => k.trim().length > 0);
+
     const badges: string[] = [];
     if (isNew) badges.push('Nouveau');
     if (isBestSeller) badges.push('Best-seller');
@@ -366,7 +422,8 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
       longDescription,
       isNew,
       isBestSeller,
-      badges: badges.length > 0 ? badges : undefined
+      badges: badges.length > 0 ? badges : undefined,
+      keywords
     });
   }
 
@@ -664,24 +721,40 @@ export function getAllProducts(): Product[] {
     const price = isPlayerEdition ? 34 : 29;
     
     const shortDescription = isPlayerEdition
-      ? `Version Player Edition du ${name.toLowerCase()}. Qualité professionnelle, coupe athlétique, tissu technique premium.`
-      : `Découvrez le ${name.toLowerCase()}. Conçu pour les passionnés, ce modèle offre un confort optimal sur le terrain comme au quotidien.`;
+      ? `Achetez le ${name} (Version Player) au meilleur prix sur KIT FOOTBALL. Maillot haute performance, coupe ajustée, tissu premium ultra-respirant. Livraison express 48h.`
+      : `Commandez votre ${name} pas cher (29€) sur KIT FOOTBALL. Maillot de foot haute qualité, idéal pour le terrain ou les supporters. Stock limité, livraison rapide.`;
     
     let longDescription = isPlayerEdition
-      ? `Version Player Edition authentique du ${name.toLowerCase()}. Identique aux maillots portés par les joueurs professionnels.\n\n`
-      : `Affichez fièrement vos couleurs avec ce superbe ${name.toLowerCase()}. Que vous soyez dans les gradins ou sur le terrain, ce modèle allie style et performance.\n\n`;
+      ? `### Version Player Edition - Qualité Professionnelle\n\nPropulsez votre jeu au niveau supérieur avec le **${name} Version Player**. Ce maillot est la réplique exacte de celui porté par les joueurs sur le terrain.\n\n`
+      : `### Maillot ${name} - Édition Supporter\n\nAffichez votre passion pour votre équipe avec le **${name}**. Conçu pour allier confort et style, ce maillot est parfait pour toutes les occasions.\n\n`;
     
-    longDescription += `- **Équipe :** ${team}\n`;
+    longDescription += `#### Caractéristiques techniques :\n`;
+    longDescription += `- **Équipe officielle :** ${team}\n`;
     if (season) longDescription += `- **Saison :** ${season}\n`;
-    longDescription += `- **Type :** ${type}\n`;
-    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Qualité Pro)\n` : `- **Version :** Fan Edition\n`;
-    longDescription += `- **Coupe :** ${isPlayerEdition ? 'Athlétique ajustée' : 'Standard confortable'}\n`;
-    longDescription += `- **Qualité :** ${isPlayerEdition ? 'Tissu technique premium, ultra-respirant' : 'Tissu respirant et confortable'}\n\n`;
-    longDescription += `*Tailles disponibles : S, M, L, XL, XXL. Livraison rapide 48h.*`;
+    longDescription += `- **Type de maillot :** ${type}\n`;
+    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Coupe athlétique ajustée)\n` : `- **Version :** Fan Edition (Coupe standard confortable)\n`;
+    longDescription += `- **Tissu :** Technologie respirante pour une évacuation optimale de la transpiration\n`;
+    longDescription += `- **Détails :** Logos brodés (Fan) ou thermocollés (Player) selon la version\n\n`;
+    longDescription += `#### Pourquoi acheter sur KIT FOOTBALL ?\n`;
+    longDescription += `- **Prix imbattable :** Votre maillot de foot à partir de 29€.\n`;
+    longDescription += `- **Qualité Premium :** Finitions soignées et matériaux durables.\n`;
+    longDescription += `- **Livraison Rapide :** Expédition sous 48h avec suivi.\n`;
+    longDescription += `- **Satisfaction Garantie :** Service client réactif à votre écoute.\n\n`;
+    longDescription += `*Disponible en tailles S, M, L, XL, XXL. Profitez-en avant la rupture de stock !*`;
 
     const isNew = !season || season.includes('24') || season.includes('25') || season.includes('26');
     const isBestSeller = TOP_CLUBS.includes(team) || TOP_NATIONS.includes(team);
     
+    const keywords = [
+      `maillot ${team}`,
+      `maillot ${team} ${season || ''}`,
+      `maillot ${team} ${type}`,
+      `maillot foot ${team} pas cher`,
+      `achat maillot ${team}`,
+      `boutique ${team}`,
+      `kit football ${team}`
+    ].filter(k => k.trim().length > 0);
+
     const badges: string[] = [];
     if (isNew) badges.push('Nouveau');
     if (isBestSeller) badges.push('Best-seller');
@@ -704,7 +777,8 @@ export function getAllProducts(): Product[] {
       longDescription,
       isNew,
       isBestSeller,
-      badges: badges.length > 0 ? badges : undefined
+      badges: badges.length > 0 ? badges : undefined,
+      keywords
     });
   }
 
@@ -761,4 +835,74 @@ export function getProductsByTeam(team: string): Product[] {
 export function getProductsByType(type: string): Product[] {
   const products = getAllProducts();
   return products.filter(p => p.type.toLowerCase() === type.toLowerCase());
+}
+
+export function getRelatedProducts(product: Product, limit = 8): Product[] {
+  const products = getAllProducts();
+  const related: Product[] = [];
+  const seen = new Set<string>([product.id]);
+
+  // Priority 1: Same team
+  const sameTeam = products.filter(p => p.team === product.team && !seen.has(p.id));
+  for (const p of sameTeam.slice(0, limit)) {
+    related.push(p);
+    seen.add(p.id);
+  }
+
+  // Priority 2: Same type
+  if (related.length < limit) {
+    const sameType = products.filter(p => p.type === product.type && !seen.has(p.id));
+    for (const p of sameType.slice(0, limit - related.length)) {
+      related.push(p);
+      seen.add(p.id);
+    }
+  }
+
+  return related.slice(0, limit);
+}
+
+export function getAllClubs() {
+  const products = getAllProducts();
+  const clubMap = new Map<string, { name: string; slug: string; count: number }>();
+  for (const p of products) {
+    const slug = slugify(p.team, { lower: true, strict: true });
+    const existing = clubMap.get(slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      clubMap.set(slug, { name: p.team, slug, count: 1 });
+    }
+  }
+  return Array.from(clubMap.values()).sort((a, b) => b.count - a.count);
+}
+
+export function getAllTypes() {
+  const products = getAllProducts();
+  const typeMap = new Map<string, { name: string; slug: string; count: number }>();
+  for (const p of products) {
+    const slug = slugify(p.type, { lower: true, strict: true });
+    const existing = typeMap.get(slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      typeMap.set(slug, { name: p.type, slug, count: 1 });
+    }
+  }
+  return Array.from(typeMap.values()).sort((a, b) => b.count - a.count);
+}
+
+export function getAllSeasons() {
+  const products = getAllProducts();
+  const seasonMap = new Map<string, { name: string; slug: string; count: number }>();
+  for (const p of products) {
+    if (!p.season || p.season === 'Inconnue') continue;
+    const slug = slugify(p.season, { lower: true, strict: true });
+    const existing = seasonMap.get(slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      seasonMap.set(slug, { name: p.season, slug, count: 1 });
+    }
+  }
+  return Array.from(seasonMap.values()).sort((a, b) => b.count - a.count);
 }
