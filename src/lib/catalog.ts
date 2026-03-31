@@ -279,177 +279,67 @@ function parseFolderName(folderName: string) {
 // Global cache for performance
 let cachedProducts: Product[] | null = null;
 
-// Fallback products when maillots directory is not available - 100 best-selling jerseys
+// Fallback products when maillots directory is not available
 function getFallbackProducts(): Product[] {
-  const topJerseys = [
-    // Top Clubs - Domicile 2024-25
-    { team: 'Real Madrid', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Real Madrid', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'FC Barcelona', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'FC Barcelona', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'PSG', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'PSG', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Manchester City', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Manchester City', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Arsenal', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Arsenal', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Liverpool', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Liverpool', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Manchester United', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Manchester United', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Bayern Munich', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Bayern Munich', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Inter Milan', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Inter Milan', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'AC Milan', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'AC Milan', type: 'Domicile', season: '24-25', isPlayer: true },
-    
-    // Top Clubs - Extérieur 2024-25
-    { team: 'Real Madrid', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'FC Barcelona', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'PSG', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'Manchester City', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'Arsenal', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'Liverpool', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'Chelsea', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Chelsea', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'Juventus', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Juventus', type: 'Extérieur', season: '24-25', isPlayer: false },
-    
-    // National Teams 2024-25
-    { team: 'France', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'France', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'France', type: 'Extérieur', season: '24-25', isPlayer: false },
-    { team: 'Argentine', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Argentine', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Brésil', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Brésil', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Allemagne', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Espagne', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Espagne', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Portugal', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Portugal', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Angleterre', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Italie', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Pays-Bas', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Belgique', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Maroc', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Maroc', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Algérie', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Sénégal', type: 'Domicile', season: '24-25', isPlayer: false },
-    
-    // More Top Clubs
-    { team: 'Atletico Madrid', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Borussia Dortmund', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Borussia Dortmund', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Napoli', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'AS Roma', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Tottenham Hotspur', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Newcastle United', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Olympique de Marseille', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Olympique Lyonnais', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'AS Monaco', type: 'Domicile', season: '24-25', isPlayer: false },
-    
-    // Retro Classics
-    { team: 'Real Madrid', type: 'Rétro', season: '13-14', isPlayer: false },
-    { team: 'FC Barcelona', type: 'Rétro', season: '10-11', isPlayer: false },
-    { team: 'Manchester United', type: 'Rétro', season: '07-08', isPlayer: false },
-    { team: 'AC Milan', type: 'Rétro', season: '06-07', isPlayer: false },
-    { team: 'Arsenal', type: 'Rétro', season: '03-04', isPlayer: false },
-    { team: 'France', type: 'Rétro', season: '98', isPlayer: false },
-    { team: 'Brésil', type: 'Rétro', season: '02', isPlayer: false },
-    { team: 'Argentine', type: 'Rétro', season: '86', isPlayer: false },
-    
-    // Third Kits
-    { team: 'Real Madrid', type: 'Third', season: '24-25', isPlayer: false },
-    { team: 'FC Barcelona', type: 'Third', season: '24-25', isPlayer: false },
-    { team: 'PSG', type: 'Third', season: '24-25', isPlayer: false },
-    { team: 'Manchester City', type: 'Third', season: '24-25', isPlayer: false },
-    { team: 'Bayern Munich', type: 'Third', season: '24-25', isPlayer: false },
-    
-    // More Clubs
-    { team: 'Benfica', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'FC Porto', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Sporting CP', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Ajax Amsterdam', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'PSV Eindhoven', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Celtic FC', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Rangers FC', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Galatasaray', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Fenerbahce', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Inter Miami', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Inter Miami', type: 'Domicile', season: '24-25', isPlayer: true },
-    { team: 'Al Nassr', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Al Nassr', type: 'Domicile', season: '24-25', isPlayer: true },
-    
-    // More National Teams
-    { team: 'Cameroun', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Côte d\'Ivoire', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Mexique', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Colombie', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Uruguay', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Japon', type: 'Domicile', season: '24-25', isPlayer: false },
-    
-    // Additional Popular Clubs
-    { team: 'Aston Villa', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Leicester City', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Sevilla', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Valencia', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Lazio', type: 'Domicile', season: '24-25', isPlayer: false },
-    { team: 'Fiorentina', type: 'Domicile', season: '24-25', isPlayer: false },
-  ];
-
-  return topJerseys.map((jersey, index) => {
-    const price = jersey.isPlayer ? 34 : 29;
-    const playerSuffix = jersey.isPlayer ? ' Player Edition' : '';
-    const name = `Maillot ${jersey.team} ${jersey.type} ${jersey.season}${playerSuffix}`;
-    const slug = slugify(name, { lower: true, strict: true });
-    const id = `${slug}-${index}`;
-    
-    const shortDescription = jersey.isPlayer 
-      ? `Version Player Edition du ${name.toLowerCase()}. Qualité professionnelle, coupe athlétique, tissu technique premium.`
-      : `Découvrez le ${name.toLowerCase()}. Conçu pour les passionnés, ce modèle offre un confort optimal sur le terrain comme au quotidien.`;
-    
-    let longDescription = jersey.isPlayer
-      ? `Version Player Edition authentique du ${name.toLowerCase()}. Identique aux maillots portés par les joueurs professionnels.\n\n`
-      : `Affichez fièrement vos couleurs avec ce superbe ${name.toLowerCase()}. Que vous soyez dans les gradins ou sur le terrain, ce modèle allie style et performance.\n\n`;
-    
-    longDescription += `- **Équipe :** ${jersey.team}\n`;
-    longDescription += `- **Saison :** ${jersey.season}\n`;
-    longDescription += `- **Type :** ${jersey.type}\n`;
-    longDescription += jersey.isPlayer ? `- **Version :** Player Edition (Qualité Pro)\n` : `- **Version :** Fan Edition\n`;
-    longDescription += `- **Coupe :** ${jersey.isPlayer ? 'Athlétique ajustée' : 'Standard confortable'}\n`;
-    longDescription += `- **Qualité :** ${jersey.isPlayer ? 'Tissu technique premium, ultra-respirant' : 'Tissu respirant et confortable'}\n\n`;
-    longDescription += `*Tailles disponibles : S, M, L, XL, XXL. Livraison rapide.*`;
-
-    const isNew = jersey.season.includes('24') || jersey.season.includes('25');
-    const isBestSeller = !jersey.isPlayer && ['Real Madrid', 'FC Barcelona', 'PSG', 'France', 'Argentine', 'Manchester City'].includes(jersey.team);
-
-    const badges: string[] = [];
-    if (isNew) badges.push('Nouveau');
-    if (isBestSeller) badges.push('Best-seller');
-    if (jersey.isPlayer) badges.push('Player Edition');
-
-    return {
-      id,
-      name,
-      slug,
-      price,
-      image: '/Images/maillot-psg-domicile-2024-25.jpg', // Placeholder
+  return [
+    {
+      id: 'psg-domicile-2024-25',
+      name: 'Maillot PSG Domicile 2024-25',
+      slug: 'maillot-psg-domicile-2024-25',
+      price: 89.99,
+      image: '/Images/maillot-psg-domicile-2024-25.jpg',
       hoverImage: undefined,
       images: ['/Images/maillot-psg-domicile-2024-25.jpg'],
       category: 'Adulte',
-      team: jersey.team,
-      season: jersey.season,
-      type: jersey.type,
-      folderName: slug,
-      shortDescription,
-      longDescription,
-      isNew,
-      isBestSeller,
-      badges: badges.length > 0 ? badges : undefined
-    };
-  });
+      team: 'Paris Saint-Germain',
+      season: '2024-25',
+      type: 'Domicile',
+      folderName: 'psg-domicile-2024-25',
+      shortDescription: 'Le maillot domicile du PSG pour la saison 2024-25 avec les couleurs emblématiques bleu, rouge et blanc.',
+      longDescription: 'Le maillot domicile du PSG pour la saison 2024-25 avec les couleurs emblématiques bleu, rouge et blanc.',
+      isNew: true,
+      isBestSeller: true,
+      badges: ['Nouveau', 'Best-seller']
+    },
+    {
+      id: 'real-madrid-domicile-2024-25',
+      name: 'Maillot Real Madrid Domicile 2024-25',
+      slug: 'maillot-real-madrid-domicile-2024-25',
+      price: 94.99,
+      image: '/Images/maillot-real-madrid-domicile-2024-25.jpg',
+      hoverImage: undefined,
+      images: ['/Images/maillot-real-madrid-domicile-2024-25.jpg'],
+      category: 'Adulte',
+      team: 'Real Madrid',
+      season: '2024-25',
+      type: 'Domicile',
+      folderName: 'real-madrid-domicile-2024-25',
+      shortDescription: 'Le maillot domicile mythique du Real Madrid avec son blanc pur et les détails dorés.',
+      longDescription: 'Le maillot domicile mythique du Real Madrid avec son blanc pur et les détails dorés.',
+      isNew: true,
+      isBestSeller: true,
+      badges: ['Nouveau', 'Best-seller']
+    },
+    {
+      id: 'france-domicile-2024-25',
+      name: 'Maillot France Domicile 2024-25',
+      slug: 'maillot-france-domicile-2024-25',
+      price: 92.99,
+      image: '/Images/maillot-france-domicile-2024-25.jpg',
+      hoverImage: undefined,
+      images: ['/Images/maillot-france-domicile-2024-25.jpg'],
+      category: 'Adulte',
+      team: 'France',
+      season: '2024-25',
+      type: 'Domicile',
+      folderName: 'france-domicile-2024-25',
+      shortDescription: 'Le maillot domicile de l\'équipe de France avec le bleu tricolore emblématique.',
+      longDescription: 'Le maillot domicile de l\'équipe de France avec le bleu tricolore emblématique.',
+      isNew: true,
+      isBestSeller: true,
+      badges: ['Nouveau', 'Best-seller']
+    }
+  ];
 }
 
 export function getAllProducts(): Product[] {
@@ -519,21 +409,39 @@ export function getAllProducts(): Product[] {
       return a.localeCompare(b, undefined, { numeric: true });
     });
 
-    const shortDescription = `Découvrez le ${name.toLowerCase()}. Conçu pour les passionnés, ce modèle offre un confort optimal sur le terrain comme au quotidien.`;
+    // Detect Player Edition for pricing
+    const isPlayerEdition = /player|edition/i.test(folder);
+    const price = isPlayerEdition ? 34 : 29;
     
-    let longDescription = `Affichez fièrement vos couleurs avec ce superbe ${name.toLowerCase()}. Que vous soyez dans les gradins ou sur le terrain, ce modèle allie style et performance.\n\n`;
+    const shortDescription = isPlayerEdition
+      ? `Version Player Edition du ${name.toLowerCase()}. Qualité professionnelle, coupe athlétique, tissu technique premium.`
+      : `Découvrez le ${name.toLowerCase()}. Conçu pour les passionnés, ce modèle offre un confort optimal sur le terrain comme au quotidien.`;
+    
+    let longDescription = isPlayerEdition
+      ? `Version Player Edition authentique du ${name.toLowerCase()}. Identique aux maillots portés par les joueurs professionnels.\n\n`
+      : `Affichez fièrement vos couleurs avec ce superbe ${name.toLowerCase()}. Que vous soyez dans les gradins ou sur le terrain, ce modèle allie style et performance.\n\n`;
+    
     longDescription += `- **Équipe :** ${team}\n`;
     if (season) longDescription += `- **Saison :** ${season}\n`;
     longDescription += `- **Type :** ${type}\n`;
-    longDescription += `- **Coupe :** Standard\n`;
-    longDescription += `- **Qualité :** Tissu respirant et confortable, idéal pour l'effort ou le style streetwear.\n\n`;
-    longDescription += `*Attention : La disponibilité des tailles (généralement S à XXL) sera confirmée lors de votre demande de commande.*`;
+    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Qualité Pro)\n` : `- **Version :** Fan Edition\n`;
+    longDescription += `- **Coupe :** ${isPlayerEdition ? 'Athlétique ajustée' : 'Standard confortable'}\n`;
+    longDescription += `- **Qualité :** ${isPlayerEdition ? 'Tissu technique premium, ultra-respirant' : 'Tissu respirant et confortable'}\n\n`;
+    longDescription += `*Tailles disponibles : S, M, L, XL, XXL. Livraison rapide 48h.*`;
+
+    const isNew = !season || season.includes('24') || season.includes('25') || season.includes('26');
+    const isBestSeller = TOP_CLUBS.includes(team) || TOP_NATIONS.includes(team);
+    
+    const badges: string[] = [];
+    if (isNew) badges.push('Nouveau');
+    if (isBestSeller) badges.push('Best-seller');
+    if (isPlayerEdition) badges.push('Player Edition');
 
     products.push({
       id: slug,
       name,
       slug,
-      price: 29, // Standard price
+      price,
       image: images[0],
       hoverImage: images.length > 1 ? images[1] : undefined,
       images,
@@ -544,7 +452,9 @@ export function getAllProducts(): Product[] {
       folderName: folder,
       shortDescription,
       longDescription,
-      isNew: !season || season.includes('24') || season.includes('25') || season.includes('26'), // basic heuristic for "new"
+      isNew,
+      isBestSeller,
+      badges: badges.length > 0 ? badges : undefined
     });
   }
 
