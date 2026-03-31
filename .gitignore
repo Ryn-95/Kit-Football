@@ -39,4 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# maillots images (too large for GitHub, deployed via Vercel)
 public/maillots/
