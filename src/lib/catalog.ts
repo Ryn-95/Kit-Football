@@ -279,6 +279,137 @@ function parseFolderName(folderName: string) {
 // Global cache for performance
 let cachedProducts: Product[] | null = null;
 
+// Process products from JSON catalog
+function processProductsFromCatalog(catalogData: Array<{folderName: string, images: string[]}>): Product[] {
+  const products: Product[] = [];
+  const slugs = new Set<string>();
+
+  for (const item of catalogData) {
+    const { folderName: folder, images } = item;
+    const { team, season, type, category } = parseFolderName(folder);
+    
+    // Construct clean name
+    let name = `Maillot ${team}`;
+    if (type !== 'Domicile' && type !== 'Rétro' && type !== 'Training') {
+      name += ` ${type}`;
+    } else if (type === 'Rétro') {
+      name = `Maillot Rétro ${team}`;
+    } else if (type === 'Training') {
+      name = `Survêtement/Training ${team}`;
+    }
+
+    if (season) {
+      name += ` ${season}`;
+    }
+    
+    if (category === 'Enfant') {
+      name += ` (Enfant)`;
+    }
+
+    // Generate Slug
+    let baseSlug = slugify(`${team} ${type} ${season || ''} ${category === 'Enfant' ? 'enfant' : ''}`, { lower: true, strict: true });
+    let slug = baseSlug;
+    let counter = 1;
+    while (slugs.has(slug)) {
+      slug = `${baseSlug}-${counter}`;
+      counter++;
+    }
+    slugs.add(slug);
+
+    if (images.length === 0) continue;
+
+    // Detect Player Edition for pricing
+    const isPlayerEdition = /player|edition/i.test(folder);
+    const price = isPlayerEdition ? 34 : 29;
+    
+    const shortDescription = isPlayerEdition
+      ? `Version Player Edition du ${name.toLowerCase()}. Qualité professionnelle, coupe athlétique, tissu technique premium.`
+      : `Découvrez le ${name.toLowerCase()}. Conçu pour les passionnés, ce modèle offre un confort optimal sur le terrain comme au quotidien.`;
+    
+    let longDescription = isPlayerEdition
+      ? `Version Player Edition authentique du ${name.toLowerCase()}. Identique aux maillots portés par les joueurs professionnels.\n\n`
+      : `Affichez fièrement vos couleurs avec ce superbe ${name.toLowerCase()}. Que vous soyez dans les gradins ou sur le terrain, ce modèle allie style et performance.\n\n`;
+    
+    longDescription += `- **Équipe :** ${team}\n`;
+    if (season) longDescription += `- **Saison :** ${season}\n`;
+    longDescription += `- **Type :** ${type}\n`;
+    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Qualité Pro)\n` : `- **Version :** Fan Edition\n`;
+    longDescription += `- **Coupe :** ${isPlayerEdition ? 'Athlétique ajustée' : 'Standard confortable'}\n`;
+    longDescription += `- **Qualité :** ${isPlayerEdition ? 'Tissu technique premium, ultra-respirant' : 'Tissu respirant et confortable'}\n\n`;
+    longDescription += `*Tailles disponibles : S, M, L, XL, XXL. Livraison rapide 48h.*`;
+
+    const isNew = !season || season.includes('24') || season.includes('25') || season.includes('26');
+    const isBestSeller = TOP_CLUBS.includes(team) || TOP_NATIONS.includes(team);
+    
+    const badges: string[] = [];
+    if (isNew) badges.push('Nouveau');
+    if (isBestSeller) badges.push('Best-seller');
+    if (isPlayerEdition) badges.push('Player Edition');
+
+    products.push({
+      id: slug,
+      name,
+      slug,
+      price,
+      image: images[0],
+      hoverImage: images.length > 1 ? images[1] : undefined,
+      images,
+      category,
+      team,
+      season,
+      type,
+      folderName: folder,
+      shortDescription,
+      longDescription,
+      isNew,
+      isBestSeller,
+      badges: badges.length > 0 ? badges : undefined
+    });
+  }
+
+  // Deduplication
+  const deduped = new Map<string, Product>();
+  for (const product of products) {
+    const key = product.name
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, ' ')
+      .replace(/[^a-z0-9 ]/g, '');
+
+    const existing = deduped.get(key);
+    if (!existing) {
+      deduped.set(key, product);
+    } else {
+      if (product.images.length > existing.images.length) {
+        deduped.set(key, product);
+      }
+    }
+  }
+
+  const uniqueProducts = Array.from(deduped.values());
+
+  // Sort products
+  uniqueProducts.sort((a, b) => {
+    const aIsTopClub = TOP_CLUBS.includes(a.team);
+    const bIsTopClub = TOP_CLUBS.includes(b.team);
+    if (aIsTopClub && !bIsTopClub) return -1;
+    if (!aIsTopClub && bIsTopClub) return 1;
+
+    const aIsTopNation = TOP_NATIONS.includes(a.team);
+    const bIsTopNation = TOP_NATIONS.includes(b.team);
+    if (aIsTopNation && !bIsTopNation) return -1;
+    if (!aIsTopNation && bIsTopNation) return 1;
+
+    if (a.isNew && !b.isNew) return -1;
+    if (!a.isNew && b.isNew) return 1;
+
+    return a.name.localeCompare(b.name);
+  });
+
+  cachedProducts = uniqueProducts;
+  return uniqueProducts;
+}
+
 // Fallback products when maillots directory is not available - 100 best-selling jerseys
 function getFallbackProducts(): Product[] {
   const topJerseys = [
@@ -457,8 +588,19 @@ export function getAllProducts(): Product[] {
 
   const productsDir = path.join(process.cwd(), 'public', 'maillots');
   
+  // Try to load from JSON catalog if directory doesn't exist
   if (!fs.existsSync(productsDir)) {
-    console.warn(`Directory not found: ${productsDir}, using fallback products`);
+    console.warn(`Directory not found: ${productsDir}, trying JSON catalog`);
+    try {
+      const catalogPath = path.join(process.cwd(), 'src', 'data', 'maillots-catalog.json');
+      if (fs.existsSync(catalogPath)) {
+        const catalogData = JSON.parse(fs.readFileSync(catalogPath, 'utf-8'));
+        return processProductsFromCatalog(catalogData);
+      }
+    } catch (error) {
+      console.error('Error loading catalog:', error);
+    }
+    console.warn('JSON catalog not found, using fallback products');
     return getFallbackProducts();
   }
 
