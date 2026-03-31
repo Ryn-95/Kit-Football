@@ -21,8 +21,8 @@ export const metadata: Metadata = {
     template: '%s | KIT FOOTBALL',
     default: 'KIT FOOTBALL | Maillots de Football, Survêtements & Équipements',
   },
-  description: 'Boutique n°1 en France pour acheter vos maillots de football au meilleur prix. Maillots officiels, survêtements, flocage officiel Ligue 1, Premier League, Liga. Livraison 48h Europe.',
-  keywords: 'maillot de foot pas cher, maillot de foot france, survêtement foot, flocage maillot, maillot equipe de france, football shirts, camisetas de futbol, maglie calcio, trikots',
+  description: 'Maillots de foot à 29€ ! Boutique n°1 en France : maillots PSG, Real Madrid, Barça, France, Argentine. Player Edition 34€. Livraison rapide 48h. Stock permanent de 100+ maillots 2024-25.',
+  keywords: 'maillot de foot pas cher, maillot foot 29 euros, maillot psg pas cher, maillot real madrid, maillot barcelone, maillot france, maillot argentine, player edition, maillot foot 2024, maillot foot 2025, survêtement foot, flocage maillot, maillot equipe de france, maillot manchester city, maillot liverpool, maillot bayern munich, maillot retro, football shirts cheap, camisetas futbol baratas, maglie calcio economiche',
   authors: [{ name: 'KIT FOOTBALL' }],
   metadataBase: new URL('https://kitfootball.com'),
   alternates: {
@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'KIT FOOTBALL | Boutique N°1 Maillots de Football',
-    description: 'Achetez vos maillots de football au meilleur prix. Maillots Coupe du Monde, survêtements et éditions Premium. Qualité joueur et flocage officiel.',
+    title: 'KIT FOOTBALL | Maillots à 29€ - Player Edition 34€ - 100+ Modèles 2024-25',
+    description: 'Prix imbattables ! Maillots de foot à 29€, Player Edition à 34€. PSG, Real Madrid, Barça, France, Argentine et 100+ équipes. Livraison rapide 48h.',
     url: 'https://kitfootball.com',
     siteName: 'KIT FOOTBALL',
     images: [
@@ -55,8 +55,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'KIT FOOTBALL | Maillots de Football & Survêtements',
-    description: 'Boutique n°1 de maillots de football. Qualité joueur, flocage officiel et livraison rapide.',
+    title: 'KIT FOOTBALL | Maillots à 29€ - Player Edition 34€',
+    description: 'Prix imbattables ! Maillots de foot à 29€, Player Edition à 34€. 100+ modèles disponibles. Livraison rapide 48h.',
     images: ['/twitter-image.jpg'],
   },
   robots: {
@@ -94,7 +94,7 @@ export default function RootLayout({
               "@type": "SportsStore",
               "name": "KIT FOOTBALL",
               "image": "https://kitfootball.com/og-image.jpg",
-              "description": "Boutique N°1 en France : Maillots de foot pas chers, qualité joueur, flocage officiel et livraison rapide 48h partout en Europe (France, Belgique, Suisse, UK).",
+              "description": "Boutique N°1 en France : Maillots de foot à 29€, Player Edition à 34€. Plus de 100 modèles disponibles : PSG, Real Madrid, Barça, France, Argentine. Livraison rapide 48h partout en Europe.",
               "url": "https://kitfootball.com",
               "telephone": "+33100000000",
               "address": {
@@ -113,9 +113,9 @@ export default function RootLayout({
               "offers": {
                 "@type": "AggregateOffer",
                 "priceCurrency": "EUR",
-                "lowPrice": "19.99",
-                "highPrice": "129.99",
-                "offerCount": "5000"
+                "lowPrice": "29",
+                "highPrice": "34",
+                "offerCount": "100"
               },
               "openingHoursSpecification": {
                 "@type": "OpeningHoursSpecification",
