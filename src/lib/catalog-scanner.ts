@@ -101,6 +101,96 @@ const CLUB_ALIASES: Record<string, string> = {
   'venice': 'Venezia FC',
   'blackburn': 'Blackburn Rovers',
   'la coruna': 'Deportivo La Coruña',
+
+  // Additional aliases based on observed file names
+  'sajax': 'Ajax Amsterdam',
+  'alvintagereds': 'Autres',
+  'sarsenal': 'Arsenal',
+  'astonvilla': 'Aston Villa',
+  'atalanta': 'Atalanta BC',
+  'atleticomadrid': 'Atlético Madrid',
+  'austrianredbull': 'RB Salzburg',
+  'redbullsalzburg': 'RB Salzburg',
+  'bayernmunchen': 'Bayern Munich',
+  'bologna': 'Bologna FC',
+  'botafogo': 'Botafogo FR',
+  'brentford': 'Brentford FC',
+  'brighton': 'Brighton & Hove Albion',
+  'celtic': 'Celtic FC',
+  'clubderegatasvascodagama': 'Vasco da Gama',
+  'clubeatleticomineiro': 'Atlético Mineiro',
+  'colocolo': 'Colo-Colo',
+  'fulham': 'Fulham FC',
+  'girona': 'Girona FC',
+  'hamburg': 'Hamburger SV',
+  'johor': "Johor Darul Ta'zim",
+  'kingsleaguesantos': 'Santos FC',
+  'lacoruna': 'Deportivo La Coruña',
+  'laspalmas': 'UD Las Palmas',
+  'lazio': 'SS Lazio',
+  'leicester': 'Leicester City',
+  'leicestercity': 'Leicester City',
+  'lens': 'RC Lens',
+  'levante': 'Levante UD',
+  'leverkusen': 'Bayer Leverkusen',
+  'lille': 'LOSC Lille',
+  'losangeles': 'LA Galaxy',
+  'mainz': '1. FSV Mainz 05',
+  'mallorca': 'RCD Mallorca',
+  'newyorkredbull': 'New York Red Bulls',
+  'nice': 'OGC Nice',
+  'pisa': 'Pisa SC',
+  'rangers': 'Rangers FC',
+  'rangersfootballclub': 'Rangers FC',
+  'rennes': 'Stade Rennais',
+  'riverplate': 'River Plate',
+  'riyadhvictory': 'Al Nassr',
+  'riyadh': 'Al Nassr',
+  'alnassr': 'Al Nassr',
+  'sheffield': 'Sheffield Wednesday',
+  'sheffieldwednesday': 'Sheffield Wednesday',
+  'sportingdegijon': 'Sporting de Gijón',
+  'tigers': 'Tigres UANL',
+  'bluecross': 'Cruz Azul',
+  'sacmilan': 'AC Milan',
+  'sbenfica': 'SL Benfica',
+  'sbetis': 'Real Betis',
+  'sboca': 'Boca Juniors',
+  'sborussiadortmund': 'Borussia Dortmund',
+  'schelsea': 'Chelsea',
+  'scorinthians': 'SC Corinthians',
+  'sflamenco': 'Flamengo',
+  'sintermilan': 'Inter Milan',
+  'sleedsunited': 'Leeds United',
+  'sliverpool': 'Liverpool',
+  'slyon': 'Olympique Lyonnais',
+  'smanchestercity': 'Manchester City',
+  'smanu': 'Manchester United',
+  'smarseille': 'Olympique de Marseille',
+  'smiami': 'Inter Miami',
+  'snaples': 'SSC Napoli',
+  'snapoli': 'SSC Napoli',
+  'sneapolian': 'SSC Napoli',
+  'snewcastle': 'Newcastle United',
+  'snewmoon': 'Al Nassr',
+  'sparis': 'Paris Saint-Germain',
+  'sporto': 'FC Porto',
+  'srealmadrid': 'Real Madrid',
+  'sriverplate': 'River Plate',
+  'sriyadh': 'Al Nassr',
+  'sroma': 'AS Roma',
+  'ssaopaulo': 'São Paulo FC',
+  'ssheffield': 'Sheffield Wednesday',
+  'stottenham': 'Tottenham Hotspur',
+  'swesthamunited': 'West Ham United',
+  'valenciathe': 'Valencia CF',
+  'vascolagama': 'Vasco da Gama',
+  'acffiorentina': 'ACF Fiorentina',
+  'jeddahunited': 'Al Ittihad',
+  'saudiarabiajeddah': 'Al Ittihad',
+  'alittihad': 'Al Ittihad',
+  'hongjiaolympia': 'Olympiacos',
+  'oasisband': 'Autres'
 };
 
 // ==========================================
@@ -366,12 +456,23 @@ function detectClub(name: string): { club: string; isNational: boolean } {
     .replace(/\bwomen'?s?\b/gi, '')
     .replace(/\bplayer'?s?\s*(?:edition|version)?\b/gi, '')
     .replace(/\bplayers?\b/gi, '')
+    // Strip trailing sizes that are fused to the word, e.g. sxxl, s4xl, s2xl1, s4xl6, ssxxl
+    .replace(/s*\d*x+l\d*$/i, '')
+    .replace(/s*[sml]\d*$/i, '')
+    // Replace numbers with space to separate fused phrases like 120thsxxl
+    .replace(/(\d+)(th|nd|rd|st)?/gi, ' $1$2 ')
     .replace(/\s+/g, ' ')
     .trim();
 
+  // Create a version without spaces to match fused names like "astonvilla"
+  const spacelessCleaned = cleaned.replace(/\s+/g, '');
+
   // Check for national teams first
   for (const [key, displayName] of Object.entries(NATIONAL_TEAM_NORMALIZE)) {
-    // Match whole word
+    const spacelessKey = key.replace(/\s+/g, '');
+    if (spacelessKey.length >= 4 && spacelessCleaned.includes(spacelessKey)) {
+      return { club: displayName, isNational: true };
+    }
     const regex = new RegExp(`\\b${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
     if (regex.test(cleaned)) {
       return { club: displayName, isNational: true };
@@ -380,6 +481,10 @@ function detectClub(name: string): { club: string; isNational: boolean } {
 
   // Check club aliases
   for (const [alias, normalized] of Object.entries(CLUB_ALIASES)) {
+    const spacelessAlias = alias.replace(/\s+/g, '');
+    if (spacelessAlias.length >= 4 && spacelessCleaned.includes(spacelessAlias)) {
+      return { club: normalized, isNational: false };
+    }
     const regex = new RegExp(`\\b${alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
     if (regex.test(cleaned)) {
       return { club: normalized, isNational: false };
