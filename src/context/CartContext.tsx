@@ -52,6 +52,44 @@ export function CartProvider({ children }: { children: ReactNode }) {
   }, [items, isMounted]);
 
   const addItem = (newItem: Omit<CartItem, "id">) => {
+    // Notification Telegram améliorée
+    const timestamp = new Date().toLocaleString('fr-FR', { 
+      timeZone: 'Europe/Paris',
+      day: '2-digit',
+      month: '2-digit', 
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    
+    const message = `🛒 <b>ARTICLE AJOUTÉ AU PANIER!</b>
+    
+📅 <b>Heure:</b> ${timestamp}
+📦 <b>Produit:</b> ${newItem.name}
+📏 <b>Taille:</b> ${newItem.size}
+✨ <b>Version:</b> ${newItem.version}${newItem.flocage ? `\n🎨 <b>Flocage:</b> ${newItem.flocage}` : ''}
+💰 <b>Prix unitaire:</b> ${newItem.price}€
+🔢 <b>Quantité:</b> ${newItem.quantity}
+💳 <b>Total:</b> ${newItem.price * newItem.quantity}€
+
+🎯 <b>Client intéressé!</b> Préparez-vous pour la vente!`;
+
+    // Ajout de logs pour diagnostiquer
+    console.log('🚀 Envoi notification Telegram:', message);
+    
+    fetch('/api/telegram', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message })
+    }).then(response => {
+      console.log('✅ Réponse API Telegram:', response.status, response.statusText);
+      return response.json();
+    }).then(data => {
+      console.log('📦 Données réponse:', data);
+    }).catch(error => {
+      console.error('❌ Erreur notification Telegram:', error);
+    });
+
     setItems(current => {
       const generatedId = `${newItem.productId}-${newItem.version}-${newItem.size}-${newItem.flocage || 'none'}`;
       const existingItem = current.find(item => item.id === generatedId);

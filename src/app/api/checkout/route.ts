@@ -106,11 +106,72 @@ export async function POST(request: Request) {
       cancel_url: items ? `${origin}/checkout` : `${origin}/maillots/${product?.slug}`,
     });
 
+    // Notification Telegram pour l'arrivée sur la page de paiement
+    const botToken = process.env.TELEGRAM_BOT_TOKEN;
+    const chatId = process.env.TELEGRAM_CHAT_ID;
+    
+    if (botToken && chatId) {
+      try {
+        const timestamp = new Date().toLocaleString('fr-FR', { 
+          timeZone: 'Europe/Paris',
+          day: '2-digit',
+          month: '2-digit', 
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+        
+        const clientIP = request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'Inconnue';
+        const userAgent = request.headers.get('user-agent') || 'Inconnu';
+        
+        let orderDetails = '';
+        let totalAmount = 0;
+        
+        if (items && items.length > 0) {
+          totalAmount = Math.round(items.reduce((acc: number, item: any) => acc + (item.price * item.quantity), 0));
+          orderDetails = items.map((item: any, index: number) => 
+            `${index + 1}. ${item.quantity}x ${item.name} (${item.size}, ${item.version || 'Fan'}) - ${item.price * item.quantity}€`
+          ).join('\n');
+        } else if (product) {
+          totalAmount = Math.round(product.price * quantity);
+          orderDetails = `${quantity}x ${product.name} (${size}, ${version || 'Fan'}) - ${totalAmount}€`;
+        }
+
+        const message = `💳 <b>CLIENT SUR POINT DE PAYER!</b>
+
+📅 <b>Heure:</b> ${timestamp}
+🌍 <b>IP:</b> ${clientIP}
+
+� <b>Commande:</b>
+${orderDetails}
+
+💰 <b>MONTANT TOTAL:</b> ${totalAmount}€
+🎯 <b>STATUT:</b> En attente de paiement
+
+⚡ Préparez-vous!`;
+
+        await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message,
+            parse_mode: 'HTML',
+          }),
+        });
+      } catch (e) {
+        console.error('Erreur notification Telegram:', e);
+      }
+    }
+
     return NextResponse.json({ id: session.id, url: session.url });
   } catch (error: any) {
-    console.error('Stripe Checkout Error:', error);
+    console.error('❌ Stripe Checkout Error:', error);
+    if (error.message?.includes('API key')) {
+      console.error('⚠️ CONSEIL: Votre clé Stripe semble invalide ou non chargée. Vérifiez votre fichier .env et redémarrez le serveur.');
+    }
     return NextResponse.json(
-      { error: error.message || 'Une erreur est survenue lors de la création de la session de paiement' },
+      { error: error.message || 'Une erreur est survenue lors de la création de la session de paiement', details: error },
       { status: 500 }
     );
   }

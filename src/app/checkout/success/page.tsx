@@ -21,13 +21,42 @@ function SuccessContent() {
       // Envoi de la notification Telegram (une seule fois par session)
       if (!sessionStorage.getItem(`paid_${sessionId}`)) {
         sessionStorage.setItem(`paid_${sessionId}`, 'true');
+        
+        const timestamp = new Date().toLocaleString('fr-FR', { 
+          timeZone: 'Europe/Paris',
+          day: '2-digit',
+          month: '2-digit', 
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        });
+        
+        const message = `🎉🎉🎉 <b>PAIEMENT VALIDÉ AVEC SUCCÈS!</b> 🎉🎉🎉
+        
+💰 <b>VENTE CONFIRMÉE!</b>
+📅 <b>Date:</b> ${timestamp}
+🔖 <b>Transaction ID:</b> ${sessionId?.slice(0, 25)}...
+
+🏆 <b>Mission accomplie!</b> Le client a terminé son achat.
+📦 <b>Préparez la commande!</b> Vérifiez les détails dans Stripe.
+
+💳 <b>Statut:</b> PAYÉ ✅
+🚀 <b>Action:</b> Préparez l'envoi!`;
+
+        console.log('🚀 Envoi notification succès:', message.substring(0, 100) + '...');
+
         fetch('/api/telegram', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            message: `💰💰💰 <b>NOUVEAU PAIEMENT VALIDÉ !</b> 💰💰💰\nTransaction : ${sessionId.slice(0, 15)}...\n<i>Connectez-vous à Stripe pour voir les détails de la commande.</i>` 
-          })
-        }).catch(console.error);
+          body: JSON.stringify({ message })
+        }).then(response => {
+          console.log('✅ Réponse API succès:', response.status, response.statusText);
+          return response.json();
+        }).then(data => {
+          console.log('📦 Données réponse succès:', data);
+        }).catch(error => {
+          console.error('❌ Erreur notification succès:', error);
+        });
       }
     }
   }, [sessionId, clearCart]);

@@ -65,10 +65,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'VOTRE_CODE_GOOGLE_SEARCH_CONSOLE', // Remplacer par le code fourni par Google Search Console
-  },
-  other: {
-    'google-site-verification': 'VOTRE_CODE_GOOGLE_SEARCH_CONSOLE', // Alternative format
+    google: '021bE_3MfjEJ4KxoH-9BDwyfTDSooW17m_4Vj1d8xE0',
   },
 };
 
@@ -80,6 +77,7 @@ export default function RootLayout({
   return (
     <html lang="fr" className={`${inter.variable} ${montserrat.variable} bg-white text-gray-900`}>
       <head>
+        <meta name="google-site-verification" content="021bE_3MfjEJ4KxoH-9BDwyfTDSooW17m_4Vj1d8xE0" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <script
           type="application/ld+json"
