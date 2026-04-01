@@ -8,7 +8,7 @@ interface BreadcrumbItem {
 }
 
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
-  const schemaItems = items.map(item => ({ name: item.label, url: `https://www.kitfootball.com${item.href}` }));
+  const schemaItems = items.map(item => ({ name: item.label, url: `https://www.kitsfootball.fr${item.href}` }));
 
   return (
     <>

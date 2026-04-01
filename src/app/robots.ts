@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/commande', '/search'],
+      disallow: ['/commande', '/search', '/compte', '/api/'],
     },
-    sitemap: 'https://www.kitfootball.com/sitemap.xml',
+    sitemap: 'https://www.kitsfootball.fr/sitemap.xml',
   };
 }

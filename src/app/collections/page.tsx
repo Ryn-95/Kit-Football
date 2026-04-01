@@ -8,6 +8,9 @@ import { Suspense } from 'react';
 export const metadata: Metadata = {
   title: "Toutes nos collections de Maillots de Football | KIT FOOTBALL",
   description: "Découvrez toutes nos collections de maillots de football : clubs européens, équipes nationales, éditions rétro et plus encore. Qualité premium et flocage officiel.",
+  alternates: {
+    canonical: 'https://www.kitsfootball.fr/collections',
+  },
 };
 
 export default function CollectionsPage() {

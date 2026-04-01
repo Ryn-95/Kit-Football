@@ -55,8 +55,8 @@ export default function ProductCarousel({ title = "Meilleures ventes", products 
               <Link href={`/maillots/${product.slug}`} className="block relative bg-[#eceff1] aspect-square mb-3 overflow-hidden border border-transparent hover:border-black transition-colors">
                 <img 
                   src={product.image} 
-                  alt={product.name} 
-                  className="w-full h-full object-cover mix-blend-multiply"
+                  alt={`Maillot ${product.name} - Acheter pas cher 29€ sur KIT FOOTBALL`} 
+                  className="w-full h-full object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
                 <div className="absolute top-3 right-3 z-10 text-black">

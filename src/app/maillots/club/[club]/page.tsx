@@ -21,9 +21,21 @@ export async function generateMetadata({ params }: { params: Promise<{ club: str
 
   if (!teamName) return {};
 
+  const title = `Maillots ${teamName} Pas Cher 29€ | Boutique Officielle 2024-25 | KIT FOOTBALL`;
+  const description = `Découvrez tous les maillots de football de ${teamName}. Domicile, extérieur, third et éditions rétro à partir de 29€. Qualité premium, livraison express 48h.`;
+
   return {
-    title: `Maillots ${teamName} | Boutique Officielle | KitFootball`,
-    description: `Découvrez tous les maillots de football de ${teamName}. Domicile, extérieur, third et rétro. Livraison express disponible.`,
+    title,
+    description,
+    keywords: `maillot ${teamName}, acheter maillot ${teamName}, maillot ${teamName} pas cher, boutique ${teamName}, kit football`,
+    alternates: {
+      canonical: `https://www.kitsfootball.fr/maillots/club/${resolvedParams.club}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+    }
   };
 }
 
@@ -64,11 +76,11 @@ export default async function ClubPage({ params }: { params: Promise<{ club: str
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-8">
         {teamProducts.map(product => (
-          <Link href={`/maillots/${product.slug}`} key={product.id} className="group block">
+          <Link href={`/maillots/${product.slug}`} key={product.id} className="group block" title={`Maillot ${product.name} - Acheter à 29€`}>
             <div className="relative aspect-square bg-[#f5f5f5] mb-3 overflow-hidden border border-transparent hover:border-black transition-colors">
               <ImageWithFallback 
                 src={product.image} 
-                alt={product.name}
+                alt={`Maillot ${product.name} pas cher - Boutique Officielle ${teamName}`}
                 fill
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                 className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105"

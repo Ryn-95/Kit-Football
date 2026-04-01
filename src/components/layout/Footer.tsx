@@ -20,34 +20,33 @@ export default function Footer() {
             <div className="text-gray-500 text-sm leading-relaxed max-w-xs">
               <strong className="text-gray-900 italic font-bold">Attention :</strong>
               <br />
-              <i>Visitez uniquement le site officiel <strong>KitFootball.com</strong>. Faites attention aux URLs similaires qui pourraient compromettre votre sécurité personnelle.</i>
+              <i>Visitez uniquement le site officiel <strong>www.kitsfootball.fr</strong>. Faites attention aux URLs similaires qui pourraient compromettre votre sécurité personnelle.</i>
             </div>
           </div>
 
-          {/* Column 2: Information */}
+          {/* Column 2: Information & Catégories */}
           <div className="flex flex-col">
-            <h4 className="text-[#111] font-bold text-lg mb-6">Information</h4>
+            <h4 className="text-[#111] font-bold text-lg mb-6">Navigation</h4>
             <ul className="space-y-3 text-sm text-gray-600">
-              <li><Link href="/faq" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">FAQ's</Link></li>
-              <li><Link href="/compte" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Suivre ma commande</Link></li>
-              <li><Link href="/" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Affiliation</Link></li>
-              <li><Link href="/cgv" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Politique de confidentialité</Link></li>
-              <li><Link href="/cgv" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Conditions Générales de Vente</Link></li>
-              <li><Link href="/cgv" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Mentions légales</Link></li>
+              <li><Link href="/maillots" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors font-bold">Tous les Maillots</Link></li>
+              <li><Link href="/maillots/type/retro" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Maillots Rétro</Link></li>
+              <li><Link href="/maillots/type/training" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Survêtements Foot</Link></li>
+              <li><Link href="/maillots/club/psg" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Boutique PSG</Link></li>
+              <li><Link href="/maillots/club/france" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Équipe de France</Link></li>
+              <li><Link href="/guides" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Guides & Conseils</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Compte */}
+          {/* Column 3: Aide & Légal */}
           <div className="flex flex-col">
-            <h4 className="text-[#111] font-bold text-lg mb-6">Compte</h4>
-            <div className="flex flex-col space-y-3">
-              <Link href="/compte" className="w-full bg-[#19b2ff] text-white font-bold py-3 uppercase tracking-wider hover:bg-black transition-colors text-center">
-                Se Connecter
-              </Link>
-              <Link href="/compte" className="w-full bg-[#555] text-white font-bold py-3 uppercase tracking-wider hover:bg-black transition-colors text-center">
-                S'inscrire
-              </Link>
-            </div>
+            <h4 className="text-[#111] font-bold text-lg mb-6">Aide & Légal</h4>
+            <ul className="space-y-3 text-sm text-gray-600">
+              <li><Link href="/faq" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">FAQ's</Link></li>
+              <li><Link href="/compte" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Suivre ma commande</Link></li>
+              <li><Link href="/cgv" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Conditions Générales de Vente</Link></li>
+              <li><Link href="/cgv" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Politique de confidentialité</Link></li>
+              <li><Link href="/cgv" className="hover:text-[var(--color-brand-volt)] hover:underline transition-colors">Mentions légales</Link></li>
+            </ul>
           </div>
 
           {/* Column 4: Langue & Devise */}

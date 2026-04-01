@@ -4,6 +4,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Guides & Conseils d\'Achat Maillots de Foot | KIT FOOTBALL',
   description: 'Le centre de ressources incontournable pour les passionnés de football. Découvrez nos guides sur les versions Fan vs Player, l\'entretien de vos maillots et les sélections Coupe du Monde.',
+  alternates: {
+    canonical: 'https://www.kitsfootball.fr/guides',
+  },
 };
 
 export default function GuidesHub() {

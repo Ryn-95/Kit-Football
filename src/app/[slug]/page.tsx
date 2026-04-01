@@ -94,7 +94,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: found.silo.metaTitle,
       description: found.silo.metaDescription,
-      alternates: { canonical: `https://kitfootball.com/${slug}` },
+      alternates: { canonical: `https://www.kitsfootball.fr/${slug}` },
       openGraph: { title: found.silo.metaTitle, description: found.silo.metaDescription, siteName: "KIT FOOTBALL" },
     };
   }
@@ -102,7 +102,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: found.lt.metaTitle,
       description: found.lt.metaDescription,
-      alternates: { canonical: `https://kitfootball.com/${slug}` },
+      alternates: { canonical: `https://www.kitsfootball.fr/${slug}` },
       openGraph: { title: found.lt.metaTitle, description: found.lt.metaDescription, siteName: "KIT FOOTBALL" },
     };
   }
@@ -110,7 +110,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: found.money.metaTitle,
       description: found.money.metaDescription,
-      alternates: { canonical: `https://kitfootball.com/${slug}` },
+      alternates: { canonical: `https://www.kitsfootball.fr/${slug}` },
       openGraph: { title: found.money.metaTitle, description: found.money.metaDescription, siteName: "KIT FOOTBALL" },
     };
   }
@@ -118,7 +118,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: found.prog.metaTitle,
       description: found.prog.metaDescription,
-      alternates: { canonical: `https://kitfootball.com/${slug}` },
+      alternates: { canonical: `https://www.kitsfootball.fr/${slug}` },
       openGraph: { title: found.prog.metaTitle, description: found.prog.metaDescription, siteName: "KIT FOOTBALL" },
     };
   }
@@ -424,7 +424,7 @@ function ProgrammaticPageRenderer({ page }: { page: ProgrammaticPage }) {
         "@type": "Product",
         "name": page.h1,
         "description": page.metaDescription,
-        "image": "https://kitfootball.com/placeholder-maillot.jpg",
+        "image": "https://www.kitsfootball.fr/favicon.ico",
         "offers": {
           "@type": "AggregateOffer",
           "priceCurrency": "EUR",
@@ -442,7 +442,7 @@ function ProgrammaticPageRenderer({ page }: { page: ProgrammaticPage }) {
       page.type === "local" ? {
         "@type": "LocalBusiness",
         "name": `KIT FOOTBALL ${(page.slug.split('-').pop() || '').toUpperCase()}`,
-        "image": "https://kitfootball.com/logo.png",
+        "image": "https://www.kitsfootball.fr/favicon.ico",
         "telephone": "+33100000000",
         "address": {
           "@type": "PostalAddress",

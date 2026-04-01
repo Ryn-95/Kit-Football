@@ -5,10 +5,10 @@ export function WebSiteJsonLd() {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "KITFOOTBALL",
-    "url": "https://www.kitfootball.com",
+    "url": "https://www.kitsfootball.fr",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://www.kitfootball.com/search?q={search_term_string}",
+      "target": "https://www.kitsfootball.fr/search?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };
@@ -23,9 +23,9 @@ export function OrganizationJsonLd() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "KITFOOTBALL",
-    "url": "https://www.kitfootball.com",
-    "logo": "https://www.kitfootball.com/logo.png",
-    "description": "L'univers des maillots de football, basketball et rugby premium."
+    "url": "https://www.kitsfootball.fr",
+    "logo": "https://www.kitsfootball.fr/favicon.ico",
+    "description": "Boutique n°1 de maillots de football premium en France. Plus de 1000 modèles disponibles."
   };
 
   return (
@@ -54,12 +54,35 @@ export function ProductJsonLd({ product }: { product: any }) {
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://kitfootball.com/produit/${product.slug}`,
+      "url": `https://www.kitsfootball.fr/maillots/${product.slug}`,
       "priceCurrency": "EUR",
       "price": product.price,
       "priceValidUntil": "2026-12-31",
       "itemCondition": "https://schema.org/NewCondition",
       "availability": "https://schema.org/InStock",
+      "shippingDetails": {
+        "@type": "OfferShippingDetails",
+        "shippingRate": {
+          "@type": "MonetaryAmount",
+          "value": "0",
+          "currency": "EUR"
+        },
+        "deliveryTime": {
+          "@type": "ShippingDeliveryTime",
+          "handlingTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "0",
+            "maxValue": "1",
+            "unitCode": "DAY"
+          },
+          "transitTime": {
+            "@type": "QuantitativeValue",
+            "minValue": "1",
+            "maxValue": "2",
+            "unitCode": "DAY"
+          }
+        }
+      },
       "seller": {
         "@type": "Organization",
         "name": "KIT FOOTBALL"
@@ -125,7 +148,7 @@ export function ArticleJsonLd({ article }: { article: { title: string; descripti
       "name": "KITFOOTBALL",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.kitfootball.com/logo.png"
+        "url": "https://www.kitsfootball.fr/favicon.ico"
       }
     },
     "mainEntityOfPage": {

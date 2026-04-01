@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "FAQ - Questions Fréquentes | KIT FOOTBALL",
+  description: "Retrouvez toutes les réponses à vos questions sur la livraison, la qualité de nos maillots (Fan vs Player) et les retours sur KIT FOOTBALL.",
+};
+
 export default function FAQPage() {
   return (
     <div className="min-h-screen bg-white py-24">

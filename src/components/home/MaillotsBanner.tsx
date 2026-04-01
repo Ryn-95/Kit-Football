@@ -7,7 +7,7 @@ export default function MaillotsBanner() {
       <div className="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[21/9] bg-black overflow-hidden group">
         <img 
           src="/Images/Generated Image March 28, 2026 - 10_13PM.jpg" 
-          alt="Collection Maillots" 
+          alt="Nouvelle collection de maillots de football 2024-2025 - KIT FOOTBALL" 
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Dégradé pour rendre le texte plus lisible */}

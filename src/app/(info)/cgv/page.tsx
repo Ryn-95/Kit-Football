@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Conditions Générales de Vente | KIT FOOTBALL",
+  description: "Consultez les conditions générales de vente de la boutique KIT FOOTBALL : prix, commandes, paiements et droit de rétractation.",
+};
+
 export default function CGVPage() {
   return (
     <div className="min-h-screen bg-white py-24">

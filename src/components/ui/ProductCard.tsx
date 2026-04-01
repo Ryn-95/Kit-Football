@@ -11,7 +11,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <div className="group relative flex flex-col h-full bg-white transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border-2 border-transparent hover:border-gray-100 rounded-[2rem] p-4 overflow-hidden">
       
-      <Link href={`/produit/${product.slug}`} className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50/50 rounded-3xl flex items-center justify-center mb-6 transition-colors group-hover:bg-gray-100/50">
+      <Link href={`/maillots/${product.slug}`} className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50/50 rounded-3xl flex items-center justify-center mb-6 transition-colors group-hover:bg-gray-100/50">
         
         {/* Badges - Premium Look */}
         <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
@@ -61,7 +61,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.team || product.category || 'Football'}
         </div>
         
-        <Link href={`/produit/${product.slug}`} className="hover:text-[var(--color-brand-volt)] transition-colors group/title mb-4">
+        <Link href={`/maillots/${product.slug}`} className="hover:text-[var(--color-brand-volt)] transition-colors group/title mb-4">
           <h3 className="text-gray-900 font-black text-sm md:text-base leading-snug line-clamp-2 transition-colors group-hover/title:text-[var(--color-brand-volt)]">
             {product.name}
           </h3>

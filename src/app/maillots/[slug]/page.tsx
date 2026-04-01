@@ -1,10 +1,15 @@
 import { Metadata } from 'next';
-import { getProductBySlug, getAllProducts } from '@/lib/catalog';
+import { getProductBySlug, getAllProducts, getRelatedProducts } from '@/lib/catalog';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { ProductJsonLd, BreadcrumbJsonLd } from '@/components/seo/JsonLd';
-import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
-import ProductCheckout from '@/components/product/ProductCheckout';
+import { ProductJsonLd, BreadcrumbJsonLd, FAQJsonLd } from '@/components/seo/JsonLd';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { ProductActions } from '@/components/product/ProductActions';
+import { ProductAccordion } from '@/components/product/ProductAccordion';
+import { ProductGallery } from '@/components/product/ProductGallery';
+import { catalogToLegacy } from '@/types/catalog';
+import { ProductCard } from '@/components/ui/ProductCard';
+import { CatalogProduct } from '@/types/catalog';
 
 export async function generateStaticParams() {
   const products = getAllProducts();
@@ -18,14 +23,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = getProductBySlug(resolvedParams.slug);
   if (!product) return {};
 
+  const title = `Acheter ${product.name} Pas Cher 29€ | KIT FOOTBALL`;
+  const description = `Commandez votre ${product.name} au meilleur prix (29€). Maillot de haute qualité, tissu respirant, toutes tailles dispos. Livraison express 48h. Paiement sécurisé.`;
+
   return {
-    title: `${product.name} | KitFootball`,
-    description: product.shortDescription,
+    title,
+    description,
+    keywords: `${product.name}, maillot ${product.team}, acheter maillot foot, maillot foot pas cher, maillot ${product.team} 2024, maillot ${product.team} 2025, kit football`,
     openGraph: {
-      title: `${product.name} | KitFootball`,
-      description: product.shortDescription,
-      images: [{ url: product.image }],
+      title,
+      description,
+      images: [{ url: `https://www.kitsfootball.fr${product.image}` }],
+      url: `https://www.kitsfootball.fr/maillots/${product.slug}`,
+      type: 'article',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [`https://www.kitsfootball.fr${product.image}`],
+    },
+    alternates: {
+      canonical: `https://www.kitsfootball.fr/maillots/${product.slug}`,
+    }
   };
 }
 
@@ -37,105 +57,160 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     notFound();
   }
 
-  const relatedProducts = getAllProducts()
-    .filter(p => p.team === product.team && p.id !== product.id)
-    .slice(0, 4);
+  const relatedProducts = getRelatedProducts(product, 8);
+  const sameClubProducts = relatedProducts.filter((p) => p.clubSlug === product.clubSlug).slice(0, 4);
+  const otherRelated = relatedProducts.filter((p) => p.clubSlug !== product.clubSlug).slice(0, 4);
+
+  const breadcrumbItems = [
+    { label: "Accueil", href: "/" },
+    { label: "Maillots", href: "/maillots" },
+    ...(product.team
+      ? [{ label: product.team, href: `/maillots/club/${product.clubSlug || ''}` }]
+      : []),
+    { label: product.name, href: `/maillots/${product.slug}` },
+  ];
 
   return (
     <>
+      <ProductJsonLd product={product as any} />
       <BreadcrumbJsonLd 
-        items={[
-          { name: 'Accueil', url: 'https://kitfootball.com' },
-          { name: 'Maillots', url: 'https://kitfootball.com/maillots' },
-          { name: product.team, url: `https://kitfootball.com/maillots?team=${encodeURIComponent(product.team)}` },
-          { name: product.name, url: `https://kitfootball.com/maillots/${product.slug}` }
-        ]} 
+        items={breadcrumbItems.map(item => ({
+          name: item.label || '',
+          url: `https://www.kitsfootball.fr${item.href}`
+        }))} 
       />
-      <ProductJsonLd product={product} />
+      {product.faq && product.faq.length > 0 && <FAQJsonLd faq={product.faq} />}
 
-      <div className="container mx-auto px-6 py-10 max-w-[1200px]">
-        {/* Breadcrumbs */}
-        <nav className="text-xs text-gray-500 mb-8 flex items-center gap-2 uppercase tracking-wide">
-          <Link href="/" className="hover:text-black hover:underline">Accueil</Link>
-          <span>/</span>
-          <Link href="/maillots" className="hover:text-black hover:underline">Maillots</Link>
-          <span>/</span>
-          <Link href={`/maillots?team=${encodeURIComponent(product.team)}`} className="hover:text-black hover:underline">{product.team}</Link>
-          <span>/</span>
-          <span className="text-black font-bold">{product.name}</span>
-        </nav>
+      <div className="bg-white min-h-screen pt-8 pb-24">
+        <div className="container mx-auto px-4 sm:px-6 max-w-[1400px]">
+          <Breadcrumbs items={breadcrumbItems} />
 
-        <div className="flex flex-col md:flex-row gap-12 lg:gap-20">
-          {/* Gallery */}
-          <div className="w-full md:w-3/5">
-            <div className="grid grid-cols-2 gap-2">
-              {product.images.map((img, idx) => (
-                <div key={idx} className="bg-[#f5f5f5] aspect-[4/5] relative">
-                  <ImageWithFallback 
-                    src={img} 
-                    alt={`${product.name} - Vue ${idx + 1}`}
-                    fill
-                    sizes="(max-width: 768px) 50vw, 33vw"
-                    className="object-cover mix-blend-multiply"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-24">
+            <ProductGallery
+              images={product.images}
+              altTexts={product.altTexts || []}
+              productName={product.name}
+              isNew={product.isNew}
+            />
 
-          {/* Details */}
-          <div className="w-full md:w-2/5 flex flex-col pt-4">
-            <div className="flex justify-between items-start mb-2">
-              <h1 className="text-2xl md:text-3xl font-black uppercase tracking-tight" style={{fontFamily: "'AdihausDIN', Helvetica, Arial, sans-serif"}}>
+            <div className="flex flex-col py-4">
+              {product.team && (
+                <Link
+                  href={`/maillots/club/${product.clubSlug || ''}`}
+                  className="mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest hover:text-[var(--color-brand-volt)] transition-colors"
+                >
+                  {product.team}
+                </Link>
+              )}
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black italic uppercase text-black tracking-tight mb-4 leading-none">
                 {product.name}
               </h1>
-            </div>
-            
-            <p className="text-xl font-bold mb-8">{product.price} €</p>
-            
-            <div className="mb-4 prose prose-sm text-gray-700">
-              <p>{product.shortDescription}</p>
-            </div>
 
-            <ProductCheckout product={product} />
-
-            <div className="border-t border-gray-200 pt-8 mt-8">
-              <h3 className="font-bold uppercase tracking-widest text-sm mb-4">Détails du produit</h3>
-              <div className="prose prose-sm text-gray-700 whitespace-pre-line">
-                {product.longDescription}
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-3xl font-bold text-black">{product.price},00€</span>
+                <div className="flex text-yellow-500 text-sm">
+                  ★★★★★{" "}
+                  <span className="text-gray-400 ml-2">(128 avis vérifiés)</span>
+                </div>
               </div>
+
+              <p className="text-gray-600 leading-relaxed mb-8">{product.shortDescription}</p>
+
+              <ProductActions
+                product={{
+                  id: product.id,
+                  name: product.name,
+                  price: product.price,
+                  image: product.images[0] || "/placeholder.jpg",
+                  slug: product.slug,
+                }}
+              />
+
+              <ProductAccordion />
             </div>
           </div>
-        </div>
 
-        {/* Related Products */}
-        {relatedProducts.length > 0 && (
-          <div className="mt-24 pt-12 border-t border-gray-200">
-            <h2 className="text-2xl font-black uppercase mb-8" style={{fontFamily: "'AdihausDIN', Helvetica, Arial, sans-serif"}}>
-              Autres maillots {product.team}
+          <div className="bg-[#fcfcfc] border border-gray-100 p-8 md:p-12 mb-16">
+            <h2 className="text-xl font-heading font-black italic uppercase text-black tracking-tight mb-6">
+              À propos du {product.name}
             </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {relatedProducts.map(rel => (
-                <Link href={`/maillots/${rel.slug}`} key={rel.id} className="group block">
-                  <div className="relative aspect-square bg-[#f5f5f5] mb-3 overflow-hidden border border-transparent hover:border-black transition-colors">
-                    <ImageWithFallback 
-                      src={rel.image} 
-                      alt={rel.name}
-                      fill
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                  <p className="text-sm font-bold text-black mb-1">{rel.price} €</p>
-                  <h3 className="text-sm text-black mb-1 group-hover:text-gray-600 transition-colors line-clamp-2">
-                    {rel.name}
-                  </h3>
-                </Link>
+            <div className="text-gray-600 leading-relaxed prose prose-sm max-w-none space-y-4">
+              {product.longDescription?.split("\n\n").map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
               ))}
             </div>
           </div>
-        )}
+
+          {product.faq && product.faq.length > 0 && (
+            <div className="mb-16">
+              <h2 className="text-xl font-heading font-black italic uppercase text-black tracking-tight mb-6">
+                Questions fréquentes
+              </h2>
+              <div className="space-y-4">
+                {product.faq.map((item: any, i: number) => (
+                  <details
+                    key={i}
+                    className="group bg-white border border-gray-100 p-6 transition-colors hover:border-gray-200"
+                  >
+                    <summary className="cursor-pointer font-bold text-black text-sm list-none flex items-center justify-between">
+                      {item.q}
+                      <span className="text-gray-400 group-open:rotate-45 transition-transform text-lg">
+                        +
+                      </span>
+                    </summary>
+                    <p className="mt-4 text-gray-600 text-sm leading-relaxed">{item.a}</p>
+                  </details>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="bg-gray-50 border border-gray-100 p-6 mb-16">
+            <h3 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+              Explorer aussi
+            </h3>
+            <div className="flex flex-wrap gap-3">
+              {product.team && (
+                <Link
+                  href={`/maillots/club/${product.clubSlug || ''}`}
+                  className="text-sm text-gray-600 hover:text-[var(--color-brand-volt)] transition-colors underline-offset-4 hover:underline"
+                >
+                  Tous les maillots {product.team}
+                </Link>
+              )}
+              <Link
+                href="/maillots"
+                className="text-sm text-gray-600 hover:text-[var(--color-brand-volt)] transition-colors underline-offset-4 hover:underline"
+              >
+                Tous les maillots
+              </Link>
+            </div>
+          </div>
+
+          {sameClubProducts.length > 0 && (
+            <div className="border-t border-gray-100 pt-16 mb-16">
+              <div className="flex items-center justify-between mb-8">
+                <h2 className="text-2xl font-heading font-black italic uppercase text-black tracking-widest">
+                  Autres maillots {product.team}
+                </h2>
+                {product.team && (
+                  <Link
+                    href={`/maillots/club/${product.clubSlug || ''}`}
+                    className="text-sm font-bold text-gray-400 hover:text-black transition-colors uppercase tracking-widest"
+                  >
+                    Voir tout →
+                  </Link>
+                )}
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                {sameClubProducts.map((rp) => (
+                  <ProductCard key={rp.id} product={rp} />
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </>
   );

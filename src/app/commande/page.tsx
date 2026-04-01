@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
 
 export const metadata: Metadata = {
-  title: 'Commander | KitFootball',
-  description: 'Finalisez la commande de votre maillot de football.',
+  title: 'Finaliser ma commande | KIT FOOTBALL',
+  description: 'Finalisez votre achat de maillots de football en toute sécurité sur KIT FOOTBALL.',
   robots: { index: false, follow: false },
 };
 

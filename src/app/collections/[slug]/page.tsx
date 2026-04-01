@@ -10,9 +10,25 @@ export async function generateMetadata(props: { params: Promise<{ slug: string }
   const formattedName = params.slug.replace('-', ' ').toUpperCase();
   
   return {
-    title: `Acheter Maillot ${formattedName} Pas Cher | KIT FOOTBALL`,
-    description: `Découvrez notre collection de maillots officiels pour ${formattedName}. Qualité premium, flocage personnalisé et livraison rapide assurée. Soldes et nouveautés Coupe du Monde.`,
-    keywords: `maillot ${formattedName}, acheter maillot ${formattedName}, maillot foot ${formattedName} pas cher, flocage ${formattedName}`,
+    title: `Acheter Maillot ${formattedName} Pas Cher 29€ | Collection KIT FOOTBALL`,
+    description: `Découvrez notre collection de maillots officiels pour ${formattedName}. Qualité premium, flocage personnalisé et livraison express 48h. Plus de 1000 modèles à 29€.`,
+    keywords: `maillot ${formattedName}, acheter maillot ${formattedName}, maillot foot ${formattedName} pas cher, flocage ${formattedName}, kit football`,
+    alternates: {
+      canonical: `https://www.kitsfootball.fr/collections/${params.slug}`,
+    },
+    openGraph: {
+      url: `https://www.kitsfootball.fr/collections/${params.slug}`,
+      title: `Acheter Maillot ${formattedName} Pas Cher 29€ | Collection KIT FOOTBALL`,
+      description: `Découvrez notre collection de maillots officiels pour ${formattedName}. Qualité premium, flocage personnalisé et livraison express 48h. Plus de 1000 modèles à 29€.`,
+      images: [
+        {
+          url: 'https://example.com/image.jpg',
+          width: 800,
+          height: 600,
+          alt: `Maillot ${formattedName}`,
+        },
+      ],
+    },
   };
 }
 

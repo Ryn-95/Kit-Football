@@ -18,19 +18,26 @@ function getInvalidImages(): Set<string> {
   return invalidImageSet;
 }
 
+// ==========================================
+// COMPREHENSIVE TEAM ALIASES DICTIONARY
+// Maps folder name segments to proper team/nation names
+// ==========================================
 const TEAM_ALIASES: Record<string, string> = {
-  // Premier League
+  // ---- PREMIER LEAGUE ----
   'man u': 'Manchester United',
   'man utd': 'Manchester United',
   'manchester utd': 'Manchester United',
-  'manchester': 'Manchester United', // often just called Manchester in generic folders
+  'manchester united': 'Manchester United',
+  'manchester': 'Manchester United',
   'man city': 'Manchester City',
+  'manchester city': 'Manchester City',
+  'manchester citys': 'Manchester City',
   'arsenal': 'Arsenal',
+  'arsenald': 'Arsenal',
   'chelsea': 'Chelsea',
   'liverpool': 'Liverpool',
   'tottenham': 'Tottenham Hotspur',
   'tottenham hotspur': 'Tottenham Hotspur',
-  'aston': 'Aston Villa',
   'aston villa': 'Aston Villa',
   'newcastle': 'Newcastle United',
   'newcastle united': 'Newcastle United',
@@ -38,53 +45,85 @@ const TEAM_ALIASES: Record<string, string> = {
   'leeds united': 'Leeds United',
   'leicester': 'Leicester City',
   'leicester city': 'Leicester City',
-  
-  // La Liga
+  'everton': 'Everton',
+  'evertons': 'Everton',
+  'brighton': 'Brighton',
+  'brentford': 'Brentford',
+  'fulham': 'Fulham',
+  'west ham': 'West Ham United',
+  'west ham united': 'West Ham United',
+  'sunderland': 'Sunderland',
+  'sheffield': 'Sheffield United',
+  'sheffield wednesday': 'Sheffield Wednesday',
+  'sheffield wednesday fc': 'Sheffield Wednesday',
+
+  // ---- LA LIGA ----
   'barca': 'FC Barcelona',
   'barcelona': 'FC Barcelona',
+  'barcelonas': 'FC Barcelona',
   'fc barcelona': 'FC Barcelona',
-  'real': 'Real Madrid',
   'real madrid': 'Real Madrid',
-  'atm': 'Atletico Madrid',
-  'atletico': 'Atletico Madrid',
-  'atletico madrid': 'Atletico Madrid',
-  'atlético de madrid': 'Atletico Madrid',
-  'bilbao': 'Athletic Bilbao',
+  'real madrids': 'Real Madrid',
+  'atletico': 'Atlético Madrid',
+  'atletico madrid': 'Atlético Madrid',
+  'atletico madrids': 'Atlético Madrid',
   'athletic bilbao': 'Athletic Bilbao',
   'betis': 'Real Betis',
-  'seville': 'Sevilla',
-  'sevilla': 'Sevilla',
-  'valencia': 'Valencia',
-  
-  // Serie A
+  'seville': 'Sevilla FC',
+  'sevilla': 'Sevilla FC',
+  'sevilla fc': 'Sevilla FC',
+  'valencia': 'Valencia CF',
+  'villarreal': 'Villarreal CF',
+  'girona': 'Girona FC',
+  'mallorca': 'RCD Majorque',
+  'las palmas': 'UD Las Palmas',
+  'la coruna': 'Deportivo La Coruña',
+  'levante': 'Levante UD',
+  'levante ud': 'Levante UD',
+  'sporting de gijon': 'Sporting de Gijón',
+  'pisa': 'AC Pisa',
+
+  // ---- SERIE A ----
   'juve': 'Juventus',
   'juventus': 'Juventus',
+  'ac milan': 'AC Milan',
   'ac': 'AC Milan',
   'milan': 'AC Milan',
-  'ac milan': 'AC Milan',
   'inter': 'Inter Milan',
   'inter milan': 'Inter Milan',
   'naples': 'Napoli',
   'napoli': 'Napoli',
+  'neapolian': 'Napoli',
   'roma': 'AS Roma',
+  'rome': 'AS Roma',
+  'romas': 'AS Roma',
   'lazio': 'Lazio',
   'fiorentina': 'Fiorentina',
-  
-  // Ligue 1
-  'paris saintgermain': 'PSG',
+  'venezia': 'Venezia FC',
+  'venezia fc': 'Venezia FC',
+  'venice': 'Venezia FC',
+  'bologna': 'Bologne FC',
+  'atalanta': 'Atalanta',
+
+  // ---- LIGUE 1 ----
   'paris saint germain': 'PSG',
+  'paris saintgermain': 'PSG',
+  'paris saint germains': 'PSG',
   'paris': 'PSG',
   'psg': 'PSG',
   'ol': 'Olympique Lyonnais',
   'lyon': 'Olympique Lyonnais',
+  'lyons': 'Olympique Lyonnais',
   'om': 'Olympique de Marseille',
   'marseille': 'Olympique de Marseille',
+  'marseilles': 'Olympique de Marseille',
   'lille': 'LOSC Lille',
   'lens': 'RC Lens',
   'monaco': 'AS Monaco',
   'rennes': 'Stade Rennais',
-  
-  // Bundesliga
+  'nice': 'OGC Nice',
+
+  // ---- BUNDESLIGA ----
   'bayern': 'Bayern Munich',
   'bayern munich': 'Bayern Munich',
   'bvb': 'Borussia Dortmund',
@@ -93,227 +132,414 @@ const TEAM_ALIASES: Record<string, string> = {
   'leverkusen': 'Bayer Leverkusen',
   'bayer leverkusen': 'Bayer Leverkusen',
   'leipzig': 'RB Leipzig',
-  
-  // Other Clubs
+  'mainz': 'Mayence 05',
+  'hamburg': 'Hambourg SV',
+  'frankfurt': 'Eintracht Francfort',
+  'nuremberg': 'FC Nuremberg',
+  'borussia monchengladbach': 'Borussia Mönchengladbach',
+
+  // ---- EREDIVISIE ----
   'ajax': 'Ajax Amsterdam',
+  'ajaxs': 'Ajax Amsterdam',
   'psv': 'PSV Eindhoven',
+  'psv eindhoven': 'PSV Eindhoven',
   'feyenoord': 'Feyenoord',
-  'benfica': 'Benfica',
+
+  // ---- PORTUGAL ----
+  'benfica': 'SL Benfica',
+  'benficas': 'SL Benfica',
   'porto': 'FC Porto',
   'sporting': 'Sporting CP',
   'sporting cp': 'Sporting CP',
-  'lisbon': 'Sporting CP',
+
+  // ---- SCOTLAND ----
   'celtic': 'Celtic FC',
+  'celtics': 'Celtic FC',
   'rangers': 'Rangers FC',
-  'galata': 'Galatasaray',
+  'rangers football': 'Rangers FC',
+  'rangers football club': 'Rangers FC',
+  'scotland': 'Écosse',
+
+  // ---- TURKEY ----
   'galatasaray': 'Galatasaray',
-  'fenerbahçe': 'Fenerbahce',
-  'fenerbahce': 'Fenerbahce',
-  'besiktas': 'Besiktas',
+  'galatasaray sk': 'Galatasaray',
+  'fenerbahce': 'Fenerbahçe',
+  'besiktas': 'Beşiktaş',
+  'besiktas jk': 'Beşiktaş',
+
+  // ---- SOUTH AMERICA ----
   'boca': 'Boca Juniors',
   'boca juniors': 'Boca Juniors',
-  'river': 'River Plate',
   'river plate': 'River Plate',
   'flamengo': 'Flamengo',
+  'flamenco': 'Flamengo',
   'corinthians': 'Corinthians',
   'palmeiras': 'Palmeiras',
-  'sao paulo': 'Sao Paulo',
+  'palmelas': 'Palmeiras',
+  'santos': 'Santos FC',
+  'sao paulo': 'São Paulo',
+  'sao paulos': 'São Paulo',
+  'fluminense': 'Fluminense',
+  'fruimense': 'Fluminense',
+  'cruzeiro': 'Cruzeiro',
+  'cruisersro': 'Cruzeiro',
+  'botafogo': 'Botafogo',
+  'botafogo rj': 'Botafogo',
+  'botagago': 'Botafogo',
+  'vasco da gama': 'Vasco da Gama',
+  'vasco da gama rj': 'Vasco da Gama',
+  'club de regatas vasco da gama': 'Vasco da Gama',
+  'clube atletico mineiro': 'Atlético Mineiro',
+  'colocolo': 'Colo-Colo',
+
+  // ---- NORTH / CENTRAL AMERICA ----
   'miami': 'Inter Miami',
+  'miami international': 'Inter Miami',
   'inter miami': 'Inter Miami',
   'la galaxy': 'LA Galaxy',
-  'al nassr': 'Al Nassr',
+  'galaxy': 'LA Galaxy',
+  'los angeles': 'LA Galaxy',
+  'new york red bulls': 'New York Red Bulls',
+  'york red bulls': 'New York Red Bulls',
+  'blue cross': 'Cruz Azul',
+  'chivas': 'Chivas Guadalajara',
+  'chivas guadalajara': 'Chivas Guadalajara',
+  'chivas guadalajara cd': 'Chivas Guadalajara',
+  'americas': 'Club América',
+  'american': 'Club América',
+  'pumas unam': 'Pumas UANL',
+  'toluca': 'Deportivo Toluca',
+  'tigers': 'Tigres UANL',
+
+  // ---- MIDDLE EAST ----
+  'al nassr': 'Al Nassr FC',
+  'al nassr fc': 'Al Nassr FC',
   'al hilal': 'Al Hilal',
   'al ahli': 'Al Ahli',
-  
-  // Nations
+  'al ahly jeddah': 'Al Ahli Jeddah',
+  'al ain': 'Al Ain FC',
+  'al ain fc': 'Al Ain FC',
+  'riad crescent': 'Al Hilal',
+  'riyadh': 'Al Riyadh',
+  'riyadh victory': 'Al Nassr FC',
+  'riyadh win': 'Al Nassr FC',
+  'moon of riyadh': 'Al Hilal',
+  'saudi arabia jeddah': 'Al Ittihad Jeddah',
+  'jeddah united': 'Al Ittihad Jeddah',
+  'johor': 'Johor Darul Ta\'zim',
+
+  // ---- OTHER CLUBS ----
+  'red bull salzburg': 'Red Bull Salzbourg',
+  'austrian red bull': 'Red Bull Salzbourg',
+  'austria': 'Autriche',
+  'hongjia olympia': 'Olympia FC',
+  'guoan': 'Beijing Guoan',
+  'victoria': 'CF Victoria',
+  'kings league santos': 'Santos FC',
+  'shining': 'Shining FC',
+  'oasis band': 'Manchester City',
+
+  // ---- NATIONAL TEAMS ----
   'france': 'France',
   'french': 'France',
-  'argentine': 'Argentine',
+  'frances': 'France',
   'argentina': 'Argentine',
-  'bresil': 'Brésil',
+  'argentine': 'Argentine',
+  'argentinas': 'Argentine',
   'brazil': 'Brésil',
   'brazilian': 'Brésil',
-  'allemagne': 'Allemagne',
+  'brazils': 'Brésil',
   'germany': 'Allemagne',
   'german': 'Allemagne',
-  'espagne': 'Espagne',
   'spain': 'Espagne',
   'spanish': 'Espagne',
-  'italie': 'Italie',
   'italy': 'Italie',
   'italian': 'Italie',
-  'angleterre': 'Angleterre',
   'england': 'Angleterre',
   'english': 'Angleterre',
+  'englands': 'Angleterre',
   'portugal': 'Portugal',
-  'pays-bas': 'Pays-Bas',
+  'portuguese': 'Portugal',
   'netherlands': 'Pays-Bas',
+  'nederlanden': 'Pays-Bas',
   'dutch': 'Pays-Bas',
-  'belgique': 'Belgique',
   'belgium': 'Belgique',
   'belgian': 'Belgique',
-  'maroc': 'Maroc',
   'morocco': 'Maroc',
   'moroccan': 'Maroc',
-  'algerie': 'Algérie',
   'algeria': 'Algérie',
   'algerian': 'Algérie',
+  'algier': 'Algérie',
   'senegal': 'Sénégal',
-  'cameroun': 'Cameroun',
   'cameroon': 'Cameroun',
-  'cote divoire': 'Côte d\'Ivoire',
+  'cameroun': 'Cameroun',
   'ivory coast': 'Côte d\'Ivoire',
-  'japon': 'Japon',
+  'cote divoire': 'Côte d\'Ivoire',
   'japan': 'Japon',
   'japanese': 'Japon',
-  'mexique': 'Mexique',
   'mexico': 'Mexique',
   'mexican': 'Mexique',
-  'colombie': 'Colombie',
   'colombia': 'Colombie',
+  'colombian': 'Colombie',
+  'columbia': 'Colombie',
   'uruguay': 'Uruguay',
-  'chili': 'Chili',
-  'chile': 'Chili'
+  'chile': 'Chili',
+  'croatia': 'Croatie',
+  'ireland': 'Irlande',
+  'irish': 'Irlande',
+  'northern ireland': 'Irlande du Nord',
+  'wales': 'Pays de Galles',
+  'south korea': 'Corée du Sud',
+  'nigeria': 'Nigeria',
+  'mali': 'Mali',
+  'ghana': 'Ghana',
+  'palestine': 'Palestine',
+  'palestinian': 'Palestine',
+  'us': 'États-Unis',
+  'usa': 'États-Unis',
+  'canada': 'Canada',
+  'canadian': 'Canada',
+  'china': 'Chine',
+  'saudi arabia': 'Arabie Saoudite',
+  'venezuela': 'Venezuela',
+  'jamaica': 'Jamaïque',
 };
 
 export const TOP_CLUBS = [
   'Real Madrid', 'FC Barcelona', 'PSG', 'Manchester City', 'Arsenal', 
   'Manchester United', 'Liverpool', 'Chelsea', 'Bayern Munich', 
-  'Juventus', 'AC Milan', 'Inter Milan', 'Atletico Madrid', 'Borussia Dortmund',
-  'Olympique de Marseille', 'Olympique Lyonnais'
+  'Juventus', 'AC Milan', 'Inter Milan', 'Atlético Madrid', 'Borussia Dortmund',
+  'Olympique de Marseille', 'Olympique Lyonnais', 'Napoli', 'AS Roma',
+  'Tottenham Hotspur', 'Newcastle United'
 ];
 
 export const TOP_NATIONS = [
   'France', 'Argentine', 'Brésil', 'Allemagne', 'Espagne', 
-  'Italie', 'Angleterre', 'Portugal', 'Maroc', 'Algérie', 'Sénégal'
+  'Italie', 'Angleterre', 'Portugal', 'Maroc', 'Algérie', 'Sénégal',
+  'Pays-Bas', 'Belgique', 'Croatie'
 ];
 
-function normalizeTeam(team: string): string {
-  let t = team.toLowerCase().trim();
-  
-  // Pre-clean common garbage words and residual numbers from folder names
-  t = t.replace(/['.]s\b/g, '')
-       .replace(/^[.\s]+/, '') // Remove leading dots or spaces
-       .replace(/^\d{4,6}/, '') // Remove leading dates like 2526, 202324, 0607
-       .replace(/\b[sml]?\d?x+l\d?\b/gi, '') // Remove sizes like sxxl, 4xl, s4xl, xl5, etc.
-       .replace(/\b[sml]\b/gi, '') // Remove single letter sizes
-       .replace(/team/g, '')
-       .replace(/football club/g, '')
-       .replace(/fc\b/g, '')
-       .replace(/cf\b/g, '')
-       .replace(/version/g, '')
-       .replace(/special/g, '')
-       .replace(/casual/g, '')
-       .replace(/thick/g, '')
-       .replace(/pullover/g, '')
-       .replace(/hoodie/g, '')
-       .replace(/windbreaker/g, '')
-       .replace(/suit/g, '')
-       .replace(/fabric/g, '')
-       .replace(/concepts/g, '')
-       .replace(/collaboration/g, '')
-       .replace(/limited/g, '')
-       .replace(/commemorative/g, '')
-       .replace(/outfit/g, '')
-       .replace(/style/g, '')
-       .replace(/advertisement/g, '')
-       .replace(/derby/g, '')
-       .replace(/withads/g, '')
-       .replace(/withoutads/g, '')
-       .replace(/stadium/g, '')
-       .replace(/sxxl/g, '')
-       .replace(/s4xl/g, '')
-       .replace(/\d+$/g, '') // Remove trailing numbers
-       .trim();
+// ==========================================
+// FOLDER NAME PARSER
+// Converts hyphenated folder names into structured product data
+// ==========================================
 
-  // Remove leading dots again if any appeared after other cleans
-  t = t.replace(/^[.\s]+/, '');
+// Words to strip when extracting team name
+const NOISE_WORDS = new Set([
+  'home', 'away', 'third', 'retro', 'game', 'games', 'shirt', 'jersey',
+  'long', 'sleeve', 'short', 'sleeved', 'goalkeeper', 'gk',
+  'player', 'players', 'version', 'edition', 'at',
+  'throwback', 'windbreaker', 'suit', 'size', 'sizes',
+  'special', 'anniversary', 'court', 'limited', 'commemorative',
+  'commemorates', 'casual', 'concept', 'concepts', 'graffiti', 'set',
+  'promo', 'promotion', 'kit', 'team', 'pre', 'match', 'uniform',
+  'womens', 'women', 'womeninter', 'new', 'champion', 'champions',
+  'vest', 'blouse', 'dress', 'clothing', 'style', 'tank', 'top',
+  'collaboration', 'poio', 'po', 'collection', 'coat', 'trench',
+  'grey', 'gray', 'black', 'white', 'blue', 'red', 'green', 'yellow',
+  'pink', 'purple', 'orange', 'beige', 'maroon', 'fluorescent',
+  'dark', 'light', 'grayish', 'gradient', 'golden',
+  'fabric', 'outfit', 'advertisement', 'derby', 'ads', 'ad',
+  'without', 'with', 'behind', 'of', 'the', 'in', 'for', 'is', 'a',
+  'cup', 'nations', 'africa', 'world', 'fifa', 'qatar', 'uefa',
+  'beer', 'oktoberfest', 'halloween', 'wonder', 'woman', 'star',
+  'basketball', 'dragon', 'chinese', 'jet', 'bull', 'man',
+  'peach', 'collar', 'round', 'lap', 'lapel', 'reflective',
+  'combined', 'design', 'love', 'ovo', 'drake', 'karol', 'rosala',
+  'graffiti', 'board', 'camp', 'nou', 'lv', 'cobrand', 'cobranded',
+  'brazil', 'gold', 'golden', 'headman', 'yuan', 'joint',
+  'camouflage', 'double', 'sided', 'patchwork',
+  'tap', 'treble', 'winner', 'winners', 'final', 'finals',
+  'sweats', 'sweatshirt', 'outfits',
+  'leaf', 'parrot', 'lake', 'rose', 'bamboo', 'goddess', 'mary', 'brown',
+  'guest', 'three', 'october',
+  'classic', 'vintage', 'centenary', 'bundesliga', 'cold',
+  'half', 'tops', 'fourth', '125th', '10th', '50th', '25th', '120th', 
+  '1901', '2nd', '9th',
+  'international', 'national', 'anime',
+  'hoodie', 'pullover', 'thick', 'stadium',
+  'patch', 'no', 'label',
+  'shining', 'hongjia', 'olympia', 'victoria',
+  'kings', 'league', 'oasis', 'band',
+  's4xl', 'sxxl', 's2xl', 's3xl', 's4xxl',
+]);
 
-  // Check exact match first
-  for (const [alias, realName] of Object.entries(TEAM_ALIASES)) {
-    if (t === alias) return realName;
-  }
+function normalizeTeamFromTokens(tokens: string[]): string {
+  // Join tokens into a string for matching
+  const joined = tokens.join(' ').toLowerCase().trim();
   
-  // Check includes
-  for (const [alias, realName] of Object.entries(TEAM_ALIASES)) {
-    // Only match whole words for includes to avoid false positives (e.g. "milan" in some random word)
-    const regex = new RegExp(`\\b${alias}\\b`, 'i');
-    if (regex.test(t)) {
-      return realName;
+  if (!joined) return 'Maillot de Football';
+
+  // Try exact match on the full joined string
+  if (TEAM_ALIASES[joined]) return TEAM_ALIASES[joined];
+
+  // Try progressively smaller windows (longest match first)
+  for (let windowSize = Math.min(tokens.length, 5); windowSize >= 1; windowSize--) {
+    for (let i = 0; i <= tokens.length - windowSize; i++) {
+      const window = tokens.slice(i, i + windowSize).join(' ').toLowerCase();
+      if (TEAM_ALIASES[window]) return TEAM_ALIASES[window];
     }
   }
-  
-  // If no alias found, try to extract team name by inserting spaces between camelCase words
-  // This handles cases like "Acffiorentinasxxl" -> "Ac fiorentina"
-  const withSpaces = t
-    .replace(/([a-z])([A-Z])/g, '$1 $2') // Insert space before capital letters in camelCase
-    .replace(/([a-z])([0-9])/g, '$1 $2') // Insert space before numbers
-    .replace(/\s+/g, ' ') // Normalize multiple spaces
-    .trim();
-  
-  // Clean it up and capitalize
-  const cleaned = withSpaces.split(' ')
-    .filter(w => w.length > 0) // Remove empty strings
-    .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+
+  // Try individual tokens
+  for (const token of tokens) {
+    const t = token.toLowerCase();
+    if (TEAM_ALIASES[t]) return TEAM_ALIASES[t];
+  }
+
+  // If we still can't find a match, capitalize each token
+  const capitalized = tokens
+    .filter(t => t.length > 0)
+    .map(t => t.charAt(0).toUpperCase() + t.slice(1).toLowerCase())
     .join(' ')
     .trim();
-  
-  return cleaned || "Maillot de Football";
+
+  return capitalized || 'Maillot de Football';
 }
 
 function parseFolderName(folderName: string) {
+  // Skip junk folders (HTTP URLs from scraping)
+  if (folderName.startsWith('http')) {
+    return { folderName, team: 'Autres', season: null, type: 'Domicile', category: 'Adulte' };
+  }
+
   let name = folderName.replace(/^#/, '').trim();
-  
-  // Clean trailing numbers after sizes like S-XXL3 -> S-XXL
-  name = name.replace(/(S-[A-Z0-9XL]+)\d+$/i, '$1');
-  
+
+  // ---- STEP 1: Extract season ----
   let season: string | null = null;
-  // Match seasons like 23-24, 23/24, 2023-2024, 0103 (01-03), 0304 (03-04), 0506, 0607
-  const seasonMatch = name.match(/(20\d{2}[-/]\d{2}|\d{2}[-/]\d{2}|\b\d{4}\b|\b\d{2}\b)/);
-  if (seasonMatch) {
-    const raw = seasonMatch[1];
-    if (raw.length === 4 && !raw.includes('-') && !raw.includes('/')) {
-      season = raw.substring(0,2) + '-' + raw.substring(2,4);
-    } else if (raw.length === 2) {
-      season = '20' + raw; 
+
+  // Remove trailing size patterns first: -s-xxl7, -s-4xl3, -s-2xl6, -16-283, -s-4xxl12
+  name = name.replace(/-s-\d*x+l\d*$/i, '');
+  name = name.replace(/-s-\d+xl\d*$/i, '');
+  name = name.replace(/-s-\d*xxl?\d*$/i, '');
+  name = name.replace(/-s4xl\d*$/i, '');
+  name = name.replace(/-16-\d+$/i, '');
+  name = name.replace(/-\d+xl\d*$/i, ''); // catches leftover size suffixes
+  // Remove trailing lone numbers (image index or size residuals)
+  name = name.replace(/\d+$/, '');
+  name = name.replace(/-+$/, '');
+
+  // Extract leading season: patterns like 2526-, 0304-, 2324-, 9798-, 199800-, 198990-, 2019-20-
+  // Format A: 4 digit contiguous like 2526, 0304
+  const leadingSeasonA = name.match(/^(\d{4})-/);
+  // Format B: 6 digit like 199800, 198990
+  const leadingSeasonB = name.match(/^(\d{6})-/);
+  // Format C: YYYY-YY like 2019-20, 1990-92
+  const leadingSeasonC = name.match(/^(\d{4})-(\d{2})-/);
+  // Format D: 2 digit like 04-
+  const leadingSeasonD = name.match(/^(\d{2})-(\d{2})-/);
+  // Format E: just 2 digits leading
+  const leadingSeasonE = name.match(/^(\d{2})-(?!\d)/);
+
+  if (leadingSeasonC) {
+    // e.g., 2019-20 -> 19-20
+    season = leadingSeasonC[1].slice(2) + '-' + leadingSeasonC[2];
+    name = name.slice(leadingSeasonC[0].length);
+  } else if (leadingSeasonB) {
+    // e.g., 199800 -> 98-00, 198990 -> 89-90
+    const raw = leadingSeasonB[1];
+    season = raw.slice(2, 4) + '-' + raw.slice(4, 6);
+    name = name.slice(leadingSeasonB[0].length);
+  } else if (leadingSeasonD) {
+    // Check if this looks like a 2-digit + 2-digit season (07-08)
+    const a = parseInt(leadingSeasonD[1]);
+    const b = parseInt(leadingSeasonD[2]);
+    if (b === a + 1 || (a === 99 && b === 0)) {
+      season = leadingSeasonD[1] + '-' + leadingSeasonD[2];
+      name = name.slice(leadingSeasonD[0].length);
+    }
+  } else if (leadingSeasonA) {
+    const raw = leadingSeasonA[1];
+    const first = parseInt(raw.slice(0, 2));
+    const second = parseInt(raw.slice(2, 4));
+    // Filter out actual years like 1892, 1974, 1984, 1990, 1994, 1995, 1996, 1997, 1998, 2000, 2001, etc.
+    if (first >= 19 && first <= 30 && (second === first + 1 || (first === 99 && second === 0) || second === first)) {
+      // It's a season like 2526, 2324, 2627
+      season = raw.slice(0, 2) + '-' + raw.slice(2, 4);
+      name = name.slice(leadingSeasonA[0].length);
+    } else if (parseInt(raw) >= 1890 && parseInt(raw) <= 2030) {
+      // It's a year like 1892, 1974, 1998, 2000 - extract as approximate season
+      const yearNum = parseInt(raw);
+      if (yearNum < 100) {
+        season = raw.padStart(2, '0');
+      } else {
+        const shortYear = raw.slice(2);
+        season = shortYear;
+      }
+      name = name.slice(leadingSeasonA[0].length);
     } else {
-      season = raw.replace('/', '-');
+      // Treat as season digits
+      season = raw.slice(0, 2) + '-' + raw.slice(2, 4);
+      name = name.slice(leadingSeasonA[0].length);
     }
-    name = name.replace(seasonMatch[0], ' ').trim();
-  }
-
-  let type = 'Domicile'; // default home
-  if (/away|extérieur/i.test(name)) type = 'Extérieur';
-  if (/third/i.test(name)) type = 'Third';
-  if (/retro|throwback/i.test(name)) type = 'Rétro';
-  if (/training|jacket|survetement|veste|pantalon/i.test(name)) type = 'Training';
-  if (/goalkeeper|gk|gardien/i.test(name)) type = 'Gardien';
-  
-  const category = /kids|enfant/i.test(name) || /16#-28#/i.test(name) ? 'Enfant' : 'Adulte';
-
-  // Clean up team name
-  let team = name
-    .replace(/away|home|third|retro|game|shirt|jersey|long sleeve|short sleeve|jacket|kids|size|edition|domicile|extérieur|third|gardien|throwback|at |kit|player|anniversary|longsleeved|fabric|concepts|collaboration|limited|commemorative|outfit|style|advertisement|derby|withads|withoutads|stadium/ig, '')
-    .replace(/\b[sml]?\d?x+l\d?\b/gi, '') // remove sizes like sxxl, 4xl
-    .replace(/\b[SML0-9#-]+\b/g, '') // remove remaining sizes/numbers
-    .replace(/[-(),]/g, ' ')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
-
-  // Try to split camelCase words if team name is still concatenated (e.g., "acffiorentina" -> "ac fiorentina")
-  if (team && !/\s/.test(team) && team.length > 3) {
-    // Insert spaces before capital letters in camelCase
-    const spaced = team.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
-    if (spaced !== team) {
-      team = spaced;
+  } else if (leadingSeasonE) {
+    // Just 2 leading digits like 04-
+    const num = parseInt(leadingSeasonE[1]);
+    if (num >= 0 && num <= 30) {
+      season = '20' + leadingSeasonE[1];
+      name = name.slice(leadingSeasonE[0].length);
     }
   }
 
-  team = normalizeTeam(team);
+  // Also check for season elsewhere: "world-cup-2022", "season-199596"
+  if (!season) {
+    const inlineSeason = name.match(/(\d{4})(?=-|$)/);
+    if (inlineSeason) {
+      const yr = parseInt(inlineSeason[1]);
+      if (yr >= 1970 && yr <= 2030) {
+        season = inlineSeason[1].slice(2);
+        name = name.replace(inlineSeason[0], '');
+      }
+    }
+  }
+
+  // Normalize season display: make seasons like '20' show as '20-21' etc. 
+  // But keep single years  like '98', '04' as-is for retro
+  if (season && season.length === 2) {
+    // Single year - keep as 20XX for recent, or just the year for retro
+    const num = parseInt(season);
+    if (num >= 0 && num <= 30) {
+      season = '20' + season;
+    }
+  }
+
+  // ---- STEP 2: Detect type ----
+  let type = 'Domicile';
+  const nameLower = name.toLowerCase();
   
-  if (!team) team = "Maillot de Football";
-    
-  return { folderName, team, season, type, category };
+  if (/\baway\b/.test(nameLower) || /\bexterieur\b/.test(nameLower) || /\bextérieur\b/.test(nameLower)) type = 'Extérieur';
+  if (/\bthird\b/.test(nameLower)) type = 'Third';
+  if (/\bretro\b/.test(nameLower) || /\bthrowback\b/.test(nameLower)) type = 'Rétro';
+  if (/\btraining\b/.test(nameLower) || /\bwindbreaker\b/.test(nameLower) || /\bsuit\b/.test(nameLower) || /\bjacket\b/.test(nameLower) || /\bhoodie\b/.test(nameLower) || /\bcoat\b/.test(nameLower) || /\bsweats/i.test(nameLower) || /\bpullover\b/.test(nameLower) || /\bpromotion\b/.test(nameLower)) type = 'Training';
+  if (/\bgoalkeeper\b/.test(nameLower) || /\bgardien\b/.test(nameLower) || /\bgk\b/.test(nameLower)) type = 'Gardien';
+
+  // ---- STEP 3: Detect category and flags ----
+  const isKids = /\bkids?\b/.test(nameLower) || /\benfant\b/.test(nameLower) || /\b16-28\b/.test(name);
+  const isWomens = /\bwomens?\b/.test(nameLower) || /\bwomeninter\b/.test(nameLower) || /\bblouse\b/.test(nameLower) || /\bvest\b/.test(nameLower) || /\btank.top\b/.test(nameLower) || /\bdress\b/.test(nameLower);
+  const isPlayerEdition = /\bplayer\b/.test(nameLower) || /\bplayers\b/.test(nameLower);
+  const category = isKids ? 'Enfant' : 'Adulte';
+
+  // ---- STEP 4: Extract team name ----
+  // Tokenize on hyphens
+  const rawTokens = name.split('-').map(t => t.trim()).filter(t => t.length > 0);
+  
+  // Remove noise words and keep team-relevant tokens
+  const teamTokens: string[] = [];
+  for (const token of rawTokens) {
+    const lower = token.toLowerCase();
+    // Skip noise words, pure numbers, size patterns
+    if (NOISE_WORDS.has(lower)) continue;
+    if (/^\d+$/.test(token)) continue;
+    if (/^s?\d*x+l\d*$/i.test(token)) continue;
+    if (/^[sml]$/i.test(token)) continue;
+    // Remove trailing 's' that indicates possessive (barcelonas -> barcelona)
+    // But keep if token is too short or is a known alias with s
+    teamTokens.push(token);
+  }
+
+  const team = normalizeTeamFromTokens(teamTokens);
+
+  return { folderName, team, season, type, category, isWomens, isPlayerEdition, isKids };
 }
 
 // Global cache for performance
@@ -326,23 +552,43 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
 
   for (const item of catalogData) {
     const { folderName: folder, images: rawImages } = item;
-    const { team, season, type, category } = parseFolderName(folder);
+    const parsed = parseFolderName(folder);
+    const { team, season, type, category } = parsed;
+    const isWomens = parsed.isWomens || false;
+    const isPlayerEdition = parsed.isPlayerEdition || false;
+    
+    // Skip junk folders
+    if (team === 'Autres' || team === 'Maillot de Football') continue;
     
     // Encode images from catalog
     const images = rawImages;
     
-    // Construct clean name
-    let name = `Maillot ${team}`;
-    if (type !== 'Domicile' && type !== 'Rétro' && type !== 'Training') {
-      name += ` ${type}`;
-    } else if (type === 'Rétro') {
+    // Construct clean professional name
+    let name = '';
+    if (type === 'Rétro') {
       name = `Maillot Rétro ${team}`;
     } else if (type === 'Training') {
-      name = `Survêtement/Training ${team}`;
+      name = `Training ${team}`;
+    } else if (type === 'Gardien') {
+      name = `Maillot ${team} Gardien`;
+    } else if (type === 'Extérieur') {
+      name = `Maillot ${team} Extérieur`;
+    } else if (type === 'Third') {
+      name = `Maillot ${team} Third`;
+    } else {
+      name = `Maillot ${team}`;
     }
 
     if (season) {
       name += ` ${season}`;
+    }
+    
+    if (isPlayerEdition) {
+      name += ` Player Edition`;
+    }
+    
+    if (isWomens) {
+      name += ` (Femme)`;
     }
     
     if (category === 'Enfant') {
@@ -350,7 +596,7 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
     }
 
     // Generate Slug
-    let baseSlug = slugify(`${team} ${type} ${season || ''} ${category === 'Enfant' ? 'enfant' : ''}`, { lower: true, strict: true });
+    let baseSlug = slugify(`${team} ${type} ${season || ''} ${isPlayerEdition ? 'player' : ''} ${isWomens ? 'femme' : ''} ${category === 'Enfant' ? 'enfant' : ''}`, { lower: true, strict: true });
     let slug = baseSlug;
     let counter = 1;
     while (slugs.has(slug)) {
@@ -361,22 +607,20 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
 
     if (images.length === 0) continue;
 
-    // Detect Player Edition for pricing
-    const isPlayerEdition = /player|edition/i.test(folder);
     const price = isPlayerEdition ? 34 : 29;
     
     const shortDescription = isPlayerEdition
-      ? `Achetez le ${name} (Version Player) au meilleur prix sur KIT FOOTBALL. Maillot haute performance, coupe ajustée, tissu premium ultra-respirant. Livraison express 48h.`
-      : `Commandez votre ${name} pas cher (29€) sur KIT FOOTBALL. Maillot de foot haute qualité, idéal pour le terrain ou les supporters. Stock limité, livraison rapide.`;
+      ? `Achetez le ${name} au meilleur prix sur KIT FOOTBALL. Maillot haute performance, coupe ajustée, tissu premium ultra-respirant. Livraison express 48h.`
+      : `Commandez votre ${name} pas cher (${price}€) sur KIT FOOTBALL. Maillot de foot haute qualité, idéal pour le terrain ou les supporters. Stock limité, livraison rapide.`;
     
     let longDescription = isPlayerEdition
-      ? `### Version Player Edition - Qualité Professionnelle\n\nPropulsez votre jeu au niveau supérieur avec le **${name} Version Player**. Ce maillot est la réplique exacte de celui porté par les joueurs sur le terrain.\n\n`
-      : `### Maillot ${name} - Édition Supporter\n\nAffichez votre passion pour votre équipe avec le **${name}**. Conçu pour allier confort et style, ce maillot est parfait pour toutes les occasions.\n\n`;
+      ? `### Version Player Edition - Qualité Professionnelle\n\nPropulsez votre jeu au niveau supérieur avec le **${name}**. Ce maillot est la réplique exacte de celui porté par les joueurs sur le terrain.\n\n`
+      : `### ${name} - Édition Supporter\n\nAffichez votre passion pour votre équipe avec le **${name}**. Conçu pour allier confort et style, ce maillot est parfait pour toutes les occasions.\n\n`;
     
     longDescription += `#### Caractéristiques techniques :\n`;
-    longDescription += `- **Équipe officielle :** ${team}\n`;
+    longDescription += `- **Équipe :** ${team}\n`;
     if (season) longDescription += `- **Saison :** ${season}\n`;
-    longDescription += `- **Type de maillot :** ${type}\n`;
+    longDescription += `- **Type :** ${type}\n`;
     longDescription += isPlayerEdition ? `- **Version :** Player Edition (Coupe athlétique ajustée)\n` : `- **Version :** Fan Edition (Coupe standard confortable)\n`;
     longDescription += `- **Tissu :** Technologie respirante pour une évacuation optimale de la transpiration\n`;
     longDescription += `- **Détails :** Logos brodés (Fan) ou thermocollés (Player) selon la version\n\n`;
@@ -392,7 +636,7 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
     
     const keywords = [
       `maillot ${team}`,
-      `maillot ${team} ${season || ''}`,
+      `maillot ${team} ${season || ''}`.trim(),
       `maillot ${team} ${type}`,
       `maillot foot ${team} pas cher`,
       `achat maillot ${team}`,
@@ -828,7 +1072,7 @@ export function getProductBySlug(slug: string): Product | undefined {
 
 export function getProductsByTeam(team: string): Product[] {
   const products = getAllProducts();
-  const normalizedTarget = normalizeTeam(team);
+  const normalizedTarget = normalizeTeamFromTokens(team.split(' '));
   return products.filter(p => p.team === normalizedTarget);
 }
 

@@ -24,10 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!seasonInfo) return { title: "Saison introuvable | KITFOOTBALL" };
 
   return {
-    title: `Maillots ${seasonInfo.display} – Nouveaux Maillots à 29€ | KITFOOTBALL`,
-    description: `Tous les maillots de football ${seasonInfo.display.toLowerCase()} disponibles sur KitFootball. ${seasonInfo.count} modèles à partir de 29€. Clubs et sélections nationales.`,
+    title: `Maillots ${seasonInfo.display} Pas Cher 29€ – Collection Officielle | KIT FOOTBALL`,
+    description: `Découvrez tous les maillots de football de la saison ${seasonInfo.display.toLowerCase()}. Plus de ${seasonInfo.count} modèles disponibles à 29€. Clubs et sélections nationales. Livraison rapide 48h.`,
     alternates: {
-      canonical: `https://kitfootball.com/maillots/saison/${seasonSlug}`,
+      canonical: `https://www.kitsfootball.fr/maillots/saison/${seasonSlug}`,
     },
   };
 }
@@ -48,9 +48,9 @@ export default async function SeasonPage({ params }: PageProps) {
     <div className="min-h-screen bg-gray-50/30">
       <BreadcrumbJsonLd
         items={[
-          { name: "Accueil", url: "https://kitfootball.com/" },
-          { name: "Maillots", url: "https://kitfootball.com/maillots" },
-          { name: seasonInfo.display, url: `https://kitfootball.com/maillots/saison/${seasonSlug}` },
+          { name: "Accueil", url: "https://www.kitsfootball.fr/" },
+          { name: "Maillots", url: "https://www.kitsfootball.fr/maillots" },
+          { name: seasonInfo.display, url: `https://www.kitsfootball.fr/maillots/saison/${seasonSlug}` },
         ]}
       />
 

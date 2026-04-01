@@ -68,10 +68,10 @@ export default function Header() {
             </button>
 
             {/* Logo */}
-            <Link href="/" className="flex flex-col items-center justify-center group relative z-10 mr-4">
+            <Link href="/" className="flex flex-col items-center justify-center group relative z-10 mr-4" title="KIT FOOTBALL - Accueil">
               <img 
                 src="/logo_kit_football_sans_arriere_plan.png" 
-                alt="Kit Football Logo" 
+                alt="KIT FOOTBALL - Boutique n°1 de Maillots de Foot Pas Cher" 
                 className="h-10 w-auto object-contain"
               />
             </Link>

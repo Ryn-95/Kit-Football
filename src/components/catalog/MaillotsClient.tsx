@@ -209,11 +209,11 @@ function CatalogContent({ initialProducts, topClubs, topNations }: MaillotsClien
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-8">
               {currentProducts.map((product: Product) => (
-                <Link href={`/maillots/${product.slug}`} key={product.id} className="group block">
+                <Link href={`/maillots/${product.slug}`} key={product.id} className="group block" title={`Acheter ${product.name} - 29€`}>
                   <div className="relative aspect-square bg-[#f5f5f5] mb-3 overflow-hidden border border-transparent hover:border-black transition-colors">
                     <ImageWithFallback 
                       src={product.image} 
-                      alt={product.name}
+                      alt={`Maillot ${product.name} pas cher - Boutique KIT FOOTBALL`}
                       fill
                       sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                       className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105"

@@ -873,7 +873,7 @@ export function scanCatalog(): CatalogProduct[] {
       longDescription,
       faq,
       keywords,
-      canonical: `/produit/${slug}`,
+      canonical: `/maillots/${slug}`,
       altTexts,
       isKids: kids,
       isWomens: womens,
@@ -903,7 +903,7 @@ export function scanCatalog(): CatalogProduct[] {
     const count = slugMap.get(product.slug) || 0;
     if (count > 0) {
       product.slug = `${product.slug}-${count + 1}`;
-      product.canonical = `/produit/${product.slug}`;
+      product.canonical = `/maillots/${product.slug}`;
     }
     slugMap.set(product.slug.replace(/-\d+$/, ''), count + 1);
   }

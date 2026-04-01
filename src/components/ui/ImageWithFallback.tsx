@@ -35,6 +35,8 @@ export function ImageWithFallback({
       <div
         className={`bg-gray-100 flex items-center justify-center ${className || ''}`}
         style={fill ? { position: 'absolute', inset: 0, ...style } : { width, height, ...style }}
+        role="img"
+        aria-label={alt || "Image indisponible"}
       >
         <span className="text-gray-400 text-xs text-center px-2">Image indisponible</span>
       </div>

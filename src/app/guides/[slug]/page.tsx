@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: GuidePageProps): Promise<Meta
     title: guide.metaTitle,
     description: guide.metaDescription,
     alternates: {
-      canonical: `https://www.kitfootball.com/guides/${slug}`,
+      canonical: `https://www.kitsfootball.fr/guides/${slug}`,
     },
     openGraph: {
       title: guide.metaTitle,
@@ -56,9 +56,9 @@ export default async function GuidePage({ params }: GuidePageProps) {
   }
 
   const breadcrumbs = [
-    { name: "Accueil", url: "https://www.kitfootball.com" },
-    { name: "Guides", url: "https://www.kitfootball.com/guides" },
-    { name: guide.title, url: `https://www.kitfootball.com/guides/${guide.slug}` }
+    { name: "Accueil", url: "https://www.kitsfootball.fr" },
+    { name: "Guides", url: "https://www.kitsfootball.fr/guides" },
+    { name: guide.title, url: `https://www.kitsfootball.fr/guides/${guide.slug}` }
   ];
 
   return (
@@ -71,7 +71,7 @@ export default async function GuidePage({ params }: GuidePageProps) {
           image: guide.heroImage,
           datePublished: guide.datePublished,
           authorName: guide.authorName,
-          url: `https://www.kitfootball.com/guides/${guide.slug}`
+          url: `https://www.kitsfootball.fr/guides/${guide.slug}`
         }} 
       />
 

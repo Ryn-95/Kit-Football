@@ -8,7 +8,7 @@ export default function PromoSection() {
       <div className="relative w-full aspect-[4/5] md:aspect-[21/9] bg-gray-100 overflow-hidden">
         <img 
           src="/Images/Generated Image March 27, 2026 - 11_33AM (1).jpg" 
-          alt="Promo" 
+          alt="Soldes Maillots de Foot - Jusqu'à -40% sur la boutique KIT FOOTBALL" 
           className="absolute inset-0 w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/40" />
@@ -35,7 +35,7 @@ export default function PromoSection() {
         <div className="relative aspect-square md:aspect-[4/5] bg-gray-100 overflow-hidden group">
           <img 
             src="/Images/Generated Image March 27, 2026 - 11_33AM.jpg" 
-            alt="Nouveautés" 
+            alt="Nouveaux maillots de football 2024-2025" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
@@ -48,7 +48,7 @@ export default function PromoSection() {
         <div className="relative aspect-square md:aspect-[4/5] bg-gray-100 overflow-hidden group">
           <img 
             src="/Images/Generated Image March 28, 2026 - 9_35PM.jpg" 
-            alt="Essentiels" 
+            alt="Survêtements et tenues d'entraînement de football" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />
@@ -61,7 +61,7 @@ export default function PromoSection() {
         <div className="relative aspect-square md:aspect-[4/5] bg-gray-100 overflow-hidden group">
           <img 
             src="/Images/Generated Image March 28, 2026 - 10_47PM.jpg" 
-            alt="Exclusivités" 
+            alt="Maillots de foot rétro et classiques" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500" />

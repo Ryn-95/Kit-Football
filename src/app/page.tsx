@@ -18,6 +18,7 @@ export default function Home() {
       <OrganizationJsonLd />
       
       <div className="flex flex-col min-h-screen bg-white">
+        <h1 className="sr-only">KIT FOOTBALL | Boutique N°1 de Maillots de Foot Pas Cher 29€ - PSG, Real Madrid, France</h1>
         <FranceHero />
         
         {/* DÉCOUVRE LES NOUVEAUTÉS section */}
@@ -56,56 +57,78 @@ export default function Home() {
         <FourColumnGrid />
         
         {/* SEO Content Section */}
-        <div className="w-full px-6 lg:px-10 py-16 bg-gray-50">
+        <div className="w-full px-6 lg:px-10 py-16 bg-gray-50 border-t border-gray-200">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold mb-6 text-black">Maillots de Foot à Prix Imbattables : 29€ et 34€</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 space-y-4">
-              <p>
-                Bienvenue sur <strong>KIT FOOTBALL</strong>, votre boutique n°1 pour acheter des <strong>maillots de football pas chers</strong> en France. 
-                Nous proposons plus de <strong>100 maillots</strong> des plus grandes équipes au monde à des prix défiant toute concurrence : 
-                <strong> 29€ pour les maillots Fan Edition</strong> et <strong>34€ pour les Player Edition</strong>.
-              </p>
+            <h2 className="text-3xl font-black uppercase mb-8 text-black italic" style={{fontFamily: "'AdihausDIN', Helvetica, Arial, sans-serif"}}>
+              Maillots de Foot à Prix Imbattables : 29€ et 34€
+            </h2>
+            <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
+              <section>
+                <p className="leading-relaxed text-lg text-justify">
+                  Bienvenue sur <strong>KIT FOOTBALL</strong>, la référence absolue pour <strong>acheter des maillots de football pas chers</strong> en France et en Europe. 
+                  Nous mettons à votre disposition une collection gigantesque de plus de <strong>1000 maillots</strong> issus des plus grands championnats (Ligue 1, La Liga, Premier League, Serie A) et des sélections nationales les plus prestigieuses. 
+                  Nos tarifs sont imbattables : seulement <strong>29€ pour nos maillots Fan Edition</strong> et <strong>34€ pour les versions Player Edition</strong> haute performance.
+                </p>
+              </section>
               
-              <h3 className="text-2xl font-bold mt-8 mb-4">Les Maillots les Plus Populaires</h3>
-              <p>
-                Découvrez notre sélection exclusive de <strong>maillots 2024-25</strong> des clubs et équipes nationales les plus prestigieux :
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Maillot PSG</strong> - Le maillot domicile du Paris Saint-Germain avec ses couleurs emblématiques</li>
-                <li><strong>Maillot Real Madrid</strong> - Le blanc légendaire du club le plus titré d'Europe</li>
-                <li><strong>Maillot FC Barcelona</strong> - Les rayures blaugrana iconiques du Barça</li>
-                <li><strong>Maillot France</strong> - Le bleu tricolore des champions du monde</li>
-                <li><strong>Maillot Argentine</strong> - Les couleurs albicelestes des champions du monde 2022</li>
-                <li><strong>Maillot Manchester City</strong> - Le sky blue des champions d'Angleterre</li>
-                <li><strong>Maillot Liverpool</strong> - Le rouge légendaire des Reds</li>
-                <li><strong>Maillot Bayern Munich</strong> - Le rouge et blanc du géant allemand</li>
-              </ul>
+              <section className="grid md:grid-cols-2 gap-8 mt-10">
+                <div>
+                  <h3 className="text-2xl font-bold text-black mb-4">Les Incontournables de la Saison</h3>
+                  <p className="mb-4">Retrouvez les nouveaux kits pour la saison 2024-2025 et les exclusivités 2025-2026 :</p>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Maillot PSG Pas Cher</strong> - Portez les couleurs de Paris avec style.</li>
+                    <li><strong>Maillot Real Madrid</strong> - Le mythique maillot blanc des champions d'Europe.</li>
+                    <li><strong>Maillot FC Barcelona</strong> - L'élégance du Barça à prix réduit.</li>
+                    <li><strong>Maillot Équipe de France</strong> - Le maillot des Bleus pour soutenir notre nation.</li>
+                    <li><strong>Maillot Argentine</strong> - Le kit trois étoiles des champions du monde.</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-black mb-4">Expertise et Qualité Premium</h3>
+                  <p className="mb-4">Nous ne faisons aucun compromis sur la qualité de nos équipements :</p>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><strong>Flocage Officiel</strong> - Personnalisez votre maillot avec le nom et numéro de votre joueur préféré (Mbappé, Vinícius Jr, Bellingham, Messi).</li>
+                    <li><strong>Tissu Respirant</strong> - Technologie Dry-Fit pour une évacuation maximale de la transpiration.</li>
+                    <li><strong>Version Player</strong> - Coupe athlétique ajustée et badges thermocollés pour un rendu professionnel.</li>
+                    <li><strong>Maillots Rétro</strong> - Revivez l'histoire du foot avec nos rééditions de maillots classiques des années 90 et 2000.</li>
+                  </ul>
+                </div>
+              </section>
               
-              <h3 className="text-2xl font-bold mt-8 mb-4">Player Edition vs Fan Edition</h3>
-              <p>
-                Nous proposons deux versions pour répondre à tous les besoins :
-              </p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>Fan Edition (29€)</strong> : Coupe confortable, tissu respirant, parfait pour le quotidien et les tribunes</li>
-                <li><strong>Player Edition (34€)</strong> : Qualité professionnelle, coupe athlétique ajustée, tissu technique premium identique aux joueurs</li>
-              </ul>
-              
-              <h3 className="text-2xl font-bold mt-8 mb-4">Livraison Rapide en Europe</h3>
-              <p>
-                Profitez de notre <strong>livraison express 48h</strong> partout en Europe : France, Belgique, Suisse, Luxembourg. 
-                Commandez aujourd'hui, portez votre maillot ce week-end !
-              </p>
-              
-              <h3 className="text-2xl font-bold mt-8 mb-4">Pourquoi Choisir KIT FOOTBALL ?</h3>
-              <ul className="list-disc pl-6 space-y-2">
-                <li>✅ <strong>Prix imbattables</strong> : 29€ et 34€ seulement</li>
-                <li>✅ <strong>100+ modèles</strong> disponibles en stock permanent</li>
-                <li>✅ <strong>Qualité garantie</strong> : Fan Edition et Player Edition</li>
-                <li>✅ <strong>Livraison rapide</strong> : 48h partout en Europe</li>
-                <li>✅ <strong>Tailles disponibles</strong> : S, M, L, XL, XXL</li>
-                <li>✅ <strong>Maillots 2024-25</strong> : Les dernières nouveautés</li>
-                <li>✅ <strong>Maillots rétro</strong> : Les classiques intemporels</li>
-              </ul>
+              <section className="mt-10 bg-white p-8 border border-gray-200 rounded-lg">
+                <h3 className="text-2xl font-bold text-black mb-4 text-center">Pourquoi commander sur KIT FOOTBALL ?</h3>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                  <div>
+                    <div className="text-3xl mb-2">🚚</div>
+                    <h4 className="font-bold">Livraison Express</h4>
+                    <p className="text-sm">Expédition sous 48h avec suivi complet.</p>
+                  </div>
+                  <div>
+                    <div className="text-3xl mb-2">💰</div>
+                    <h4 className="font-bold">Prix Garantis</h4>
+                    <p className="text-sm">Les meilleurs tarifs du marché sans intermédiaire.</p>
+                  </div>
+                  <div>
+                    <div className="text-3xl mb-2">🔒</div>
+                    <h4 className="font-bold">Paiement Sûr</h4>
+                    <p className="text-sm">Transactions sécurisées par Stripe et PayPal.</p>
+                  </div>
+                  <div>
+                    <div className="text-3xl mb-2">⭐</div>
+                    <h4 className="font-bold">Service Client</h4>
+                    <p className="text-sm">Une équipe à votre écoute 7j/7 pour vous aider.</p>
+                  </div>
+                </div>
+              </section>
+
+              <section className="mt-10">
+                <h3 className="text-2xl font-bold text-black mb-4">La Boutique de Foot de Référence</h3>
+                <p>
+                  Que vous soyez un collectionneur de <strong>maillots vintage</strong> ou un fan à la recherche de la dernière tenue d'entraînement de <strong>Manchester City</strong>, 
+                  <strong>Liverpool</strong>, ou du <strong>Bayern Munich</strong>, KIT FOOTBALL est votre partenaire de confiance. 
+                  Nous livrons partout en France métropolitaine, DOM-TOM, Belgique, Suisse et dans toute l'Europe.
+                </p>
+              </section>
             </div>
           </div>
         </div>

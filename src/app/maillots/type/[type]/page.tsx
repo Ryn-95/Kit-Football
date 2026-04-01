@@ -21,9 +21,21 @@ export async function generateMetadata({ params }: { params: Promise<{ type: str
 
   if (!typeName) return {};
 
+  const title = `Maillots ${typeName} Foot Pas Cher 29€ | Collection 2024-25 | KIT FOOTBALL`;
+  const description = `Découvrez notre collection exclusive de maillots ${typeName}. Plus de 1000 modèles de clubs et nations à 29€. Qualité premium, livraison rapide 48h.`;
+
   return {
-    title: `Maillots ${typeName} | KitFootball`,
-    description: `Découvrez notre collection de maillots ${typeName}. Toutes vos équipes préférées sont disponibles. Livraison express.`,
+    title,
+    description,
+    keywords: `maillot ${typeName}, maillot de foot ${typeName}, maillot foot pas cher, acheter maillot foot, kit football`,
+    alternates: {
+      canonical: `https://www.kitsfootball.fr/maillots/type/${resolvedParams.type}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+    }
   };
 }
 
@@ -61,11 +73,11 @@ export default async function TypePage({ params }: { params: Promise<{ type: str
 
       <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 gap-y-8">
         {typeProducts.map(product => (
-          <Link href={`/maillots/${product.slug}`} key={product.id} className="group block">
+          <Link href={`/maillots/${product.slug}`} key={product.id} className="group block" title={`Maillot ${product.name} - Acheter à 29€`}>
             <div className="relative aspect-square bg-[#f5f5f5] mb-3 overflow-hidden border border-transparent hover:border-black transition-colors">
               <ImageWithFallback 
                 src={product.image} 
-                alt={product.name}
+                alt={`Maillot ${product.name} pas cher - Boutique Officielle KIT FOOTBALL`}
                 fill
                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                 className="object-cover mix-blend-multiply transition-transform duration-700 group-hover:scale-105"

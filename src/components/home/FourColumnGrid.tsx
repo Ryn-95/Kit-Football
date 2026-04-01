@@ -37,11 +37,12 @@ export default function FourColumnGrid() {
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
         {items.map((item, index) => (
           <Link href={item.link} key={index} className="flex flex-col group cursor-pointer">
-            <div className="w-full aspect-square overflow-hidden mb-4 bg-gray-100">
+            <div className="w-full aspect-square overflow-hidden mb-4 bg-gray-100 border border-transparent group-hover:border-black transition-colors">
               <img 
                 src={item.image} 
-                alt={item.title} 
+                alt={`${item.title} - Acheter sur KIT FOOTBALL`} 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                loading="lazy"
               />
             </div>
             <h3 className="font-bold text-black text-sm mb-2">{item.title}</h3>
