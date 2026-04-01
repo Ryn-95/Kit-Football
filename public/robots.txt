@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.kitsfootball.fr/sitemap.xml
+
+# Interdire les pages non nécessaires
+Disallow: /api/
+Disallow: /_next/
+Disallow: /checkout/
+Disallow: /*?*
+Disallow: /*.json$
+
+# Autoriser les ressources importantes
+Allow: /maillots/
+Allow: /collections/
+Allow: /public/
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
