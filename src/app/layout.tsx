@@ -78,7 +78,9 @@ export default function RootLayout({
     <html lang="fr" className={`${inter.variable} ${montserrat.variable} bg-white text-gray-900`}>
       <head>
         <meta name="google-site-verification" content="021bE_3MfjEJ4KxoH-9BDwyfTDSooW17m_4Vj1d8xE0" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
