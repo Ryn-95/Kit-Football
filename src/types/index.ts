@@ -8,6 +8,7 @@ export interface Product {
   images: string[]; // all images
   category: string; // Adulte, Enfant
   team: string;
+  league?: string;
   club?: string; // mapping to team for some components
   season?: string | null;
   type: string; // Domicile, Extérieur, Third, Rétro, Training, Gardien

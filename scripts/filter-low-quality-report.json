@@ -1,0 +1,2088 @@
+{
+  "thresholds": {
+    "MIN_WIDTH": 900,
+    "MIN_HEIGHT": 900,
+    "MIN_BYTES": 120000
+  },
+  "totalFolders": 1164,
+  "keptFolders": 645,
+  "deletedFolders": 519,
+  "deleted": [
+    {
+      "folder": "0708 Manchester City at home S-XXL9",
+      "reason": "low_quality(best=0708 Manchester City at home S-XXL9_24 2.jpeg, 1080x720, 302246b)"
+    },
+    {
+      "folder": "0910 Inter at home retro S-XXL10",
+      "reason": "low_quality(best=0910 Inter at home retro S-XXL10_13 2.jpeg, 1080x720, 374815b)"
+    },
+    {
+      "folder": "0910 Inter away retro S-XXL8",
+      "reason": "low_quality(best=0910 Inter away retro S-XXL8_18 2.jpeg, 1080x720, 266618b)"
+    },
+    {
+      "folder": "11-12kids Real Madrid home 16#-28#4",
+      "reason": "low_quality(best=11-12kids Real Madrid home 16#-28#4_8 2.jpeg, 1080x869, 357413b)"
+    },
+    {
+      "folder": "1112 Arsenal 125th anniversary home retro S-XXL9",
+      "reason": "low_quality(best=1112 Arsenal 125th anniversary home retro S-XXL9_19 2.jpeg, 1080x720, 343216b)"
+    },
+    {
+      "folder": "1112 Player Edition Arsenal Away Long Sleeve S-XXL5",
+      "reason": "low_quality(best=1112 Player Edition Arsenal Away Long Sleeve S-XXL5_9 2.jpeg, 1080x777, 187982b)"
+    },
+    {
+      "folder": "12-13 Porto home game, S-2XL size2",
+      "reason": "low_quality(best=12-13 Porto home game, S-2XL size2_6 2.jpeg, 811x1080, 122854b)"
+    },
+    {
+      "folder": "1314 Barcelona third away throwback S-XXL9",
+      "reason": "low_quality(best=1314 Barcelona third away throwback S-XXL9_2 2.jpeg, 1080x720, 290041b)"
+    },
+    {
+      "folder": "1314 Real Madrid third away S-XXL2",
+      "reason": "low_quality(best=1314 Real Madrid third away S-XXL2_1 2.jpeg, 874x1080, 247517b)"
+    },
+    {
+      "folder": "1415 Real Madrid away long sleeve S-XXL2",
+      "reason": "low_quality(best=1415 Real Madrid away long sleeve S-XXL2_7 2.jpeg, 810x1080, 198119b)"
+    },
+    {
+      "folder": "1617 Kids Purple Real Madrid away 16#-28#5",
+      "reason": "low_quality(best=1617 Kids Purple Real Madrid away 16#-28#5_6 2.jpeg, 810x1080, 391832b)"
+    },
+    {
+      "folder": "1617 Paris Third Away Game S-2XL2",
+      "reason": "low_quality(best=1617 Paris Third Away Game S-2XL2_7 2.jpeg, 1080x1080, 62546b)"
+    },
+    {
+      "folder": "1718 Paris at Home retro S-XXL2",
+      "reason": "low_quality(best=1718 Paris at Home retro S-XXL2_7 2.jpeg, 810x1080, 229425b)"
+    },
+    {
+      "folder": "1975 Paris Saint-Germain's away 11# S-4XL.3",
+      "reason": "low_quality(best=1975 Paris Saint-Germain's away 11# S-4XL.3_10 2.jpeg, 895x1080, 205139b)"
+    },
+    {
+      "folder": "198082 Barcelona at home retro S-XXL8",
+      "reason": "low_quality(best=198082 Barcelona at home retro S-XXL8_22 2.jpeg, 1080x720, 242809b)"
+    },
+    {
+      "folder": "198990 Arsenal Home short Sleeve retro S-XXL2",
+      "reason": "low_quality(best=198990 Arsenal Home short Sleeve retro S-XXL2_7 2.jpeg, 810x1080, 177786b)"
+    },
+    {
+      "folder": "198990 Arsenal home long-sleeved retro S-XXL3",
+      "reason": "low_quality(best=198990 Arsenal home long-sleeved retro S-XXL3_6 2.jpeg, 810x1080, 222108b)"
+    },
+    {
+      "folder": "1994 Sweden home retro S-XXL2",
+      "reason": "low_quality(best=1994 Sweden home retro S-XXL2_5 2.jpeg, 608x1080, 102131b)"
+    },
+    {
+      "folder": "1998 Real Madrid home S-XXL2",
+      "reason": "low_quality(best=1998 Real Madrid home S-XXL2_2 2.jpeg, 810x1080, 310032b)"
+    },
+    {
+      "folder": "1999-2000 Manchester United home kids 16#-28#2",
+      "reason": "low_quality(best=1999-2000 Manchester United home kids 16#-28#2_7 2.jpeg, 810x1080, 307181b)"
+    },
+    {
+      "folder": "200203 Manchester City at home S-XXL7",
+      "reason": "low_quality(best=200203 Manchester City at home S-XXL7_11 2.jpeg, 1080x720, 346628b)"
+    },
+    {
+      "folder": "200304 Real Madrid at home S-XXL7",
+      "reason": "low_quality(best=200304 Real Madrid at home S-XXL7_3 2.jpeg, 1080x720, 242730b)"
+    },
+    {
+      "folder": "2004 Portugal home retro S-XXL2",
+      "reason": "low_quality(best=2004 Portugal home retro S-XXL2_4 2.jpeg, 809x1080, 437647b)"
+    },
+    {
+      "folder": "200405 Real Madrid away S-XXL7",
+      "reason": "low_quality(best=200405 Real Madrid away S-XXL7_12 2.jpeg, 1080x720, 288021b)"
+    },
+    {
+      "folder": "200506 Celtics at home retro S-XXL8",
+      "reason": "low_quality(best=200506 Celtics at home retro S-XXL8_21 2.jpeg, 1080x720, 277514b)"
+    },
+    {
+      "folder": "2006 Portugal home S-XXL2",
+      "reason": "low_quality(best=2006 Portugal home S-XXL2_4 2.jpeg, 863x1080, 109550b)"
+    },
+    {
+      "folder": "200809 Manchester City away Throwback S-XXL8",
+      "reason": "low_quality(best=200809 Manchester City away Throwback S-XXL8_25 2.jpeg, 1080x720, 325239b)"
+    },
+    {
+      "folder": "2023 Player Edition Africa National team Cameroon 3rd away S-XXL4",
+      "reason": "low_quality(best=2023 Player Edition Africa National team Cameroon 3rd away S-XXL4_7 2.jpeg, 810x1080, 417751b)"
+    },
+    {
+      "folder": "2023 Player Edition African National team Cameroon away S-XXL4",
+      "reason": "low_quality(best=2023 Player Edition African National team Cameroon away S-XXL4_10 2.jpeg, 810x1080, 421595b)"
+    },
+    {
+      "folder": "2023 Player Edition African National team Senegal away S-XXL4",
+      "reason": "low_quality(best=2023 Player Edition African National team Senegal away S-XXL4_3 2.jpeg, 810x1080, 477776b)"
+    },
+    {
+      "folder": "2023 Player Edition African national team Cameroon home S-XXL4",
+      "reason": "low_quality(best=2023 Player Edition African national team Cameroon home S-XXL4_7 2.jpeg, 810x1080, 430843b)"
+    },
+    {
+      "folder": "2023 Player Edition African national team Senegal home S-XXL4",
+      "reason": "low_quality(best=2023 Player Edition African national team Senegal home S-XXL4_5 2.jpeg, 810x1080, 381053b)"
+    },
+    {
+      "folder": "2023 Player Edition Nigeria Special Edition S-XXL2",
+      "reason": "low_quality(best=2023 Player Edition Nigeria Special Edition S-XXL2_5 2.jpeg, 810x1080, 337893b)"
+    },
+    {
+      "folder": "2023 Player Edition Senegal Special Edition M-3XL4",
+      "reason": "low_quality(best=2023 Player Edition Senegal Special Edition M-3XL4_1 2.jpeg, 810x1080, 492229b)"
+    },
+    {
+      "folder": "202324Tottenham Hotspur home shirt S-XXL9",
+      "reason": "low_quality(best=202324Tottenham Hotspur home shirt S-XXL9_11 2.jpeg, 1080x810, 283399b)"
+    },
+    {
+      "folder": "2024 Italy away S-XXL11",
+      "reason": "low_quality(best=2024 Italy away S-XXL11_32.jpeg, 810x1080, 441705b)"
+    },
+    {
+      "folder": "2024 Player Edition Senegal Lionhead version S-XXL4",
+      "reason": "low_quality(best=2024 Player Edition Senegal Lionhead version S-XXL4_5 2.jpeg, 810x1080, 477778b)"
+    },
+    {
+      "folder": "2024 Player Edition Senegal special Edition S-XXL4",
+      "reason": "low_quality(best=2024 Player Edition Senegal special Edition S-XXL4_10 2.jpeg, 1080x877, 474031b)"
+    },
+    {
+      "folder": "2024 Players Edition England home S-XXL4",
+      "reason": "low_quality(best=2024 Players Edition England home S-XXL4_7.jpeg, 1080x810, 436551b)"
+    },
+    {
+      "folder": "2026 Algeria White S-2XL2",
+      "reason": "low_quality(best=2026 Algeria White S-2XL2_5 2.jpg, 1080x810, 200216b)"
+    },
+    {
+      "folder": "2026 Algerian Special Edition White S-4XL3",
+      "reason": "low_quality(best=2026 Algerian Special Edition White S-4XL3_3 2.jpg, 810x1080, 220973b)"
+    },
+    {
+      "folder": "2026 Brazilian polo shirt, S-2XL3",
+      "reason": "low_quality(best=2026 Brazilian polo shirt, S-2XL3_3.jpg, 1080x1080, 81347b)"
+    },
+    {
+      "folder": "2026 Mexico Promotion Suit - S-4XL3",
+      "reason": "low_quality(best=2026 Mexico Promotion Suit - S-4XL3_10 2.jpeg, 810x1080, 371669b)"
+    },
+    {
+      "folder": "2026 Player Edition Brazil Away S-XXL5",
+      "reason": "low_quality(best=2026 Player Edition Brazil Away S-XXL5_5.jpeg, 810x1080, 239991b)"
+    },
+    {
+      "folder": "2026 Player Edition Brazil Home Team S-XXL9",
+      "reason": "low_quality(best=2026 Player Edition Brazil Home Team S-XXL9_10.jpeg, 810x1080, 213554b)"
+    },
+    {
+      "folder": "2026 Player Edition England Home Jersey - S-3XL8",
+      "reason": "low_quality(best=2026 Player Edition England Home Jersey - S-3XL8_5.jpeg, 810x1080, 198755b)"
+    },
+    {
+      "folder": "2026 Player Edition Marseille's Third Away Game - S-XXL4",
+      "reason": "low_quality(best=2026 Player Edition Marseille's Third Away Game - S-XXL4_7 2.jpeg, 810x1080, 276801b)"
+    },
+    {
+      "folder": "2026 Player Edition Portugal Away - S-XXL4",
+      "reason": "low_quality(best=2026 Player Edition Portugal Away - S-XXL4_6.jpeg, 810x1080, 304034b)"
+    },
+    {
+      "folder": "2026 Portugal Away Game 16# - 28#2",
+      "reason": "low_quality(best=2026 Portugal Away Game 16# - 28#2_1.jpeg, 1080x773, 241063b)"
+    },
+    {
+      "folder": "2026 Women's Blouse - Colombia Home Team - S-XXL2",
+      "reason": "low_quality(best=2026 Women's Blouse - Colombia Home Team - S-XXL2_5 2.jpg, 809x1080, 201846b)"
+    },
+    {
+      "folder": "2026 Women's Mexico Home - S-XXL3",
+      "reason": "low_quality(best=2026 Women's Mexico Home - S-XXL3_1 2.jpeg, 810x1080, 311871b)"
+    },
+    {
+      "folder": "2026kids Brazil home 16# - 30#2",
+      "reason": "low_quality(best=2026kids Brazil home 16# - 30#2_1.jpg, 1080x810, 105793b)"
+    },
+    {
+      "folder": "2122 Ajax 3 away shirt S-XXL2",
+      "reason": "low_quality(best=2122 Ajax 3 away shirt S-XXL2_2 2.jpeg, 810x1080, 471283b)"
+    },
+    {
+      "folder": "22-23 Ajax Game Edition S-XXL9",
+      "reason": "low_quality(best=22-23 Ajax Game Edition S-XXL9_9 2.jpeg, 1080x810, 586587b)"
+    },
+    {
+      "folder": "22-23 Dortmund second away shirt S-XXL2",
+      "reason": "low_quality(best=22-23 Dortmund second away shirt S-XXL2_4 2.jpeg, 810x1080, 208849b)"
+    },
+    {
+      "folder": "22-23 Paris Jordan pre-match black training uniform S-XXL3",
+      "reason": "low_quality(best=22-23 Paris Jordan pre-match black training uniform S-XXL3_8 2.jpeg, 810x1080, 547539b)"
+    },
+    {
+      "folder": "2223 Barcelona away shirt S-XXL2",
+      "reason": "low_quality(best=2223 Barcelona away shirt S-XXL2_3 2.jpeg, 810x1080, 275717b)"
+    },
+    {
+      "folder": "2223 Barcelona second away shirt S-XXL5",
+      "reason": "low_quality(best=2223 Barcelona second away shirt S-XXL5_11 2.jpeg, 810x1080, 480850b)"
+    },
+    {
+      "folder": "2223 Bayern away shirt S-XXL3",
+      "reason": "low_quality(best=2223 Bayern away shirt S-XXL3_10 2.jpeg, 810x1080, 367889b)"
+    },
+    {
+      "folder": "2223 England Away Children's Kit 16-28#2",
+      "reason": "low_quality(best=2223 England Away Children's Kit 16-28#2_7 2.jpeg, 1080x810, 173425b)"
+    },
+    {
+      "folder": "2223 England Home Children's Kit 16-28#4",
+      "reason": "low_quality(best=2223 England Home Children's Kit 16-28#4_1 2.jpeg, 1080x810, 434251b)"
+    },
+    {
+      "folder": "2223 France Home Children's Kit 16-28#2",
+      "reason": "low_quality(best=2223 France Home Children's Kit 16-28#2_3 2.jpeg, 1080x810, 147023b)"
+    },
+    {
+      "folder": "2223 Mexico Away Kids Kit 16-28#2",
+      "reason": "low_quality(best=2223 Mexico Away Kids Kit 16-28#2_7 2.jpeg, 1080x810, 324168b)"
+    },
+    {
+      "folder": "2223 Mexico Home Children's kit 16-28#2",
+      "reason": "low_quality(best=2223 Mexico Home Children's kit 16-28#2_6 2.jpeg, 1080x810, 222033b)"
+    },
+    {
+      "folder": "2223 Paris away shirt S-XXL3",
+      "reason": "low_quality(best=2223 Paris away shirt S-XXL3_7 2.jpeg, 810x1080, 585383b)"
+    },
+    {
+      "folder": "2223 Player Chelsea home shirt S-XXL4",
+      "reason": "low_quality(best=2223 Player Chelsea home shirt S-XXL4_11 2.jpeg, 810x1080, 348423b)"
+    },
+    {
+      "folder": "2223 Player Edition England home shirt S-XXL6",
+      "reason": "low_quality(best=2223 Player Edition England home shirt S-XXL6_16 2.jpeg, 810x1080, 203114b)"
+    },
+    {
+      "folder": "2223 Player Edition Inter Milan second away shirt S-XXL9",
+      "reason": "low_quality(best=2223 Player Edition Inter Milan second away shirt S-XXL9_19 2.jpeg, 810x1080, 433521b)"
+    },
+    {
+      "folder": "2223 Player Edition Morocco home shirt S-XXL8",
+      "reason": "low_quality(best=2223 Player Edition Morocco home shirt S-XXL8_20 2.jpeg, 1080x810, 496952b)"
+    },
+    {
+      "folder": "2223 Player edition Brazil away shirt S-XXL3",
+      "reason": "low_quality(best=2223 Player edition Brazil away shirt S-XXL3_9 2.jpeg, 810x1080, 214237b)"
+    },
+    {
+      "folder": "2223 Player edition Mexico away shirt S-XXL5",
+      "reason": "low_quality(best=2223 Player edition Mexico away shirt S-XXL5_4 2.jpeg, 810x1080, 471110b)"
+    },
+    {
+      "folder": "2223 Player edition Senegal away shirt S-XXL2",
+      "reason": "low_quality(best=2223 Player edition Senegal away shirt S-XXL2_4 2.jpeg, 810x1080, 167841b)"
+    },
+    {
+      "folder": "2223 Player version Barcelona home shirt S-XXL9",
+      "reason": "low_quality(best=2223 Player version Barcelona home shirt S-XXL9_1 2.jpeg, 810x1080, 469280b)"
+    },
+    {
+      "folder": "2223 Player's Edition Uruguay away shirt S-XXL8",
+      "reason": "low_quality(best=2223 Player's Edition Uruguay away shirt S-XXL8_14 2.jpeg, 811x1080, 265279b)"
+    },
+    {
+      "folder": "2223 Players Arsenal home shirt S-XXL5",
+      "reason": "low_quality(best=2223 Players Arsenal home shirt S-XXL5_7 2.jpeg, 810x1080, 422158b)"
+    },
+    {
+      "folder": "2223 Players Chelsea away shirt S-XXL6",
+      "reason": "low_quality(best=2223 Players Chelsea away shirt S-XXL6_2 2.jpeg, 1080x809, 205095b)"
+    },
+    {
+      "folder": "2223 Players edition Arsenal away shirt S-XXL4",
+      "reason": "low_quality(best=2223 Players edition Arsenal away shirt S-XXL4_11 2.jpeg, 810x1080, 339742b)"
+    },
+    {
+      "folder": "2223 Players edition Paris home shirt S-XXL6",
+      "reason": "low_quality(best=2223 Players edition Paris home shirt S-XXL6_5 2.jpeg, 811x1080, 403923b)"
+    },
+    {
+      "folder": "2223 Players edition Portugal away shirt S-XXL2",
+      "reason": "low_quality(best=2223 Players edition Portugal away shirt S-XXL2_5 2.jpeg, 713x1080, 129214b)"
+    },
+    {
+      "folder": "2223 Players version Manchester City home shirt S-XXL3",
+      "reason": "low_quality(best=2223 Players version Manchester City home shirt S-XXL3_5 2.jpeg, 810x1080, 505475b)"
+    },
+    {
+      "folder": "2223 Players version Mexico home shirt S-XXL5",
+      "reason": "low_quality(best=2223 Players version Mexico home shirt S-XXL5_16 2.jpeg, 810x1080, 427441b)"
+    },
+    {
+      "folder": "2223 Players version Portugal home shirt S-XXL5",
+      "reason": "low_quality(best=2223 Players version Portugal home shirt S-XXL5_13 2.jpeg, 1080x735, 332258b)"
+    },
+    {
+      "folder": "2223 Players version tottenham Hotspur home shirt S-XXL in4",
+      "reason": "low_quality(best=2223 Players version tottenham Hotspur home shirt S-XXL in4_12 2.jpeg, 809x1080, 206143b)"
+    },
+    {
+      "folder": "2223 Real Madrid 2 away shirt S-XXL3",
+      "reason": "low_quality(best=2223 Real Madrid 2 away shirt S-XXL3_4 2.jpeg, 810x1080, 360467b)"
+    },
+    {
+      "folder": "2223 South Korea away shirt S-XXL3",
+      "reason": "low_quality(best=2223 South Korea away shirt S-XXL3_4 2.jpeg, 1080x810, 533713b)"
+    },
+    {
+      "folder": "2223 South Korea home shirt S-XXL3",
+      "reason": "low_quality(best=2223 South Korea home shirt S-XXL3_9 2.jpeg, 1080x810, 439387b)"
+    },
+    {
+      "folder": "2223 Tottenham Away shirt S-XXL2",
+      "reason": "low_quality(best=2223 Tottenham Away shirt S-XXL2_7 2.jpeg, 1080x811, 125506b)"
+    },
+    {
+      "folder": "2223 Tottenham Hotspur 2 away S-XXL2",
+      "reason": "low_quality(best=2223 Tottenham Hotspur 2 away S-XXL2_7 2.jpeg, 755x1080, 367009b)"
+    },
+    {
+      "folder": "2223 Uruguay home shirt S-XXL3",
+      "reason": "low_quality(best=2223 Uruguay home shirt S-XXL3_8 2.jpeg, 810x1080, 531297b)"
+    },
+    {
+      "folder": "2223AC Milan third away shirt S-XXL5",
+      "reason": "low_quality(best=2223AC Milan third away shirt S-XXL5_13 2.jpeg, 837x1080, 376901b)"
+    },
+    {
+      "folder": "23-24 Players Brazil away S-XXL5",
+      "reason": "low_quality(best=23-24 Players Brazil away S-XXL5_3.jpeg, 810x1080, 477592b)"
+    },
+    {
+      "folder": "2324 Ajax Graffiti Edition S-XXL3",
+      "reason": "low_quality(best=2324 Ajax Graffiti Edition S-XXL3_7 2.jpeg, 810x1080, 451197b)"
+    },
+    {
+      "folder": "2324 Ajax away shirt S-XXL2",
+      "reason": "low_quality(best=2324 Ajax away shirt S-XXL2_5 2.jpeg, 810x1080, 341263b)"
+    },
+    {
+      "folder": "2324 Algerian Green S-XXL8",
+      "reason": "low_quality(best=2324 Algerian Green S-XXL8_4 2.jpeg, 810x1080, 499560b)"
+    },
+    {
+      "folder": "2324 Arsenal Graffiti Board S-XXL3",
+      "reason": "low_quality(best=2324 Arsenal Graffiti Board S-XXL3_9 2.jpeg, 810x1080, 534679b)"
+    },
+    {
+      "folder": "2324 Arsenal home home children's suite 16# -28#5",
+      "reason": "low_quality(best=2324 Arsenal home home children's suite 16# -28#5_5 2.jpeg, 1080x810, 261799b)"
+    },
+    {
+      "folder": "2324 Atletico Mineiro Special Edition S-XXL2",
+      "reason": "low_quality(best=2324 Atletico Mineiro Special Edition S-XXL2_1 2.jpeg, 1080x810, 394987b)"
+    },
+    {
+      "folder": "2324 Atletico Mineiro third away S-XXL4",
+      "reason": "low_quality(best=2324 Atletico Mineiro third away S-XXL4_2 2.jpeg, 1080x810, 373984b)"
+    },
+    {
+      "folder": "2324 Atletico third away S-XXL2",
+      "reason": "low_quality(best=2324 Atletico third away S-XXL2_5 2.jpeg, 809x1080, 408496b)"
+    },
+    {
+      "folder": "2324 Atletico's new home AD S-2XL2",
+      "reason": "low_quality(best=2324 Atletico's new home AD S-2XL2_3 2.jpeg, 810x1080, 260395b)"
+    },
+    {
+      "folder": "2324 Barcelona Limited Edition S-XXL3",
+      "reason": "low_quality(best=2324 Barcelona Limited Edition S-XXL3_7 2.jpeg, 824x1080, 530082b)"
+    },
+    {
+      "folder": "2324 Barcelona Special Edition S-XXL6",
+      "reason": "low_quality(best=2324 Barcelona Special Edition S-XXL6_6 2.jpeg, 810x1080, 266154b)"
+    },
+    {
+      "folder": "2324 Barcelona away shirt S-XXL11",
+      "reason": "low_quality(best=2324 Barcelona away shirt S-XXL11_10 2.jpeg, 1080x810, 495735b)"
+    },
+    {
+      "folder": "2324 Barcelona third away S-XXL4",
+      "reason": "low_quality(best=2324 Barcelona third away S-XXL4_10 2.jpeg, 810x1080, 227180b)"
+    },
+    {
+      "folder": "2324 Bayern Munchen home S-XXL12",
+      "reason": "low_quality(best=2324 Bayern Munchen home S-XXL12_2 2.jpeg, 1080x810, 489977b)"
+    },
+    {
+      "folder": "2324 Benfica at home S-XXL10",
+      "reason": "low_quality(best=2324 Benfica at home S-XXL10_14 2.jpeg, 1080x810, 504236b)"
+    },
+    {
+      "folder": "2324 Benfica third away S-XXL2",
+      "reason": "low_quality(best=2324 Benfica third away S-XXL2_3 2.jpeg, 810x1080, 225046b)"
+    },
+    {
+      "folder": "2324 Borussia DortmundBlack Special Edition S-XXL2",
+      "reason": "low_quality(best=2324 Borussia DortmundBlack Special Edition S-XXL2_2 2.jpeg, 810x1080, 193972b)"
+    },
+    {
+      "folder": "2324 Brazil International Special Edition S-XXL2",
+      "reason": "low_quality(best=2324 Brazil International Special Edition S-XXL2_6 2.jpeg, 1080x810, 399264b)"
+    },
+    {
+      "folder": "2324 Brazil International third Away S-XXL2",
+      "reason": "low_quality(best=2324 Brazil International third Away S-XXL2_2 2.jpeg, 1080x810, 470301b)"
+    },
+    {
+      "folder": "2324 Brazil Special Edition Black S-XXL5",
+      "reason": "low_quality(best=2324 Brazil Special Edition Black S-XXL5_5 2.jpeg, 810x1080, 358111b)"
+    },
+    {
+      "folder": "2324 Brazil Women's World Cup men's home S-XXL2",
+      "reason": "low_quality(best=2324 Brazil Women's World Cup men's home S-XXL2_7 2.jpeg, 810x1080, 192610b)"
+    },
+    {
+      "folder": "2324 Colombia at home S-2XL3",
+      "reason": "low_quality(best=2324 Colombia at home S-2XL3_4 2.jpeg, 810x1080, 349216b)"
+    },
+    {
+      "folder": "2324 Dortmund special edition S-XXL4",
+      "reason": "low_quality(best=2324 Dortmund special edition S-XXL4_13 2.jpeg, 864x1080, 443083b)"
+    },
+    {
+      "folder": "2324 England Special Edition S-XXL2",
+      "reason": "low_quality(best=2324 England Special Edition S-XXL2_1 2.jpeg, 1080x810, 399329b)"
+    },
+    {
+      "folder": "2324 Italy goalkeeper Green S-XXL4",
+      "reason": "low_quality(best=2324 Italy goalkeeper Green S-XXL4_9 2.jpeg, 810x1080, 263376b)"
+    },
+    {
+      "folder": "2324 Kids Arsenal third away 16#-28#2",
+      "reason": "low_quality(best=2324 Kids Arsenal third away 16#-28#2_7 2.jpeg, 1080x810, 365884b)"
+    },
+    {
+      "folder": "2324 Kids Miami International Away 16#-28#9",
+      "reason": "low_quality(best=2324 Kids Miami International Away 16#-28#9_9 2.jpeg, 1080x810, 479802b)"
+    },
+    {
+      "folder": "2324 Kids Paris third away 16#-28#5",
+      "reason": "low_quality(best=2324 Kids Paris third away 16#-28#5_12 2.jpeg, 1080x810, 282226b)"
+    },
+    {
+      "folder": "2324 Lazio 10th Anniversary Edition S-XXL5",
+      "reason": "low_quality(best=2324 Lazio 10th Anniversary Edition S-XXL5_1 2.jpeg, 810x1080, 395776b)"
+    },
+    {
+      "folder": "2324 Lazio 10th Anniversary White S-XXL5",
+      "reason": "low_quality(best=2324 Lazio 10th Anniversary White S-XXL5_13 2.jpeg, 1080x849, 464072b)"
+    },
+    {
+      "folder": "2324 Marseille at home S-XXL2",
+      "reason": "low_quality(best=2324 Marseille at home S-XXL2_3 2.jpeg, 812x1080, 547377b)"
+    },
+    {
+      "folder": "2324 Marseille away S-XXL2",
+      "reason": "low_quality(best=2324 Marseille away S-XXL2_4 2.jpeg, 810x1080, 385342b)"
+    },
+    {
+      "folder": "2324 Mexico Special Edition S-XXL2",
+      "reason": "low_quality(best=2324 Mexico Special Edition S-XXL2_4 2.jpeg, 810x1080, 292629b)"
+    },
+    {
+      "folder": "2324 Paris home shirt S-XXL7",
+      "reason": "low_quality(best=2324 Paris home shirt S-XXL7_15 2.jpg, 1080x810, 388811b)"
+    },
+    {
+      "folder": "2324 Player AC Milan fourth away shirt S-XXL9",
+      "reason": "low_quality(best=2324 Player AC Milan fourth away shirt S-XXL9_22 2.jpeg, 810x1080, 519383b)"
+    },
+    {
+      "folder": "2324 Player AC Milan goalkeeper Yellow jersey S-XXL6",
+      "reason": "low_quality(best=2324 Player AC Milan goalkeeper Yellow jersey S-XXL6_17 2.jpeg, 810x1080, 572290b)"
+    },
+    {
+      "folder": "2324 Player Chelsea HOME SHIRT S-XXL5",
+      "reason": "low_quality(best=2324 Player Chelsea HOME SHIRT S-XXL5_6 2.jpeg, 810x1080, 240905b)"
+    },
+    {
+      "folder": "2324 Player Edition Algerian dark green S-XXL3",
+      "reason": "low_quality(best=2324 Player Edition Algerian dark green S-XXL3_3 2.jpeg, 810x1080, 208152b)"
+    },
+    {
+      "folder": "2324 Player Edition Arsenal Pink Blue S-XXL9",
+      "reason": "low_quality(best=2324 Player Edition Arsenal Pink Blue S-XXL9_21 2.jpeg, 810x1080, 364836b)"
+    },
+    {
+      "folder": "2324 Player Edition Arsenal home shirt S-XXL8",
+      "reason": "low_quality(best=2324 Player Edition Arsenal home shirt S-XXL8_10 2.jpeg, 810x1080, 541235b)"
+    },
+    {
+      "folder": "2324 Player Edition Bayern away S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Bayern away S-XXL2_7 2.jpeg, 810x1080, 241639b)"
+    },
+    {
+      "folder": "2324 Player Edition Benfica at home S-XXL9",
+      "reason": "low_quality(best=2324 Player Edition Benfica at home S-XXL9_25 2.jpeg, 810x1080, 435073b)"
+    },
+    {
+      "folder": "2324 Player Edition Benfica away S-XXL12",
+      "reason": "low_quality(best=2324 Player Edition Benfica away S-XXL12_1 2.jpeg, 810x1080, 503433b)"
+    },
+    {
+      "folder": "2324 Player Edition Brazil host S-XXL9",
+      "reason": "low_quality(best=2324 Player Edition Brazil host S-XXL9_8 2.jpeg, 810x1080, 497326b)"
+    },
+    {
+      "folder": "2324 Player Edition FC Barcelona third away shirt S-XXL4",
+      "reason": "low_quality(best=2324 Player Edition FC Barcelona third away shirt S-XXL4_5 2.jpeg, 810x1080, 292823b)"
+    },
+    {
+      "folder": "2324 Player Edition Inter Milan at home S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Inter Milan at home S-XXL2_6 2.jpeg, 810x1080, 233733b)"
+    },
+    {
+      "folder": "2324 Player Edition Inter Milan away S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Inter Milan away S-XXL2_4 2.jpeg, 865x1080, 239242b)"
+    },
+    {
+      "folder": "2324 Player Edition Inter Milan second away shirt S-XXL3",
+      "reason": "low_quality(best=2324 Player Edition Inter Milan second away shirt S-XXL3_4 2.jpeg, 810x1080, 242819b)"
+    },
+    {
+      "folder": "2324 Player Edition Italy home S-XXL4",
+      "reason": "low_quality(best=2324 Player Edition Italy home S-XXL4_12 2.jpeg, 810x1080, 465594b)"
+    },
+    {
+      "folder": "2324 Player Edition Manchester City Special Edition kit S-XXL6",
+      "reason": "low_quality(best=2324 Player Edition Manchester City Special Edition kit S-XXL6_1 2.jpeg, 810x1080, 563668b)"
+    },
+    {
+      "folder": "2324 Player Edition Marseille away S-XXL11",
+      "reason": "low_quality(best=2324 Player Edition Marseille away S-XXL11_12 2.jpeg, 810x1080, 290294b)"
+    },
+    {
+      "folder": "2324 Player Edition Morocco home S-XXL4",
+      "reason": "low_quality(best=2324 Player Edition Morocco home S-XXL4_10 2.jpeg, 1080x810, 398654b)"
+    },
+    {
+      "folder": "2324 Player Edition Morocco host S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Morocco host S-XXL2_4 2.jpeg, 838x1080, 211560b)"
+    },
+    {
+      "folder": "2324 Player Edition Nigeria away S-XXL8",
+      "reason": "low_quality(best=2324 Player Edition Nigeria away S-XXL8_8 2.jpeg, 810x1080, 451105b)"
+    },
+    {
+      "folder": "2324 Player Edition Nigeria host S-XXL7",
+      "reason": "low_quality(best=2324 Player Edition Nigeria host S-XXL7_3 2.jpeg, 810x1080, 436335b)"
+    },
+    {
+      "folder": "2324 Player Edition Paris at home S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Paris at home S-XXL2_6 2.jpeg, 891x1080, 204494b)"
+    },
+    {
+      "folder": "2324 Player Edition Paris fourth S-XXL4",
+      "reason": "low_quality(best=2324 Player Edition Paris fourth S-XXL4_11 2.jpeg, 1080x810, 561126b)"
+    },
+    {
+      "folder": "2324 Player Edition Paris home shirt S-XXL7",
+      "reason": "low_quality(best=2324 Player Edition Paris home shirt S-XXL7_19 2.jpeg, 810x1080, 266149b)"
+    },
+    {
+      "folder": "2324 Player Edition Real Madrid Special Edition Purple S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Real Madrid Special Edition Purple S-XXL2_2 2.jpeg, 810x1080, 265338b)"
+    },
+    {
+      "folder": "2324 Player Edition Real Madrid home shirt S-XXL8",
+      "reason": "low_quality(best=2324 Player Edition Real Madrid home shirt S-XXL8_9 2.jpeg, 810x1080, 394721b)"
+    },
+    {
+      "folder": "2324 Player Edition Real Madrid lapel purple jersey S-XXL8",
+      "reason": "low_quality(best=2324 Player Edition Real Madrid lapel purple jersey S-XXL8_14 2.jpeg, 810x1080, 519691b)"
+    },
+    {
+      "folder": "2324 Player Edition Real Madrid pre-match training kit S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Real Madrid pre-match training kit S-XXL2_6 2.jpeg, 810x1080, 326062b)"
+    },
+    {
+      "folder": "2324 Player Edition Real Madrid special Edition S-XXL2",
+      "reason": "low_quality(best=2324 Player Edition Real Madrid special Edition S-XXL2_7 2.jpeg, 810x1080, 268957b)"
+    },
+    {
+      "folder": "2324 Player Edition Roma home S-XXL8",
+      "reason": "low_quality(best=2324 Player Edition Roma home S-XXL8_6 2.jpeg, 810x1080, 453540b)"
+    },
+    {
+      "folder": "2324 Player Manchester City home shirt S-XXL10",
+      "reason": "low_quality(best=2324 Player Manchester City home shirt S-XXL10_24 2.jpeg, 810x1080, 423640b)"
+    },
+    {
+      "folder": "2324 Player edition Ajax home S-XXL6",
+      "reason": "low_quality(best=2324 Player edition Ajax home S-XXL6_15 2.jpeg, 810x1080, 447266b)"
+    },
+    {
+      "folder": "2324 Player edition Argentine blue and white S-XXL9",
+      "reason": "low_quality(best=2324 Player edition Argentine blue and white S-XXL9_22 2.jpeg, 810x1080, 525318b)"
+    },
+    {
+      "folder": "2324 Player edition Manchester City pre-match training kit S-XXL9",
+      "reason": "low_quality(best=2324 Player edition Manchester City pre-match training kit S-XXL9_24 2.jpeg, 810x1080, 405272b)"
+    },
+    {
+      "folder": "2324 Player edition Napoli Commemorative Edition black S-XXL8",
+      "reason": "low_quality(best=2324 Player edition Napoli Commemorative Edition black S-XXL8_13 2.jpeg, 810x1080, 218194b)"
+    },
+    {
+      "folder": "2324 Player edition New AD Roma home S-XXL2",
+      "reason": "low_quality(best=2324 Player edition New AD Roma home S-XXL2_5 2.jpeg, 810x1080, 194335b)"
+    },
+    {
+      "folder": "2324 Player edition Roma away with AD S-XXL2",
+      "reason": "low_quality(best=2324 Player edition Roma away with AD S-XXL2_7 2.jpeg, 810x1080, 239736b)"
+    },
+    {
+      "folder": "2324 Players Brazil International Away S-XXL9",
+      "reason": "low_quality(best=2324 Players Brazil International Away S-XXL9_22 2.jpeg, 810x1080, 449510b)"
+    },
+    {
+      "folder": "2324 Players Chelsea away S-XXL8",
+      "reason": "low_quality(best=2324 Players Chelsea away S-XXL8_7 2.jpeg, 809x1080, 295897b)"
+    },
+    {
+      "folder": "2324 Players Paris Noir Special Edition S-XXL6",
+      "reason": "low_quality(best=2324 Players Paris Noir Special Edition S-XXL6_19.jpeg, 810x1080, 325524b)"
+    },
+    {
+      "folder": "2324 Players Real Madrid Special Edition Black and Gold S-XXL8",
+      "reason": "low_quality(best=2324 Players Real Madrid Special Edition Black and Gold S-XXL8_16.jpeg, 810x1080, 457325b)"
+    },
+    {
+      "folder": "2324 Players Tottenham Hotspur away S-XXL9",
+      "reason": "low_quality(best=2324 Players Tottenham Hotspur away S-XXL9_7.jpeg, 810x1080, 407009b)"
+    },
+    {
+      "folder": "2324 Portugal Special Edition Black S-XXL3",
+      "reason": "low_quality(best=2324 Portugal Special Edition Black S-XXL3_8.jpeg, 810x1080, 585447b)"
+    },
+    {
+      "folder": "2324 Real Madrid POLO Dragon Purple S-XXL4",
+      "reason": "low_quality(best=2324 Real Madrid POLO Dragon Purple S-XXL4_5.jpeg, 810x1080, 359959b)"
+    },
+    {
+      "folder": "2324 Real Madrid POLO Dragon Yellow S-XXL4",
+      "reason": "low_quality(best=2324 Real Madrid POLO Dragon Yellow S-XXL4_5.jpeg, 810x1080, 337399b)"
+    },
+    {
+      "folder": "2324 Real Madrid Special Edition White Jersey S-XXL6",
+      "reason": "low_quality(best=2324 Real Madrid Special Edition White Jersey S-XXL6_1.jpeg, 810x1080, 514045b)"
+    },
+    {
+      "folder": "2324 Real Madrid combined Edition S-XXL3",
+      "reason": "low_quality(best=2324 Real Madrid combined Edition S-XXL3_1.jpeg, 810x1080, 216746b)"
+    },
+    {
+      "folder": "2324 Real Madrid goalkeeper white S-XXL2",
+      "reason": "low_quality(best=2324 Real Madrid goalkeeper white S-XXL2_4.jpeg, 810x1080, 203342b)"
+    },
+    {
+      "folder": "2324 Real Madrid home shirt S-XXL7",
+      "reason": "low_quality(best=2324 Real Madrid home shirt S-XXL7_12.jpeg, 1080x810, 474425b)"
+    },
+    {
+      "folder": "2324 Real Madrid pre-match training kit S-XXL2",
+      "reason": "low_quality(best=2324 Real Madrid pre-match training kit S-XXL2_1.jpeg, 847x1080, 608399b)"
+    },
+    {
+      "folder": "2324 Real Madrid pre-match training kit S-XXL3",
+      "reason": "low_quality(best=2324 Real Madrid pre-match training kit S-XXL3_1.jpeg, 811x1080, 338212b)"
+    },
+    {
+      "folder": "2324 Roma home S-XXL5",
+      "reason": "low_quality(best=2324 Roma home S-XXL5_13.jpeg, 810x1080, 349413b)"
+    },
+    {
+      "folder": "2324 Roma third away S-XXL2",
+      "reason": "low_quality(best=2324 Roma third away S-XXL2_1.jpeg, 808x1080, 489658b)"
+    },
+    {
+      "folder": "2324 Sevilla FC away S-XXL3",
+      "reason": "low_quality(best=2324 Sevilla FC away S-XXL3_8.jpeg, 810x1080, 497680b)"
+    },
+    {
+      "folder": "2324 Tottenham third away S-XXL7",
+      "reason": "low_quality(best=2324 Tottenham third away S-XXL7_3.jpeg, 1080x810, 567218b)"
+    },
+    {
+      "folder": "2324 Valencia away S-XXL10",
+      "reason": "low_quality(best=2324 Valencia away S-XXL10_18.jpeg, 810x1080, 470073b)"
+    },
+    {
+      "folder": "2324African national team Cameroon home S-XXL2",
+      "reason": "low_quality(best=2324African national team Cameroon home S-XXL2_4.jpeg, 811x1080, 157642b)"
+    },
+    {
+      "folder": "2324Players Ajax third away S-XXL5",
+      "reason": "low_quality(best=2324Players Ajax third away S-XXL5_8.jpeg, 810x1080, 399016b)"
+    },
+    {
+      "folder": "24-25 Barcelona Away Special S-4XL6",
+      "reason": "low_quality(best=24-25 Barcelona Away Special S-4XL6_18.jpeg, 1080x810, 98766b)"
+    },
+    {
+      "folder": "2425 Italy at home S-XXL6",
+      "reason": "low_quality(best=2425 Italy at home S-XXL6_6.jpeg, 810x1080, 505607b)"
+    },
+    {
+      "folder": "2425 Italy away S-XXL4",
+      "reason": "low_quality(best=2425 Italy away S-XXL4_12.jpeg, 810x1080, 413170b)"
+    },
+    {
+      "folder": "2425 Kids Paris Home Star Version 16#-28#7",
+      "reason": "low_quality(best=2425 Kids Paris Home Star Version 16#-28#7_6.jpeg, 1080x810, 344342b)"
+    },
+    {
+      "folder": "2425 Paris Home Championship version with stars S-XXL5",
+      "reason": "low_quality(best=2425 Paris Home Championship version with stars S-XXL5_7.jpeg, 1080x888, 310978b)"
+    },
+    {
+      "folder": "2425 Paris Saint-Germain away women's Vest S-XL3",
+      "reason": "low_quality(best=2425 Paris Saint-Germain away women's Vest S-XL3_3.jpeg, 810x1080, 292016b)"
+    },
+    {
+      "folder": "2425 Player Edition Manchester City at home S-XXL2",
+      "reason": "low_quality(best=2425 Player Edition Manchester City at home S-XXL2_3.jpeg, 810x1080, 166771b)"
+    },
+    {
+      "folder": "2425 Player Edition Manchester City away S-XXL4",
+      "reason": "low_quality(best=2425 Player Edition Manchester City away S-XXL4_1.jpeg, 810x1080, 456146b)"
+    },
+    {
+      "folder": "2425 Player Edition Monaco home S-XXL9",
+      "reason": "low_quality(best=2425 Player Edition Monaco home S-XXL9_5.jpeg, 810x1080, 468234b)"
+    },
+    {
+      "folder": "2425 Player Edition Paris away S-XXL7",
+      "reason": "low_quality(best=2425 Player Edition Paris away S-XXL7_20.jpeg, 810x1080, 510605b)"
+    },
+    {
+      "folder": "2425 Player Edition Real Madrid away S-XXL4",
+      "reason": "low_quality(best=2425 Player Edition Real Madrid away S-XXL4_9.jpeg, 1080x810, 473206b)"
+    },
+    {
+      "folder": "2425 Player version Barcelona Camp Nou S-XXL7",
+      "reason": "low_quality(best=2425 Player version Barcelona Camp Nou S-XXL7_10.jpg, 810x1080, 295715b)"
+    },
+    {
+      "folder": "2425 Players Liverpool third away S-XXL7",
+      "reason": "low_quality(best=2425 Players Liverpool third away S-XXL7_1.jpeg, 810x1080, 566537b)"
+    },
+    {
+      "folder": "2425 kids Barcelona Away Collaboration Edition 16#-28#2",
+      "reason": "low_quality(best=2425 kids Barcelona Away Collaboration Edition 16#-28#2_5.jpeg, 1080x810, 107339b)"
+    },
+    {
+      "folder": "2425 kids Barcelona's third away game co-branded 16#-28#2",
+      "reason": "low_quality(best=2425 kids Barcelona's third away game co-branded 16#-28#2_2.jpeg, 810x1080, 207337b)"
+    },
+    {
+      "folder": "2425 kids Bayern Munich home game 16#-28#4",
+      "reason": "low_quality(best=2425 kids Bayern Munich home game 16#-28#4_7.jpeg, 1080x810, 182333b)"
+    },
+    {
+      "folder": "2425 player Barcelona Limited Edition S-4XL3",
+      "reason": "low_quality(best=2425 player Barcelona Limited Edition S-4XL3_6.jpg, 810x1080, 382304b)"
+    },
+    {
+      "folder": "25-26 Ajax Away S-2XL2",
+      "reason": "low_quality(best=25-26 Ajax Away S-2XL2_6.jpeg, 810x1080, 178771b)"
+    },
+    {
+      "folder": "25-26 Arsenal Vintage Red S - 2XL3",
+      "reason": "low_quality(best=25-26 Arsenal Vintage Red S - 2XL3_4.jpeg, 810x1080, 195972b)"
+    },
+    {
+      "folder": "25-26 Arsenal goalkeeper S-XXL2",
+      "reason": "low_quality(best=25-26 Arsenal goalkeeper S-XXL2_5.jpeg, 1080x810, 107522b)"
+    },
+    {
+      "folder": "25-26 Atletico Madrid Training Suit for Horse - S - 4XL2",
+      "reason": "low_quality(best=25-26 Atletico Madrid Training Suit for Horse - S - 4XL2_6.jpeg, 1080x885, 351551b)"
+    },
+    {
+      "folder": "25-26 Atletico Madrid goalkeeper Blue S-XXL2",
+      "reason": "low_quality(best=25-26 Atletico Madrid goalkeeper Blue S-XXL2_6.jpeg, 1080x810, 122421b)"
+    },
+    {
+      "folder": "25-26 Atletico Madrid's purple goalkeeper S-XXL2",
+      "reason": "low_quality(best=25-26 Atletico Madrid's purple goalkeeper S-XXL2_2.jpeg, 1080x810, 113899b)"
+    },
+    {
+      "folder": "25-26 Barcelona Brazil collaboration model S-4XL2",
+      "reason": "low_quality(best=25-26 Barcelona Brazil collaboration model S-4XL2_4.jpeg, 810x1080, 251831b)"
+    },
+    {
+      "folder": "25-26 Barcelona Graffiti S-XXL2",
+      "reason": "low_quality(best=25-26 Barcelona Graffiti S-XXL2_3.jpeg, 810x1080, 357699b)"
+    },
+    {
+      "folder": "25-26 Barcelona Special Edition Red, Blue, Yellow, and Blue S-4XL2",
+      "reason": "low_quality(best=25-26 Barcelona Special Edition Red, Blue, Yellow, and Blue S-4XL2_1.jpeg, 810x1080, 304204b)"
+    },
+    {
+      "folder": "25-26 Bayern Beer Festival S-4XL4",
+      "reason": "low_quality(best=25-26 Bayern Beer Festival S-4XL4_6.jpeg, 810x1080, 292043b)"
+    },
+    {
+      "folder": "25-26 Bayern Munich T-shirt S-4 XL2",
+      "reason": "low_quality(best=25-26 Bayern Munich T-shirt S-4 XL2_7.jpeg, 1080x810, 73778b)"
+    },
+    {
+      "folder": "25-26 Bayern Munich goalkeeper Green S-XXL2",
+      "reason": "low_quality(best=25-26 Bayern Munich goalkeeper Green S-XXL2_4.jpeg, 1080x810, 96640b)"
+    },
+    {
+      "folder": "25-26 Benfica Eagle Edition S - 4XL2",
+      "reason": "low_quality(best=25-26 Benfica Eagle Edition S - 4XL2_6.jpeg, 1080x810, 108982b)"
+    },
+    {
+      "folder": "25-26 Benfica training jersey S - 4XL2",
+      "reason": "low_quality(best=25-26 Benfica training jersey S - 4XL2_4.jpeg, 1080x810, 88049b)"
+    },
+    {
+      "folder": "25-26 Brazil Special Edition Kneeling to the Gods S-2XL2",
+      "reason": "low_quality(best=25-26 Brazil Special Edition Kneeling to the Gods S-2XL2_7.jpeg, 810x1080, 124758b)"
+    },
+    {
+      "folder": "25-26 Celtics goalkeeper S-XXL2",
+      "reason": "low_quality(best=25-26 Celtics goalkeeper S-XXL2_1.jpeg, 1080x810, 68709b)"
+    },
+    {
+      "folder": "25-26 Dortmund Cup Edition S-4XL4",
+      "reason": "low_quality(best=25-26 Dortmund Cup Edition S-4XL4_3.jpeg, 810x1080, 334081b)"
+    },
+    {
+      "folder": "25-26 Fenerbahçe Third Away Game S-2XL2",
+      "reason": "low_quality(best=25-26 Fenerbahçe Third Away Game S-2XL2_1.jpeg, 847x1080, 264350b)"
+    },
+    {
+      "folder": "25-26 Kids - Dortmund Away Game 16# - 28#2",
+      "reason": "low_quality(best=25-26 Kids - Dortmund Away Game 16# - 28#2_7.jpeg, 1080x810, 260606b)"
+    },
+    {
+      "folder": "25-26 Kids - Inter Milan's Third Away Game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids - Inter Milan's Third Away Game 16# - 28#5_7.jpeg, 810x1080, 144659b)"
+    },
+    {
+      "folder": "25-26 Kids - Marseille Third Away Game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids - Marseille Third Away Game 16# - 28#5_11.jpeg, 1080x810, 231637b)"
+    },
+    {
+      "folder": "25-26 Kids Atletico Madrid's Third Away Game 16# - 28#2",
+      "reason": "low_quality(best=25-26 Kids Atletico Madrid's Third Away Game 16# - 28#2_3.jpeg, 1080x608, 187684b)"
+    },
+    {
+      "folder": "25-26 Kids Barcelona Special Edition Blue 16#-28#4",
+      "reason": "low_quality(best=25-26 Kids Barcelona Special Edition Blue 16#-28#4_7.jpeg, 1080x810, 216392b)"
+    },
+    {
+      "folder": "25-26 Kids Barcelona collaboration Edition 16#-28#5",
+      "reason": "low_quality(best=25-26 Kids Barcelona collaboration Edition 16#-28#5_2.jpg, 810x1080, 186189b)"
+    },
+    {
+      "folder": "25-26 Kids Chelsea Third Away Game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids Chelsea Third Away Game 16# - 28#5_3.jpeg, 1080x810, 145722b)"
+    },
+    {
+      "folder": "25-26 Kids Napoli Third Away Game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids Napoli Third Away Game 16# - 28#5_14.jpeg, 1080x810, 175806b)"
+    },
+    {
+      "folder": "25-26 Kids Paris Special Edition Orange 16#-28#5",
+      "reason": "low_quality(best=25-26 Kids Paris Special Edition Orange 16#-28#5_9.jpeg, 1080x810, 198286b)"
+    },
+    {
+      "folder": "25-26 Kids Tottenham Hotspur Third Away Game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids Tottenham Hotspur Third Away Game 16# - 28#5_9.jpeg, 810x1080, 136475b)"
+    },
+    {
+      "folder": "25-26 Kids Valencia Away Game 16# - 28#6",
+      "reason": "low_quality(best=25-26 Kids Valencia Away Game 16# - 28#6_4.jpeg, 1080x810, 202733b)"
+    },
+    {
+      "folder": "25-26 Kids Valencia Third Away Game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids Valencia Third Away Game 16# - 28#5_3.jpeg, 1080x810, 111010b)"
+    },
+    {
+      "folder": "25-26 Kids Valencia home game 16# - 28#5",
+      "reason": "low_quality(best=25-26 Kids Valencia home game 16# - 28#5_5.jpeg, 1080x810, 110992b)"
+    },
+    {
+      "folder": "25-26 Marseille Fourth Away Game S-2XL2",
+      "reason": "low_quality(best=25-26 Marseille Fourth Away Game S-2XL2_5.jpeg, 1080x810, 282333b)"
+    },
+    {
+      "folder": "25-26 Napoli away game - S-XXL3",
+      "reason": "low_quality(best=25-26 Napoli away game - S-XXL3_1.jpeg, 1080x809, 244022b)"
+    },
+    {
+      "folder": "25-26 Napoli goalkeeper S-4XL4",
+      "reason": "low_quality(best=25-26 Napoli goalkeeper S-4XL4_6.jpeg, 1080x810, 254779b)"
+    },
+    {
+      "folder": "25-26 New England pre-match training suit S-4XL2",
+      "reason": "low_quality(best=25-26 New England pre-match training suit S-4XL2_3.jpeg, 1080x810, 326081b)"
+    },
+    {
+      "folder": "25-26 Paris Special Edition S-2xL7",
+      "reason": "low_quality(best=25-26 Paris Special Edition S-2xL7_20.jpeg, 810x1080, 325401b)"
+    },
+    {
+      "folder": "25-26 Paris Special Edition S-XXL2",
+      "reason": "low_quality(best=25-26 Paris Special Edition S-XXL2_7.jpeg, 608x1080, 78389b)"
+    },
+    {
+      "folder": "25-26 Paris Training Suit S-4XL2",
+      "reason": "low_quality(best=25-26 Paris Training Suit S-4XL2_1.jpg, 1080x810, 184223b)"
+    },
+    {
+      "folder": "25-26 Paris training uniform white S-2XL3",
+      "reason": "low_quality(best=25-26 Paris training uniform white S-2XL3_6.jpeg, 1080x809, 172874b)"
+    },
+    {
+      "folder": "25-26 Player Barcelona Special Edition S-XXL7",
+      "reason": "low_quality(best=25-26 Player Barcelona Special Edition S-XXL7_9.jpg, 810x1080, 316101b)"
+    },
+    {
+      "folder": "25-26 Player Edition Barcelona POLO Black S-2XL4",
+      "reason": "low_quality(best=25-26 Player Edition Barcelona POLO Black S-2XL4_9.jpg, 810x1080, 243133b)"
+    },
+    {
+      "folder": "25-26 Player Edition Barcelona POLO Maroon S-2XL4",
+      "reason": "low_quality(best=25-26 Player Edition Barcelona POLO Maroon S-2XL4_11.jpg, 810x1080, 197686b)"
+    },
+    {
+      "folder": "25-26 Player Edition Barcelona POLO White S-2XL4",
+      "reason": "low_quality(best=25-26 Player Edition Barcelona POLO White S-2XL4_12.jpg, 810x1080, 205659b)"
+    },
+    {
+      "folder": "25-26 Player Edition Blue long-sleeved shirt for Germany's 125th anniversary S-XXL2",
+      "reason": "low_quality(best=25-26 Player Edition Blue long-sleeved shirt for Germany's 125th anniversary S-XXL2_5.jpg, 810x1080, 104585b)"
+    },
+    {
+      "folder": "25-26 Player version Atletico Madrid's long-sleeved team S-XXL2",
+      "reason": "low_quality(best=25-26 Player version Atletico Madrid's long-sleeved team S-XXL2_5.jpg, 810x1080, 129536b)"
+    },
+    {
+      "folder": "25-26 Player version Barcelona's long-sleeved home team S-XXL2",
+      "reason": "low_quality(best=25-26 Player version Barcelona's long-sleeved home team S-XXL2_5.jpg, 810x1080, 255344b)"
+    },
+    {
+      "folder": "25-26 Player version Bayern Munich away S-2XL6",
+      "reason": "low_quality(best=25-26 Player version Bayern Munich away S-2XL6_8.jpg, 810x1080, 272605b)"
+    },
+    {
+      "folder": "25-26 Players Porto home S-XXL6",
+      "reason": "low_quality(best=25-26 Players Porto home S-XXL6_7.jpeg, 810x1080, 365129b)"
+    },
+    {
+      "folder": "25-26 Porto Special Edition S-XXL2",
+      "reason": "low_quality(best=25-26 Porto Special Edition S-XXL2_5.jpeg, 1080x810, 284756b)"
+    },
+    {
+      "folder": "25-26 Porto home S-XXL2",
+      "reason": "low_quality(best=25-26 Porto home S-XXL2_1.jpeg, 1080x810, 209688b)"
+    },
+    {
+      "folder": "25-26 Real Madrid LV Edition S-4XL4",
+      "reason": "low_quality(best=25-26 Real Madrid LV Edition S-4XL4_6.jpeg, 810x1080, 337992b)"
+    },
+    {
+      "folder": "25-26 Real Madrid's blue goalkeeper S-XXL2",
+      "reason": "low_quality(best=25-26 Real Madrid's blue goalkeeper S-XXL2_7.jpeg, 1080x810, 118114b)"
+    },
+    {
+      "folder": "25-26 Real Madrid's purple goalkeeper S-XXL2",
+      "reason": "low_quality(best=25-26 Real Madrid's purple goalkeeper S-XXL2_1.jpeg, 1080x810, 116183b)"
+    },
+    {
+      "folder": "25-26 Tottenham Concept Version S-4XL2",
+      "reason": "low_quality(best=25-26 Tottenham Concept Version S-4XL2_5.jpeg, 1080x810, 353355b)"
+    },
+    {
+      "folder": "25-26 kids Atletico Madrid goalkeeper yellow 16#-28#2",
+      "reason": "low_quality(best=25-26 kids Atletico Madrid goalkeeper yellow 16#-28#2_6.jpeg, 810x1080, 194216b)"
+    },
+    {
+      "folder": "25-26 kids Barcelona pink 16#-28#2",
+      "reason": "low_quality(best=25-26 kids Barcelona pink 16#-28#2_4.jpeg, 1080x810, 209613b)"
+    },
+    {
+      "folder": "25-26 kids Barcelona training suits 16#-28#5",
+      "reason": "low_quality(best=25-26 kids Barcelona training suits 16#-28#5_10.jpeg, 1080x810, 254923b)"
+    },
+    {
+      "folder": "25-26 kids Benfica goalkeeper yellow 16#-28#2",
+      "reason": "low_quality(best=25-26 kids Benfica goalkeeper yellow 16#-28#2_2.jpeg, 810x1080, 184005b)"
+    },
+    {
+      "folder": "25-26 kids Celtics away game 16# - 28#5",
+      "reason": "low_quality(best=25-26 kids Celtics away game 16# - 28#5_7.jpeg, 1080x810, 153853b)"
+    },
+    {
+      "folder": "25-26 kids England goalkeeper Green 16#-28#2",
+      "reason": "low_quality(best=25-26 kids England goalkeeper Green 16#-28#2_3.jpeg, 810x1080, 200117b)"
+    },
+    {
+      "folder": "25-26 kids England's home 16#-28#2",
+      "reason": "low_quality(best=25-26 kids England's home 16#-28#2_7.jpeg, 1080x657, 126286b)"
+    },
+    {
+      "folder": "25-26 kids Manchester City goalkeeper purple 16#-28#2",
+      "reason": "low_quality(best=25-26 kids Manchester City goalkeeper purple 16#-28#2_5.jpeg, 810x1080, 221711b)"
+    },
+    {
+      "folder": "25-26 kids Manchester City goalkeeper yellow 16#-28#2",
+      "reason": "low_quality(best=25-26 kids Manchester City goalkeeper yellow 16#-28#2_1.jpeg, 810x1080, 207114b)"
+    },
+    {
+      "folder": "25-26 kids USA goalkeeper Green 16#-28#2",
+      "reason": "low_quality(best=25-26 kids USA goalkeeper Green 16#-28#2_3.jpeg, 810x1080, 201452b)"
+    },
+    {
+      "folder": "25-26 kids at Ajax's home 16#-28#11",
+      "reason": "low_quality(best=25-26 kids at Ajax's home 16#-28#11_9.jpg, 1080x887, 181133b)"
+    },
+    {
+      "folder": "25-262 Paris Saint-Germain's third away game Pink S-4XL3",
+      "reason": "low_quality(best=25-262 Paris Saint-Germain's third away game Pink S-4XL3_2.jpeg, 1080x810, 264204b)"
+    },
+    {
+      "folder": "25-26Bayern Munich away S-4XL3",
+      "reason": "low_quality(best=25-26Bayern Munich away S-4XL3_5.jpeg, 809x1080, 266685b)"
+    },
+    {
+      "folder": "25-26Tottenham Hotspur away S-2XL3",
+      "reason": "low_quality(best=25-26Tottenham Hotspur away S-2XL3_3.jpeg, 810x1080, 158350b)"
+    },
+    {
+      "folder": "2526 AJ Yellow Label Brazilian Goddess S-4XL2",
+      "reason": "low_quality(best=2526 AJ Yellow Label Brazilian Goddess S-4XL2_5.jpeg, 1080x810, 254144b)"
+    },
+    {
+      "folder": "2526 Ajax Collaboration Edition S-XXL3",
+      "reason": "low_quality(best=2526 Ajax Collaboration Edition S-XXL3_3.jpeg, 810x1080, 322067b)"
+    },
+    {
+      "folder": "2526 Ajax Retro Special Edition S-4XL6",
+      "reason": "low_quality(best=2526 Ajax Retro Special Edition S-4XL6_13.jpeg, 608x1080, 288731b)"
+    },
+    {
+      "folder": "2526 Ajax Special Edition S-XXL2",
+      "reason": "low_quality(best=2526 Ajax Special Edition S-XXL2_7.jpeg, 1080x810, 207350b)"
+    },
+    {
+      "folder": "2526 Argentine baseball jersey S-XXL3",
+      "reason": "low_quality(best=2526 Argentine baseball jersey S-XXL3_6.jpeg, 810x1080, 234866b)"
+    },
+    {
+      "folder": "2526 Arsenal Arsenal NTS Joint-Design Edition S-4XL2",
+      "reason": "low_quality(best=2526 Arsenal Arsenal NTS Joint-Design Edition S-4XL2_1.jpeg, 1080x810, 154237b)"
+    },
+    {
+      "folder": "2526 Arsenal training uniform - S-4XL2",
+      "reason": "low_quality(best=2526 Arsenal training uniform - S-4XL2_6.jpeg, 1080x811, 248174b)"
+    },
+    {
+      "folder": "2526 Atletico Madrid away S-3XL8",
+      "reason": "low_quality(best=2526 Atletico Madrid away S-3XL8_16.jpeg, 822x1080, 396782b)"
+    },
+    {
+      "folder": "2526 Barcelona Home S-XXL4",
+      "reason": "low_quality(best=2526 Barcelona Home S-XXL4_5.jpg, 824x1080, 385707b)"
+    },
+    {
+      "folder": "2526 Barcelona Special Edition Black S-2XL2",
+      "reason": "low_quality(best=2526 Barcelona Special Edition Black S-2XL2_1.jpeg, 810x1080, 261271b)"
+    },
+    {
+      "folder": "2526 Barcelona Special Edition Green S-XXL3",
+      "reason": "low_quality(best=2526 Barcelona Special Edition Green S-XXL3_4.jpeg, 1080x810, 387976b)"
+    },
+    {
+      "folder": "2526 Barcelona Special Edition Grey S-2XL2",
+      "reason": "low_quality(best=2526 Barcelona Special Edition Grey S-2XL2_5.jpeg, 810x1080, 264927b)"
+    },
+    {
+      "folder": "2526 Barcelona Special Edition Pink S-2XL2",
+      "reason": "low_quality(best=2526 Barcelona Special Edition Pink S-2XL2_6.jpeg, 810x1080, 254803b)"
+    },
+    {
+      "folder": "2526 Barcelona Special Edition S-XXL2",
+      "reason": "low_quality(best=2526 Barcelona Special Edition S-XXL2_3.jpeg, 1080x832, 248268b)"
+    },
+    {
+      "folder": "2526 Barcelona co-branded S-XXL5",
+      "reason": "low_quality(best=2526 Barcelona co-branded S-XXL5_7.jpg, 1080x953, 102191b)"
+    },
+    {
+      "folder": "2526 Barcelona home basketball uniform - S-2XL3",
+      "reason": "low_quality(best=2526 Barcelona home basketball uniform - S-2XL3_2.jpeg, 810x1080, 180933b)"
+    },
+    {
+      "folder": "2526 Bayer Leverkusen Pink S-XXL2",
+      "reason": "low_quality(best=2526 Bayer Leverkusen Pink S-XXL2_6.jpeg, 810x1080, 213657b)"
+    },
+    {
+      "folder": "2526 Benfica Home S-4XL2",
+      "reason": "low_quality(best=2526 Benfica Home S-4XL2_6.jpeg, 1080x810, 76180b)"
+    },
+    {
+      "folder": "2526 Benfica Retro version S-4XL12",
+      "reason": "low_quality(best=2526 Benfica Retro version S-4XL12_11.jpeg, 608x1080, 261872b)"
+    },
+    {
+      "folder": "2526 Benfica Third Away Game S-4XL2",
+      "reason": "low_quality(best=2526 Benfica Third Away Game S-4XL2_7.jpg, 809x1080, 298815b)"
+    },
+    {
+      "folder": "2526 Benfica away S-4XL2",
+      "reason": "low_quality(best=2526 Benfica away S-4XL2_1.jpeg, 810x1080, 176321b)"
+    },
+    {
+      "folder": "2526 Brazil International Away S-4XL5",
+      "reason": "low_quality(best=2526 Brazil International Away S-4XL5_3.jpeg, 1080x810, 314235b)"
+    },
+    {
+      "folder": "2526 Brazilian Special Edition Red S-XXL4",
+      "reason": "low_quality(best=2526 Brazilian Special Edition Red S-XXL4_6.jpeg, 810x1080, 200363b)"
+    },
+    {
+      "folder": "2526 Galatasaray Home S-4XL2",
+      "reason": "low_quality(best=2526 Galatasaray Home S-4XL2_2.jpeg, 810x1080, 162325b)"
+    },
+    {
+      "folder": "2526 Galatasaray away S-4 XL2",
+      "reason": "low_quality(best=2526 Galatasaray away S-4 XL2_2.jpg, 810x1080, 98997b)"
+    },
+    {
+      "folder": "2526 Hollywood Brazilian goalkeeper S-2XL3",
+      "reason": "low_quality(best=2526 Hollywood Brazilian goalkeeper S-2XL3_7.jpeg, 859x1080, 317807b)"
+    },
+    {
+      "folder": "2526 Hollywood England Goalkeeper S-2XL3",
+      "reason": "low_quality(best=2526 Hollywood England Goalkeeper S-2XL3_5.jpeg, 810x1080, 305632b)"
+    },
+    {
+      "folder": "2526 Hollywood Nigerian Goalkeeper Long Sleeve S-2XL3",
+      "reason": "low_quality(best=2526 Hollywood Nigerian Goalkeeper Long Sleeve S-2XL3_5.jpg, 810x1080, 308394b)"
+    },
+    {
+      "folder": "2526 Inter Milan - Third Away Game - S-XXL6",
+      "reason": "low_quality(best=2526 Inter Milan - Third Away Game - S-XXL6_17.jpeg, 810x1080, 240294b)"
+    },
+    {
+      "folder": "2526 Jerusalem pre-race uniform S-3XL3",
+      "reason": "low_quality(best=2526 Jerusalem pre-race uniform S-3XL3_7.jpeg, 810x1080, 274372b)"
+    },
+    {
+      "folder": "2526 Kids - France Home Team 16# - 28#2",
+      "reason": "low_quality(best=2526 Kids - France Home Team 16# - 28#2_4.jpeg, 1080x810, 211976b)"
+    },
+    {
+      "folder": "2526 Kids Arsenal Goalkeeper Light Yellow 16# - 28#2",
+      "reason": "low_quality(best=2526 Kids Arsenal Goalkeeper Light Yellow 16# - 28#2_2.jpeg, 809x1080, 169448b)"
+    },
+    {
+      "folder": "2526 Kids Arsenal Pink Goalkeeper 16# - 28#2",
+      "reason": "low_quality(best=2526 Kids Arsenal Pink Goalkeeper 16# - 28#2_2.jpeg, 810x1080, 179558b)"
+    },
+    {
+      "folder": "2526 Kids Arsenal Training Uniforms 16# - 28#3",
+      "reason": "low_quality(best=2526 Kids Arsenal Training Uniforms 16# - 28#3_9.jpeg, 1080x810, 312522b)"
+    },
+    {
+      "folder": "2526 Kids Arsenal Vintage Version 16# - 28#4",
+      "reason": "low_quality(best=2526 Kids Arsenal Vintage Version 16# - 28#4_11.jpg, 1080x810, 203874b)"
+    },
+    {
+      "folder": "2526 Kids Atletico Madrid away 16#-28#5",
+      "reason": "low_quality(best=2526 Kids Atletico Madrid away 16#-28#5_8.jpeg, 1080x810, 208112b)"
+    },
+    {
+      "folder": "2526 Kids Barcelona 125th Anniversary Edition 16#-28#2",
+      "reason": "low_quality(best=2526 Kids Barcelona 125th Anniversary Edition 16#-28#2_4.jpeg, 1080x794, 326955b)"
+    },
+    {
+      "folder": "2526 Kids Barcelona Lions Special Edition 16#-28#2",
+      "reason": "low_quality(best=2526 Kids Barcelona Lions Special Edition 16#-28#2_7.jpeg, 1080x810, 328794b)"
+    },
+    {
+      "folder": "2526 Kids Barcelona Special Edition Pink 16#-28#2",
+      "reason": "low_quality(best=2526 Kids Barcelona Special Edition Pink 16#-28#2_1.jpeg, 1080x810, 114728b)"
+    },
+    {
+      "folder": "2526 Kids Paris Home Star Version 16#-28#7",
+      "reason": "low_quality(best=2526 Kids Paris Home Star Version 16#-28#7_9.jpeg, 1080x852, 371554b)"
+    },
+    {
+      "folder": "2526 Kids Paris Special Edition Blue 16# - 28#2",
+      "reason": "low_quality(best=2526 Kids Paris Special Edition Blue 16# - 28#2_4.jpeg, 1080x810, 294020b)"
+    },
+    {
+      "folder": "2526 Kids Paris Special Edition Pink 16# - 28#2",
+      "reason": "low_quality(best=2526 Kids Paris Special Edition Pink 16# - 28#2_5.jpeg, 1080x810, 279323b)"
+    },
+    {
+      "folder": "2526 Kids Real Madrid Special Edition Blue 7 No. 16#-28#2",
+      "reason": "low_quality(best=2526 Kids Real Madrid Special Edition Blue 7 No. 16#-28#2_1.jpeg, 810x1080, 249359b)"
+    },
+    {
+      "folder": "2526 Leverkusen Third Away Game S - 2XL3",
+      "reason": "low_quality(best=2526 Leverkusen Third Away Game S - 2XL3_3.jpg, 1080x1024, 115181b)"
+    },
+    {
+      "folder": "2526 Leverkusen home Black S-XXL4",
+      "reason": "low_quality(best=2526 Leverkusen home Black S-XXL4_8.jpeg, 896x1080, 302872b)"
+    },
+    {
+      "folder": "2526 Lyon Anniversary Edition S-XXL2",
+      "reason": "low_quality(best=2526 Lyon Anniversary Edition S-XXL2_6.jpg, 810x1080, 264663b)"
+    },
+    {
+      "folder": "2526 Manchester City Special Edition S - XXL2",
+      "reason": "low_quality(best=2526 Manchester City Special Edition S - XXL2_2.jpg, 1080x810, 127172b)"
+    },
+    {
+      "folder": "2526 Marseille Home S-4XL3",
+      "reason": "low_quality(best=2526 Marseille Home S-4XL3_2.jpeg, 868x1080, 149107b)"
+    },
+    {
+      "folder": "2526 Marseille Home S-4XL7",
+      "reason": "low_quality(best=2526 Marseille Home S-4XL7_5.jpeg, 810x1080, 270510b)"
+    },
+    {
+      "folder": "2526 Mexico Special Edition S-4XL2",
+      "reason": "low_quality(best=2526 Mexico Special Edition S-4XL2_7.jpg, 1080x810, 346354b)"
+    },
+    {
+      "folder": "2526 Napoli goalkeeper S-4XL9",
+      "reason": "low_quality(best=2526 Napoli goalkeeper S-4XL9_8.jpeg, 810x1080, 252028b)"
+    },
+    {
+      "folder": "2526 Napoli training jersey in blue, S-XXL6",
+      "reason": "low_quality(best=2526 Napoli training jersey in blue, S-XXL6_11.jpeg, 1080x810, 358723b)"
+    },
+    {
+      "folder": "2526 Napoli training uniform, sky blue, S-4XL3",
+      "reason": "low_quality(best=2526 Napoli training uniform, sky blue, S-4XL3_9.jpeg, 810x1080, 179414b)"
+    },
+    {
+      "folder": "2526 PSV Eindhoven away S-2XL4",
+      "reason": "low_quality(best=2526 PSV Eindhoven away S-2XL4_8.jpeg, 810x1080, 95437b)"
+    },
+    {
+      "folder": "2526 PSV Eindhoven third away S-4XL2",
+      "reason": "low_quality(best=2526 PSV Eindhoven third away S-4XL2_5.jpeg, 1080x810, 315009b)"
+    },
+    {
+      "folder": "2526 PSV Eindhoven third away S-4XL4",
+      "reason": "low_quality(best=2526 PSV Eindhoven third away S-4XL4_12.jpeg, 1080x810, 315009b)"
+    },
+    {
+      "folder": "2526 Paris - Fourth Away Game S-XXL4",
+      "reason": "low_quality(best=2526 Paris - Fourth Away Game S-XXL4_12.jpeg, 1080x810, 342385b)"
+    },
+    {
+      "folder": "2526 Paris Champion Special Edition S-XXL is in stock8",
+      "reason": "low_quality(best=2526 Paris Champion Special Edition S-XXL is in stock8_12.jpeg, 810x1080, 203259b)"
+    },
+    {
+      "folder": "2526 Paris Concept Edition S-4XL4",
+      "reason": "low_quality(best=2526 Paris Concept Edition S-4XL4_2.jpeg, 810x1080, 315512b)"
+    },
+    {
+      "folder": "2526 Paris Special Edition S-XXL2",
+      "reason": "low_quality(best=2526 Paris Special Edition S-XXL2_2.jpeg, 1080x821, 260218b)"
+    },
+    {
+      "folder": "2526 Paris Training Suit S-4XL2",
+      "reason": "low_quality(best=2526 Paris Training Suit S-4XL2_6.jpeg, 891x1080, 176805b)"
+    },
+    {
+      "folder": "2526 Player Edition Arsenal Special Edition S-2XL2",
+      "reason": "low_quality(best=2526 Player Edition Arsenal Special Edition S-2XL2_4.jpeg, 810x1080, 186796b)"
+    },
+    {
+      "folder": "2526 Player Edition Atletico Madrid's Third Away Game - S-XXL7",
+      "reason": "low_quality(best=2526 Player Edition Atletico Madrid's Third Away Game - S-XXL7_3.jpeg, 810x1080, 157152b)"
+    },
+    {
+      "folder": "2526 Player Edition Bayern Munich Beer Edition S-XXL7",
+      "reason": "low_quality(best=2526 Player Edition Bayern Munich Beer Edition S-XXL7_4.jpeg, 810x1080, 377471b)"
+    },
+    {
+      "folder": "2526 Player Edition Chelsea's Third Away Game - S-XXL6",
+      "reason": "low_quality(best=2526 Player Edition Chelsea's Third Away Game - S-XXL6_13.jpeg, 810x1080, 147419b)"
+    },
+    {
+      "folder": "2526 Player Edition Korean Training Uniform - S-XXL3",
+      "reason": "low_quality(best=2526 Player Edition Korean Training Uniform - S-XXL3_2.jpeg, 875x1080, 160650b)"
+    },
+    {
+      "folder": "2526 Player Edition Napoli Halloween S-3XL3",
+      "reason": "low_quality(best=2526 Player Edition Napoli Halloween S-3XL3_8.jpeg, 810x1080, 292289b)"
+    },
+    {
+      "folder": "2526 Player Edition Napoli Halloween S-3XL4",
+      "reason": "low_quality(best=2526 Player Edition Napoli Halloween S-3XL4_2.jpeg, 810x1080, 282931b)"
+    },
+    {
+      "folder": "2526 Player Edition Napoli Special Edition S-XXL3",
+      "reason": "low_quality(best=2526 Player Edition Napoli Special Edition S-XXL3_10.jpeg, 1080x810, 243848b)"
+    },
+    {
+      "folder": "2526 Player Edition Paris Fourth Away Game S-XXL6",
+      "reason": "low_quality(best=2526 Player Edition Paris Fourth Away Game S-XXL6_9.jpeg, 810x1080, 301172b)"
+    },
+    {
+      "folder": "2526 Player Edition Paris Special Edition S-2XL2",
+      "reason": "low_quality(best=2526 Player Edition Paris Special Edition S-2XL2_1.jpeg, 810x1080, 200386b)"
+    },
+    {
+      "folder": "2526 Player Edition Real Madrid Special Edition S-2XL2",
+      "reason": "low_quality(best=2526 Player Edition Real Madrid Special Edition S-2XL2_5.jpeg, 810x1080, 138864b)"
+    },
+    {
+      "folder": "2526 Player Edition Senegal Away S-XXL6",
+      "reason": "low_quality(best=2526 Player Edition Senegal Away S-XXL6_16.jpeg, 810x1080, 325649b)"
+    },
+    {
+      "folder": "2526 Player Edition Senegal Home S-XXL6",
+      "reason": "low_quality(best=2526 Player Edition Senegal Home S-XXL6_4.jpeg, 810x1080, 260867b)"
+    },
+    {
+      "folder": "2526 Player Version Barcelona Personalized Version S-XXL3",
+      "reason": "low_quality(best=2526 Player Version Barcelona Personalized Version S-XXL3_4.jpeg, 1080x810, 160397b)"
+    },
+    {
+      "folder": "2526 Player version Arsenal Home long-sleeved S-XXL7",
+      "reason": "low_quality(best=2526 Player version Arsenal Home long-sleeved S-XXL7_7.jpeg, 810x1080, 234925b)"
+    },
+    {
+      "folder": "2526 Player version Atletico Madrid's away S-XXL3",
+      "reason": "low_quality(best=2526 Player version Atletico Madrid's away S-XXL3_3.jpeg, 810x1080, 249090b)"
+    },
+    {
+      "folder": "2526 Player version Barcelona's third away game S-XXL2",
+      "reason": "low_quality(best=2526 Player version Barcelona's third away game S-XXL2_3.jpeg, 810x1080, 153092b)"
+    },
+    {
+      "folder": "2526 Player version France's away S-2XL9",
+      "reason": "low_quality(best=2526 Player version France's away S-2XL9_16.jpeg, 810x1080, 321837b)"
+    },
+    {
+      "folder": "2526 Player version Kid Algeria A37 purple 16#-28#5",
+      "reason": "low_quality(best=2526 Player version Kid Algeria A37 purple 16#-28#5_15.jpeg, 1080x810, 423115b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian A37 Black and colored 16#-28#5",
+      "reason": "low_quality(best=2526 Player version Kids Algerian A37 Black and colored 16#-28#5_14.jpeg, 1080x810, 394825b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian A37 Green 16#-28#5",
+      "reason": "low_quality(best=2526 Player version Kids Algerian A37 Green 16#-28#5_16.jpeg, 1080x810, 413726b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian A37 Pink 16#-28#5",
+      "reason": "low_quality(best=2526 Player version Kids Algerian A37 Pink 16#-28#5_7.jpeg, 1080x810, 365612b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian A37 black and yellow 16#-28#4",
+      "reason": "low_quality(best=2526 Player version Kids Algerian A37 black and yellow 16#-28#4_3.jpeg, 1080x810, 345888b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian A37 blue 16#-28#5",
+      "reason": "low_quality(best=2526 Player version Kids Algerian A37 blue 16#-28#5_15.jpeg, 1080x810, 416937b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian A37 white 16#-28#5",
+      "reason": "low_quality(best=2526 Player version Kids Algerian A37 white 16#-28#5_14.jpeg, 1080x810, 345218b)"
+    },
+    {
+      "folder": "2526 Player version Kids Algerian White 16#-28#2",
+      "reason": "low_quality(best=2526 Player version Kids Algerian White 16#-28#2_7.jpeg, 1080x607, 138928b)"
+    },
+    {
+      "folder": "2526 Player version Kids Real Madrid Black 16#-28#4",
+      "reason": "low_quality(best=2526 Player version Kids Real Madrid Black 16#-28#4_7.jpeg, 1080x810, 297099b)"
+    },
+    {
+      "folder": "2526 Player version Paris Pink S-XXL7",
+      "reason": "low_quality(best=2526 Player version Paris Pink S-XXL7_1.jpeg, 810x1080, 256837b)"
+    },
+    {
+      "folder": "2526 Player version Paris Third away S-2XL4",
+      "reason": "low_quality(best=2526 Player version Paris Third away S-2XL4_9.jpg, 810x1080, 264480b)"
+    },
+    {
+      "folder": "2526 Player version Real Madrid away S-2XL3",
+      "reason": "low_quality(best=2526 Player version Real Madrid away S-2XL3_1.jpeg, 810x1080, 389315b)"
+    },
+    {
+      "folder": "2526 Player version Real Madrid third away S-2XL11",
+      "reason": "low_quality(best=2526 Player version Real Madrid third away S-2XL11_23.jpeg, 810x1080, 366860b)"
+    },
+    {
+      "folder": "2526 Player version Real Madrid's home S-2XL3",
+      "reason": "low_quality(best=2526 Player version Real Madrid's home S-2XL3_8.jpeg, 810x1080, 376104b)"
+    },
+    {
+      "folder": "2526 Player's Edition Arsenal Blue S-XXL8",
+      "reason": "low_quality(best=2526 Player's Edition Arsenal Blue S-XXL8_15.jpeg, 810x1080, 343188b)"
+    },
+    {
+      "folder": "2526 Player's Edition Arsenal Grey S-XXL8",
+      "reason": "low_quality(best=2526 Player's Edition Arsenal Grey S-XXL8_12.jpeg, 810x1080, 384168b)"
+    },
+    {
+      "folder": "2526 Player's Edition Arsenal Retro S-2XL2",
+      "reason": "low_quality(best=2526 Player's Edition Arsenal Retro S-2XL2_4.jpeg, 811x1080, 108591b)"
+    },
+    {
+      "folder": "2526 Player's Edition Lyon Away S-XXL10",
+      "reason": "low_quality(best=2526 Player's Edition Lyon Away S-XXL10_14.jpeg, 810x1080, 311074b)"
+    },
+    {
+      "folder": "2526 Player's Edition Marseille Away S-XXL10",
+      "reason": "low_quality(best=2526 Player's Edition Marseille Away S-XXL10_13.jpeg, 1080x810, 286324b)"
+    },
+    {
+      "folder": "2526 Player's Edition Marseille Home S-XXL8",
+      "reason": "low_quality(best=2526 Player's Edition Marseille Home S-XXL8_7.jpeg, 810x1080, 371200b)"
+    },
+    {
+      "folder": "2526 Porto Third Away Game - S~4XL2",
+      "reason": "low_quality(best=2526 Porto Third Away Game - S~4XL2_7.jpeg, 1080x1044, 110337b)"
+    },
+    {
+      "folder": "2526 Real Madrid Home women's vest S-XL3",
+      "reason": "low_quality(best=2526 Real Madrid Home women's vest S-XL3_2.jpeg, 810x1080, 294135b)"
+    },
+    {
+      "folder": "2526 Real Madrid goalkeepers, grayish-black, 16#-28#2",
+      "reason": "low_quality(best=2526 Real Madrid goalkeepers, grayish-black, 16#-28#2_4.jpeg, 810x1080, 202666b)"
+    },
+    {
+      "folder": "2526 Real Madrid home basketball uniform - S-2XL3",
+      "reason": "low_quality(best=2526 Real Madrid home basketball uniform - S-2XL3_7.jpeg, 810x1080, 273812b)"
+    },
+    {
+      "folder": "2526 Real Madrid's blue-green pre-match training uniform S-2XL3",
+      "reason": "low_quality(best=2526 Real Madrid's blue-green pre-match training uniform S-2XL3_7.jpeg, 1080x873, 272737b)"
+    },
+    {
+      "folder": "2526 Roman Training Shirt S - 4XL2",
+      "reason": "low_quality(best=2526 Roman Training Shirt S - 4XL2_5.jpeg, 1080x810, 87819b)"
+    },
+    {
+      "folder": "2526 Valencia Half-Sleeve Top S-2XL3",
+      "reason": "low_quality(best=2526 Valencia Half-Sleeve Top S-2XL3_9.jpeg, 832x1080, 214124b)"
+    },
+    {
+      "folder": "2526 Valencia The third away S-XXL4",
+      "reason": "low_quality(best=2526 Valencia The third away S-XXL4_13.jpeg, 1080x810, 239856b)"
+    },
+    {
+      "folder": "2526 Valencia away S-XXL4",
+      "reason": "low_quality(best=2526 Valencia away S-XXL4_10.jpeg, 1080x810, 378727b)"
+    },
+    {
+      "folder": "2526 Valencia home S-XXL2",
+      "reason": "low_quality(best=2526 Valencia home S-XXL2_5.jpeg, 810x1080, 142482b)"
+    },
+    {
+      "folder": "2526 Women's Backless Top - Special Edition from Mexico - S-XXL2",
+      "reason": "low_quality(best=2526 Women's Backless Top - Special Edition from Mexico - S-XXL2_3.jpeg, 810x1080, 312807b)"
+    },
+    {
+      "folder": "2526 Women's Blouse - Real Madrid Third Away Game - S-XXL2",
+      "reason": "low_quality(best=2526 Women's Blouse - Real Madrid Third Away Game - S-XXL2_4.jpeg, 1080x810, 352017b)"
+    },
+    {
+      "folder": "2526 Women's Chelsea home S-XXL2",
+      "reason": "low_quality(best=2526 Women's Chelsea home S-XXL2_7.jpg, 810x1080, 401931b)"
+    },
+    {
+      "folder": "2526 kids - Dortmund home game 16# - 28#2",
+      "reason": "low_quality(best=2526 kids - Dortmund home game 16# - 28#2_4.jpeg, 1080x810, 293575b)"
+    },
+    {
+      "folder": "2526 kids Barcelona Special Edition 16# - 28#2",
+      "reason": "low_quality(best=2526 kids Barcelona Special Edition 16# - 28#2_1.jpeg, 1080x608, 153153b)"
+    },
+    {
+      "folder": "2526 kids Barcelona Special Edition Color Blue 16# - 28#2",
+      "reason": "low_quality(best=2526 kids Barcelona Special Edition Color Blue 16# - 28#2_3.jpeg, 1080x810, 292605b)"
+    },
+    {
+      "folder": "2526 kids Barcelona Special Edition Green and Blue 16#-28#2",
+      "reason": "low_quality(best=2526 kids Barcelona Special Edition Green and Blue 16#-28#2_4.jpeg, 810x1080, 233278b)"
+    },
+    {
+      "folder": "2526 kids Barcelona Special Edition Grey 16#-28#2",
+      "reason": "low_quality(best=2526 kids Barcelona Special Edition Grey 16#-28#2_1.jpeg, 810x1080, 230024b)"
+    },
+    {
+      "folder": "2526 kids Bayern Munich goalkeeper black 16#-28#2",
+      "reason": "low_quality(best=2526 kids Bayern Munich goalkeeper black 16#-28#2_7.jpeg, 810x1080, 203154b)"
+    },
+    {
+      "folder": "2526 kids Bayern Munich goalkeeper blue 16#-28#2",
+      "reason": "low_quality(best=2526 kids Bayern Munich goalkeeper blue 16#-28#2_7.jpeg, 810x1080, 179696b)"
+    },
+    {
+      "folder": "2526 kids Bayern Munich goalkeeper light green 16#-28#2",
+      "reason": "low_quality(best=2526 kids Bayern Munich goalkeeper light green 16#-28#2_2.jpeg, 810x1080, 160505b)"
+    },
+    {
+      "folder": "2526 kids Brazilian Jesus 16#-28#2",
+      "reason": "low_quality(best=2526 kids Brazilian Jesus 16#-28#2_5.jpeg, 810x1080, 270750b)"
+    },
+    {
+      "folder": "2526 kids Chelsea goalkeeper yellow 16#-28#2",
+      "reason": "low_quality(best=2526 kids Chelsea goalkeeper yellow 16#-28#2_2.jpeg, 810x1080, 198465b)"
+    },
+    {
+      "folder": "2526 kids Inter Milan Away 16# - 28#7",
+      "reason": "low_quality(best=2526 kids Inter Milan Away 16# - 28#7_14.jpeg, 1080x810, 321752b)"
+    },
+    {
+      "folder": "2526 kids Inter Milan training uniforms 16#-28#2",
+      "reason": "low_quality(best=2526 kids Inter Milan training uniforms 16#-28#2_7.jpeg, 810x1080, 248428b)"
+    },
+    {
+      "folder": "2526 kids Marseilles Away 16# - 28#4",
+      "reason": "low_quality(best=2526 kids Marseilles Away 16# - 28#4_2.jpeg, 1080x810, 302272b)"
+    },
+    {
+      "folder": "2526 kids Mexico goalkeeper green 16#-28#2",
+      "reason": "low_quality(best=2526 kids Mexico goalkeeper green 16#-28#2_3.jpeg, 810x1080, 171382b)"
+    },
+    {
+      "folder": "2526 kids Portugal third 16#-28#2",
+      "reason": "low_quality(best=2526 kids Portugal third 16#-28#2_5.jpeg, 1080x608, 201393b)"
+    },
+    {
+      "folder": "2526 kids Real Madrid Dragon Special 16#-28#4",
+      "reason": "low_quality(best=2526 kids Real Madrid Dragon Special 16#-28#4_4.jpeg, 810x1080, 329080b)"
+    },
+    {
+      "folder": "2526 kids Real Madrid goalkeeper 16#-28#2",
+      "reason": "low_quality(best=2526 kids Real Madrid goalkeeper 16#-28#2_5.jpeg, 810x1080, 194544b)"
+    },
+    {
+      "folder": "2526 kids Spain Home 16# - 28#5",
+      "reason": "low_quality(best=2526 kids Spain Home 16# - 28#5_2.jpeg, 811x1080, 210453b)"
+    },
+    {
+      "folder": "2526 kids USA HOME 16#-28#2",
+      "reason": "low_quality(best=2526 kids USA HOME 16#-28#2_1.jpeg, 810x1080, 180667b)"
+    },
+    {
+      "folder": "2526 kids USA away 16#-28#2",
+      "reason": "low_quality(best=2526 kids USA away 16#-28#2_2.jpeg, 810x1080, 176794b)"
+    },
+    {
+      "folder": "2526 players Benfica home S-XXL7",
+      "reason": "low_quality(best=2526 players Benfica home S-XXL7_9.jpeg, 810x1080, 271918b)"
+    },
+    {
+      "folder": "2526 players Benfica's away S-XXL6",
+      "reason": "low_quality(best=2526 players Benfica's away S-XXL6_9.jpeg, 810x1080, 254676b)"
+    },
+    {
+      "folder": "2526Barcelona Jordan Special Edition Black S-2XL4",
+      "reason": "low_quality(best=2526Barcelona Jordan Special Edition Black S-2XL4_1.jpg, 810x1080, 100135b)"
+    },
+    {
+      "folder": "2526kids Barcelona Special Edition in Green and black 16#-28#2",
+      "reason": "low_quality(best=2526kids Barcelona Special Edition in Green and black 16#-28#2_4.jpeg, 810x1080, 247888b)"
+    },
+    {
+      "folder": "2526kids Bayern Beer Festival 16# - 28#3",
+      "reason": "low_quality(best=2526kids Bayern Beer Festival 16# - 28#3_10.jpeg, 1080x810, 211172b)"
+    },
+    {
+      "folder": "2526kids Brazilian Leopard Special Edition 16# - 28#2",
+      "reason": "low_quality(best=2526kids Brazilian Leopard Special Edition 16# - 28#2_3.jpeg, 1080x833, 229415b)"
+    },
+    {
+      "folder": "26-26 Porto Special Edition S - 4XL2",
+      "reason": "low_quality(best=26-26 Porto Special Edition S - 4XL2_3.jpeg, 1080x810, 133355b)"
+    },
+    {
+      "folder": "26-27 Algerian training uniform - blue S - 4XL3",
+      "reason": "low_quality(best=26-27 Algerian training uniform - blue S - 4XL3_9.jpeg, 810x1080, 262325b)"
+    },
+    {
+      "folder": "26-27 Algerian training uniform, black, S -4XL3",
+      "reason": "low_quality(best=26-27 Algerian training uniform, black, S -4XL3_10.jpeg, 810x1080, 281662b)"
+    },
+    {
+      "folder": "26-27 Algerian training uniform, pink, S -4XL2",
+      "reason": "low_quality(best=26-27 Algerian training uniform, pink, S -4XL2_1.jpeg, 810x1080, 238297b)"
+    },
+    {
+      "folder": "26-27 Arsenal Away S-4XL3",
+      "reason": "low_quality(best=26-27 Arsenal Away S-4XL3_9.jpg, 810x1080, 269934b)"
+    },
+    {
+      "folder": "26-27 Arsenal Special Edition S-4XL2",
+      "reason": "low_quality(best=26-27 Arsenal Special Edition S-4XL2_7.jpeg, 846x1080, 212635b)"
+    },
+    {
+      "folder": "26-27 Brazilian Mary Brown Special Edition S-4XL2",
+      "reason": "low_quality(best=26-27 Brazilian Mary Brown Special Edition S-4XL2_6.jpg, 864x1080, 220639b)"
+    },
+    {
+      "folder": "26-27 Brazilian Special Edition White and Green Leaf Sleeve S-XXL4",
+      "reason": "low_quality(best=26-27 Brazilian Special Edition White and Green Leaf Sleeve S-XXL4_10.jpg, 1080x1026, 112352b)"
+    },
+    {
+      "folder": "26-27 Brazilian training suit, dark emerald green, S -4XL3",
+      "reason": "low_quality(best=26-27 Brazilian training suit, dark emerald green, S -4XL3_7.jpg, 810x1080, 178827b)"
+    },
+    {
+      "folder": "26-27 Brazilian training suit, gray, S - 4XL3",
+      "reason": "low_quality(best=26-27 Brazilian training suit, gray, S - 4XL3_6.jpg, 810x1080, 255553b)"
+    },
+    {
+      "folder": "26-27 Croatia Away S-4XL2",
+      "reason": "low_quality(best=26-27 Croatia Away S-4XL2_2.jpeg, 1080x810, 278765b)"
+    },
+    {
+      "folder": "26-27 Croatia home S-4XL2",
+      "reason": "low_quality(best=26-27 Croatia home S-4XL2_3.jpeg, 1080x810, 268296b)"
+    },
+    {
+      "folder": "26-27 France Away S-2XL3",
+      "reason": "low_quality(best=26-27 France Away S-2XL3_1.jpg, 810x1080, 233038b)"
+    },
+    {
+      "folder": "26-27 France Away S-XXL2",
+      "reason": "low_quality(best=26-27 France Away S-XXL2_3.jpeg, 810x1080, 268584b)"
+    },
+    {
+      "folder": "26-27 Ghana Away S-2XL2",
+      "reason": "low_quality(best=26-27 Ghana Away S-2XL2_5.jpg, 810x1080, 245572b)"
+    },
+    {
+      "folder": "26-27 Ghana Third Away Game S-2XL2",
+      "reason": "low_quality(best=26-27 Ghana Third Away Game S-2XL2_4.jpg, 810x1080, 309644b)"
+    },
+    {
+      "folder": "26-27 Kids - Korean Goalkeepers 16# - 28#5",
+      "reason": "low_quality(best=26-27 Kids - Korean Goalkeepers 16# - 28#5_2.jpg, 1080x810, 173579b)"
+    },
+    {
+      "folder": "26-27 Kids - Sweden home team, 16# - 28#3",
+      "reason": "low_quality(best=26-27 Kids - Sweden home team, 16# - 28#3_1.jpg, 1080x810, 172228b)"
+    },
+    {
+      "folder": "26-27 Korea Training Suit Long Sleeve S-2XL2",
+      "reason": "low_quality(best=26-27 Korea Training Suit Long Sleeve S-2XL2_5.jpg, 810x1080, 375742b)"
+    },
+    {
+      "folder": "26-27 Netherlands Training Shirt Long Sleeve S-2XL2",
+      "reason": "low_quality(best=26-27 Netherlands Training Shirt Long Sleeve S-2XL2_2.jpg, 810x1080, 389437b)"
+    },
+    {
+      "folder": "26-27 Player Edition Algeria Home S-XXL6",
+      "reason": "low_quality(best=26-27 Player Edition Algeria Home S-XXL6_12.jpeg, 810x1080, 347705b)"
+    },
+    {
+      "folder": "26-27 Sweden Away S-4XL2",
+      "reason": "low_quality(best=26-27 Sweden Away S-4XL2_3.jpg, 1080x809, 408690b)"
+    },
+    {
+      "folder": "26-27 USA Training Shirt Long Sleeve S-2XL2",
+      "reason": "low_quality(best=26-27 USA Training Shirt Long Sleeve S-2XL2_2.jpg, 810x1080, 339685b)"
+    },
+    {
+      "folder": "2627 Algerian training uniform - black S - 4XL2",
+      "reason": "low_quality(best=2627 Algerian training uniform - black S - 4XL2_1.jpg, 810x1080, 278875b)"
+    },
+    {
+      "folder": "2627 Algerian training uniform - blue S - 4XL2",
+      "reason": "low_quality(best=2627 Algerian training uniform - blue S - 4XL2_5.jpg, 810x1080, 259897b)"
+    },
+    {
+      "folder": "2627 Algerian training uniform, powder color, S - 4XL2",
+      "reason": "low_quality(best=2627 Algerian training uniform, powder color, S - 4XL2_6.jpg, 810x1080, 237425b)"
+    },
+    {
+      "folder": "2627 Arsenal Special Edition S-4XL3",
+      "reason": "low_quality(best=2627 Arsenal Special Edition S-4XL3_9.jpg, 801x1080, 225844b)"
+    },
+    {
+      "folder": "2627 Arsenal home game - S-4XL6",
+      "reason": "low_quality(best=2627 Arsenal home game - S-4XL6_7.jpg, 809x1080, 305809b)"
+    },
+    {
+      "folder": "2627 Arsenal home game - S-4XL9",
+      "reason": "low_quality(best=2627 Arsenal home game - S-4XL9_2.jpg, 1080x810, 302356b)"
+    },
+    {
+      "folder": "2627 Barcelona away game - S-4XL2",
+      "reason": "low_quality(best=2627 Barcelona away game - S-4XL2_4.jpg, 1080x810, 257382b)"
+    },
+    {
+      "folder": "2627 Brazilian Special Edition S-XXL2",
+      "reason": "low_quality(best=2627 Brazilian Special Edition S-XXL2_1.jpg, 1080x800, 254733b)"
+    },
+    {
+      "folder": "2627 Brazilian goalkeeper S-4XL2",
+      "reason": "low_quality(best=2627 Brazilian goalkeeper S-4XL2_6.jpg, 1080x810, 277748b)"
+    },
+    {
+      "folder": "2627 Canada Away Game - S-4XL2",
+      "reason": "low_quality(best=2627 Canada Away Game - S-4XL2_2.jpg, 1080x810, 396556b)"
+    },
+    {
+      "folder": "2627 Celtic 60th Anniversary Edition S-4XL3",
+      "reason": "low_quality(best=2627 Celtic 60th Anniversary Edition S-4XL3_6.jpg, 810x1080, 167645b)"
+    },
+    {
+      "folder": "2627 Celtics Away Game - S-4XL2",
+      "reason": "low_quality(best=2627 Celtics Away Game - S-4XL2_3.jpg, 793x1080, 231825b)"
+    },
+    {
+      "folder": "2627 Celtics Away Game - S-4XL3",
+      "reason": "low_quality(best=2627 Celtics Away Game - S-4XL3_6.jpg, 793x1080, 231825b)"
+    },
+    {
+      "folder": "2627 Celtics Origin Short Sleeve S-4XL3",
+      "reason": "low_quality(best=2627 Celtics Origin Short Sleeve S-4XL3_9.jpg, 856x1080, 176091b)"
+    },
+    {
+      "folder": "2627 Denmark home game, S-4XL2",
+      "reason": "low_quality(best=2627 Denmark home game, S-4XL2_4.jpg, 1080x810, 111199b)"
+    },
+    {
+      "folder": "2627 Dortmund Special Edition S-XXL3",
+      "reason": "low_quality(best=2627 Dortmund Special Edition S-XXL3_6.jpg, 876x1080, 239271b)"
+    },
+    {
+      "folder": "2627 England Away S-4XL3",
+      "reason": "low_quality(best=2627 England Away S-4XL3_2.jpg, 1080x810, 185611b)"
+    },
+    {
+      "folder": "2627 Ghana Away S-4XL2",
+      "reason": "low_quality(best=2627 Ghana Away S-4XL2_7.jpg, 1080x796, 204870b)"
+    },
+    {
+      "folder": "2627 Ghana GH Training Suit - Black S - 2XL2",
+      "reason": "low_quality(best=2627 Ghana GH Training Suit - Black S - 2XL2_1.jpeg, 810x1080, 161544b)"
+    },
+    {
+      "folder": "2627 Ghana GH Training Suit - Yellow S - 2XL3",
+      "reason": "low_quality(best=2627 Ghana GH Training Suit - Yellow S - 2XL3_10.jpeg, 810x1080, 160607b)"
+    },
+    {
+      "folder": "2627 Ghana GH Training Suit White S - 2XL3",
+      "reason": "low_quality(best=2627 Ghana GH Training Suit White S - 2XL3_4.jpeg, 810x1080, 162039b)"
+    },
+    {
+      "folder": "2627 Ghana Special Edition Black S-4XL2",
+      "reason": "low_quality(best=2627 Ghana Special Edition Black S-4XL2_7.jpg, 1080x822, 185737b)"
+    },
+    {
+      "folder": "2627 Ghana Special Edition Red S-4XL2",
+      "reason": "low_quality(best=2627 Ghana Special Edition Red S-4XL2_5.jpg, 1080x797, 225744b)"
+    },
+    {
+      "folder": "2627 Ghana Special Edition S-4XL2",
+      "reason": "low_quality(best=2627 Ghana Special Edition S-4XL2_3.jpg, 1080x807, 190977b)"
+    },
+    {
+      "folder": "2627 Ghana Special Edition S-XXL2",
+      "reason": "low_quality(best=2627 Ghana Special Edition S-XXL2_7.jpg, 1080x797, 232081b)"
+    },
+    {
+      "folder": "2627 Ghana Special Edition Yellow S-4XL2",
+      "reason": "low_quality(best=2627 Ghana Special Edition Yellow S-4XL2_5.jpg, 1080x820, 235980b)"
+    },
+    {
+      "folder": "2627 Ghana Third Away Game S-4XL2",
+      "reason": "low_quality(best=2627 Ghana Third Away Game S-4XL2_5.jpg, 1080x810, 242052b)"
+    },
+    {
+      "folder": "2627 Ghana home S-4XL2",
+      "reason": "low_quality(best=2627 Ghana home S-4XL2_1.jpg, 1080x821, 199166b)"
+    },
+    {
+      "folder": "2627 Inter Milan training jersey S-4XL3",
+      "reason": "low_quality(best=2627 Inter Milan training jersey S-4XL3_5.jpg, 810x1080, 198951b)"
+    },
+    {
+      "folder": "2627 Kids - Argentine Goalkeeper 16# - 30#2",
+      "reason": "low_quality(best=2627 Kids - Argentine Goalkeeper 16# - 30#2_5.jpg, 1080x810, 386608b)"
+    },
+    {
+      "folder": "2627 Kids - Canada Home 16# - 30#2",
+      "reason": "low_quality(best=2627 Kids - Canada Home 16# - 30#2_3.jpg, 1080x810, 326172b)"
+    },
+    {
+      "folder": "2627 Kids - Germany home 16# - 28#4",
+      "reason": "low_quality(best=2627 Kids - Germany home 16# - 28#4_1.jpeg, 1080x875, 213888b)"
+    },
+    {
+      "folder": "2627 Kids - Spain - Away Game - 16# - 28#4",
+      "reason": "low_quality(best=2627 Kids - Spain - Away Game - 16# - 28#4_3.jpg, 1080x810, 177586b)"
+    },
+    {
+      "folder": "2627 Kids Colombia home16# - 28#4",
+      "reason": "low_quality(best=2627 Kids Colombia home16# - 28#4_2.jpeg, 1080x835, 208941b)"
+    },
+    {
+      "folder": "2627 Kids England Goalkeeper 16# - 28#5",
+      "reason": "low_quality(best=2627 Kids England Goalkeeper 16# - 28#5_3.jpg, 1080x810, 187470b)"
+    },
+    {
+      "folder": "2627 Kids Tottenham 125th Anniversary 16# - 28#2",
+      "reason": "low_quality(best=2627 Kids Tottenham 125th Anniversary 16# - 28#2_1.jpg, 1080x810, 235485b)"
+    },
+    {
+      "folder": "2627 Lyon Away Game S-XXL3",
+      "reason": "low_quality(best=2627 Lyon Away Game S-XXL3_5.jpg, 812x1080, 192469b)"
+    },
+    {
+      "folder": "2627 Marseille 10th Special Edition S-XXL2",
+      "reason": "low_quality(best=2627 Marseille 10th Special Edition S-XXL2_7.jpg, 1080x832, 202716b)"
+    },
+    {
+      "folder": "2627 Paris Fourth Away Long Sleeve S-4XL2",
+      "reason": "low_quality(best=2627 Paris Fourth Away Long Sleeve S-4XL2_7.jpg, 810x1080, 282696b)"
+    },
+    {
+      "folder": "2627 Player Edition Arsenal Yellow S-XXL5",
+      "reason": "low_quality(best=2627 Player Edition Arsenal Yellow S-XXL5_13.jpg, 810x1080, 397095b)"
+    },
+    {
+      "folder": "2627 Player Edition Barcelona Home S-XXL2",
+      "reason": "low_quality(best=2627 Player Edition Barcelona Home S-XXL2_1.jpg, 810x1080, 174741b)"
+    },
+    {
+      "folder": "2627 Player Edition Colombia Away S-XXL5",
+      "reason": "low_quality(best=2627 Player Edition Colombia Away S-XXL5_11.jpg, 810x1080, 359050b)"
+    },
+    {
+      "folder": "2627 Player Edition Paris - Fourth Away Game S-2XL5",
+      "reason": "low_quality(best=2627 Player Edition Paris - Fourth Away Game S-2XL5_14.jpg, 810x1080, 364560b)"
+    },
+    {
+      "folder": "2627 Player Edition USA Home S-2XL9",
+      "reason": "low_quality(best=2627 Player Edition USA Home S-2XL9_27.jpg, 810x1080, 311344b)"
+    },
+    {
+      "folder": "2627 Player England Away - S-3XL6",
+      "reason": "low_quality(best=2627 Player England Away - S-3XL6_17.jpg, 1080x810, 264689b)"
+    },
+    {
+      "folder": "2627 Player Version Spain Away Game S-2XL6",
+      "reason": "low_quality(best=2627 Player Version Spain Away Game S-2XL6_19.jpg, 810x1080, 306896b)"
+    },
+    {
+      "folder": "2627 Poland Away Game S-4XL2",
+      "reason": "low_quality(best=2627 Poland Away Game S-4XL2_5.jpg, 1080x810, 380418b)"
+    },
+    {
+      "folder": "2627 Poland Home S-4XL2",
+      "reason": "low_quality(best=2627 Poland Home S-4XL2_6.jpg, 1080x810, 336972b)"
+    },
+    {
+      "folder": "2627 South Korea Home Game S-4XL2",
+      "reason": "low_quality(best=2627 South Korea Home Game S-4XL2_3.jpg, 1080x810, 374162b)"
+    },
+    {
+      "folder": "2627 Spain Away S-XXL6",
+      "reason": "low_quality(best=2627 Spain Away S-XXL6_2.jpg, 1080x810, 150925b)"
+    },
+    {
+      "folder": "2627 Sweden Home S-4XL3",
+      "reason": "low_quality(best=2627 Sweden Home S-4XL3_7.jpeg, 1080x1080, 93526b)"
+    },
+    {
+      "folder": "2627 Switzerland Away S-4XL4",
+      "reason": "low_quality(best=2627 Switzerland Away S-4XL4_1.jpg, 810x1080, 363229b)"
+    },
+    {
+      "folder": "2627 USA Home Game - S 4xL3",
+      "reason": "low_quality(best=2627 USA Home Game - S 4xL3_2.jpg, 810x1080, 195002b)"
+    },
+    {
+      "folder": "2627 Women's Argentine Home Team - S-XXL2",
+      "reason": "low_quality(best=2627 Women's Argentine Home Team - S-XXL2_4.jpeg, 810x1080, 325821b)"
+    },
+    {
+      "folder": "2627 Women's Arsenal Third Away Game S - XXL2",
+      "reason": "low_quality(best=2627 Women's Arsenal Third Away Game S - XXL2_7.jpg, 927x1080, 115677b)"
+    },
+    {
+      "folder": "2627 Women's Brazil Away Game - S - XXL2",
+      "reason": "low_quality(best=2627 Women's Brazil Away Game - S - XXL2_3.jpg, 840x1080, 199755b)"
+    },
+    {
+      "folder": "2627 Women's Brazilian Home S-XXL2",
+      "reason": "low_quality(best=2627 Women's Brazilian Home S-XXL2_3.jpg, 810x1080, 320659b)"
+    },
+    {
+      "folder": "2627 Women's Brazilian-style tank top, home S-XXL2",
+      "reason": "low_quality(best=2627 Women's Brazilian-style tank top, home S-XXL2_1.jpg, 810x1080, 309477b)"
+    },
+    {
+      "folder": "2627 Women's Clothing - Brazilian Home Style - S-XXL3",
+      "reason": "low_quality(best=2627 Women's Clothing - Brazilian Home Style - S-XXL3_10.jpg, 809x1080, 197537b)"
+    },
+    {
+      "folder": "2627 Women's England Home Team - S-XXL3",
+      "reason": "low_quality(best=2627 Women's England Home Team - S-XXL3_6.jpg, 810x1080, 276992b)"
+    },
+    {
+      "folder": "2627 Women's Manchester United Third Away Short Dress S - XXL2",
+      "reason": "low_quality(best=2627 Women's Manchester United Third Away Short Dress S - XXL2_7.jpg, 811x1080, 188678b)"
+    },
+    {
+      "folder": "2627kids Barcelona's third away game 16# - 28#3",
+      "reason": "low_quality(best=2627kids Barcelona's third away game 16# - 28#3_10.jpeg, 1080x608, 205621b)"
+    },
+    {
+      "folder": "2627kids Belgium away 16# - 28#3",
+      "reason": "low_quality(best=2627kids Belgium away 16# - 28#3_7.jpg, 1080x810, 170709b)"
+    },
+    {
+      "folder": "2627kids Brazil Special Edition Yellow 16# - 28#2",
+      "reason": "low_quality(best=2627kids Brazil Special Edition Yellow 16# - 28#2_7.jpg, 1080x810, 256762b)"
+    },
+    {
+      "folder": "2627kids England Special Edition 16# - 28#2",
+      "reason": "low_quality(best=2627kids England Special Edition 16# - 28#2_6.jpg, 1080x767, 280119b)"
+    },
+    {
+      "folder": "2627kids England's away game 16# - 28#3",
+      "reason": "low_quality(best=2627kids England's away game 16# - 28#3_10.jpg, 810x1080, 185138b)"
+    },
+    {
+      "folder": "2627kids Manchester City home game 16# - 28#3",
+      "reason": "low_quality(best=2627kids Manchester City home game 16# - 28#3_2.jpg, 1080x810, 127418b)"
+    },
+    {
+      "folder": "2627kids Paris Fourth Away Game 16# - 28#4",
+      "reason": "low_quality(best=2627kids Paris Fourth Away Game 16# - 28#4_12.jpg, 1080x810, 334322b)"
+    },
+    {
+      "folder": "2627kids USA Goalkeeper 16# - 28#5",
+      "reason": "low_quality(best=2627kids USA Goalkeeper 16# - 28#5_15.jpg, 1080x810, 162840b)"
+    },
+    {
+      "folder": "2627kids, Portugal home 16# - 28#5",
+      "reason": "low_quality(best=2627kids, Portugal home 16# - 28#5_3.jpeg, 810x1080, 185487b)"
+    },
+    {
+      "folder": "95-96 Arsenal away S-2XL2",
+      "reason": "low_quality(best=95-96 Arsenal away S-2XL2_4.jpeg, 810x1080, 101900b)"
+    },
+    {
+      "folder": "9597 Inter home S-XXL2",
+      "reason": "low_quality(best=9597 Inter home S-XXL2_7.jpeg, 874x1080, 306241b)"
+    },
+    {
+      "folder": "9697 Real Madrid home S-XXL2",
+      "reason": "low_quality(best=9697 Real Madrid home S-XXL2_6.jpeg, 809x1080, 311889b)"
+    },
+    {
+      "folder": "9798 Chelsea home retro S-XXL9",
+      "reason": "low_quality(best=9798 Chelsea home retro S-XXL9_18.jpeg, 1080x720, 346942b)"
+    },
+    {
+      "folder": "Arsenal 2025 Fleece Thick version S-XXL7",
+      "reason": "low_quality(best=Arsenal 2025 Fleece Thick version S-XXL7_18.jpeg, 880x1080, 103140b)"
+    },
+    {
+      "folder": "Arsenal Clover Retro Slim-fit Set S-XXL12",
+      "reason": "low_quality(best=Arsenal Clover Retro Slim-fit Set S-XXL12_32.jpeg, 1080x764, 273312b)"
+    },
+    {
+      "folder": "Barcelona Special retro version S-2XL2",
+      "reason": "low_quality(best=Barcelona Special retro version S-2XL2_2.jpg, 1080x810, 201319b)"
+    },
+    {
+      "folder": "Brazil 2022 World Cup home children's kit 16-28#2",
+      "reason": "low_quality(best=Brazil 2022 World Cup home children's kit 16-28#2_7.jpeg, 1080x810, 154845b)"
+    },
+    {
+      "folder": "Brazil's away shirt S-XXL for the 2022 World Cup6",
+      "reason": "low_quality(best=Brazil's away shirt S-XXL for the 2022 World Cup6_10.jpeg, 810x1080, 459173b)"
+    },
+    {
+      "folder": "France's home shirt for the 2022 World Cup in Qatar S-XXL3",
+      "reason": "low_quality(best=France's home shirt for the 2022 World Cup in Qatar S-XXL3_9.jpeg, 1080x872, 180480b)"
+    },
+    {
+      "folder": "Manchester City 125th Anniversary Limited Edition S-XXL2",
+      "reason": "low_quality(best=Manchester City 125th Anniversary Limited Edition S-XXL2_4.jpeg, 1080x720, 295228b)"
+    },
+    {
+      "folder": "Morocco's 2022 World Cup away shirt S-XXL4",
+      "reason": "low_quality(best=Morocco's 2022 World Cup away shirt S-XXL4_9.jpeg, 1080x810, 443342b)"
+    },
+    {
+      "folder": "Netherlands 2022 World Cup home shirt S-XXL5",
+      "reason": "low_quality(best=Netherlands 2022 World Cup home shirt S-XXL5_15.jpeg, 810x1080, 470186b)"
+    },
+    {
+      "folder": "Paris Saint-Germain's Champions League T-shirt S-XXL5",
+      "reason": "low_quality(best=Paris Saint-Germain's Champions League T-shirt S-XXL5_15.jpeg, 1080x924, 40385b)"
+    },
+    {
+      "folder": "Real Madrid Clover Retro slim-fit Jacket Set S-XXL7",
+      "reason": "low_quality(best=Real Madrid Clover Retro slim-fit Jacket Set S-XXL7_4.jpeg, 857x1080, 81253b)"
+    },
+    {
+      "folder": "Real Madrid JW1993 set S-XXL12",
+      "reason": "low_quality(best=Real Madrid JW1993 set S-XXL12_18.jpeg, 1080x766, 266418b)"
+    },
+    {
+      "folder": "Tottenham 125th Anniversary Edition 1901 S-2xL8",
+      "reason": "low_quality(best=Tottenham 125th Anniversary Edition 1901 S-2xL8_15.jpg, 810x1080, 240128b)"
+    },
+    {
+      "folder": "Tottenham 125th Anniversary Edition 1901 Short Sleeve S-4xL7",
+      "reason": "low_quality(best=Tottenham 125th Anniversary Edition 1901 Short Sleeve S-4xL7_12.jpg, 1003x1080, 68658b)"
+    },
+    {
+      "folder": "VRCT Arsenal Hoodie Set S-XXL6",
+      "reason": "low_quality(best=VRCT Arsenal Hoodie Set S-XXL6_15.jpeg, 954x1080, 69869b)"
+    },
+    {
+      "folder": "VRCT Real Madrid hoodie Set S-XXL8",
+      "reason": "low_quality(best=VRCT Real Madrid hoodie Set S-XXL8_12.jpeg, 953x1080, 72415b)"
+    }
+  ]
+}

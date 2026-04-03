@@ -26,8 +26,11 @@ export async function POST(request: Request) {
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('Telegram API Error:', data);
-      return NextResponse.json({ error: 'Failed to send message to Telegram' }, { status: 500 });
+      console.error('❌ Telegram API Error:', data);
+      if (data.description?.includes('chat not found')) {
+        console.error('⚠️ CONSEIL: Vous devez envoyer /start au bot sur Telegram avant de pouvoir recevoir des notifications.');
+      }
+      return NextResponse.json({ error: 'Failed to send message to Telegram', details: data }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, data });

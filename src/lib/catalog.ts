@@ -546,57 +546,57 @@ function parseFolderName(folderName: string) {
 let cachedProducts: Product[] | null = null;
 
 // Process products from JSON catalog
-function processProductsFromCatalog(catalogData: Array<{folderName: string, images: string[]}>): Product[] {
+function processProductsFromCatalog(catalogData: Array<{league: string, team: string, jerseyName: string, images: string[]}>): Product[] {
   const products: Product[] = [];
   const slugs = new Set<string>();
 
   for (const item of catalogData) {
-    const { folderName: folder, images: rawImages } = item;
-    const parsed = parseFolderName(folder);
-    const { team, season, type, category } = parsed;
-    const isWomens = parsed.isWomens || false;
-    const isPlayerEdition = parsed.isPlayerEdition || false;
+    const { league, team, jerseyName, images } = item;
     
-    // Skip junk folders
-    if (team === 'Autres' || team === 'Maillot de Football') continue;
+    // Parse jerseyName for season, type, and edition
+    let season = '';
+    let type = 'Domicile';
+    let isPlayerEdition = false;
+    let isWomens = false;
+    let isKids = false;
+    let isManchesLongues = false;
+
+    const lowerName = jerseyName.toLowerCase();
     
-    // Encode images from catalog
-    const images = rawImages;
-    
-    // Construct clean professional name
-    let name = '';
-    if (type === 'Rétro') {
-      name = `Maillot Rétro ${team}`;
-    } else if (type === 'Training') {
-      name = `Training ${team}`;
-    } else if (type === 'Gardien') {
-      name = `Maillot ${team} Gardien`;
-    } else if (type === 'Extérieur') {
-      name = `Maillot ${team} Extérieur`;
-    } else if (type === 'Third') {
-      name = `Maillot ${team} Third`;
+    // Extract Season (e.g. 2526, 2627, 2024, 1998)
+    const seasonMatch = jerseyName.match(/\b(\d{2})(\d{2})\b/);
+    if (seasonMatch) {
+      season = `${seasonMatch[1]}-${seasonMatch[2]}`;
     } else {
-      name = `Maillot ${team}`;
+      const yearMatch = jerseyName.match(/\b(19|20)\d{2}\b/);
+      if (yearMatch) {
+        season = yearMatch[0];
+      }
     }
 
-    if (season) {
-      name += ` ${season}`;
-    }
-    
-    if (isPlayerEdition) {
-      name += ` Player Edition`;
-    }
-    
-    if (isWomens) {
-      name += ` (Femme)`;
-    }
-    
-    if (category === 'Enfant') {
-      name += ` (Enfant)`;
-    }
+    // Extract Type
+    if (lowerName.includes('extérieur') || lowerName.includes('exterieur') || lowerName.includes('away')) type = 'Extérieur';
+    else if (lowerName.includes('third')) type = 'Third';
+    else if (lowerName.includes('rétro') || lowerName.includes('retro')) type = 'Rétro';
+    else if (lowerName.includes('training') || lowerName.includes('survêtement')) type = 'Training';
+    else if (lowerName.includes('gardien') || lowerName.includes('goalkeeper')) type = 'Gardien';
+    else if (lowerName.includes('spécial') || lowerName.includes('special')) type = 'Spécial';
 
+    // Extract Flags
+    if (lowerName.includes('player') || lowerName.includes('joueur')) isPlayerEdition = true;
+    if (lowerName.includes('femme') || lowerName.includes('women')) isWomens = true;
+    if (lowerName.includes('enfant') || lowerName.includes('kids')) isKids = true;
+    if (lowerName.includes('manches longues') || lowerName.includes('long sleeve')) isManchesLongues = true;
+
+    const category = isKids ? 'Enfant' : 'Adulte';
+    const price = isPlayerEdition ? 34 : 29;
+
+    // Construct Clean Name (using the jerseyName directly if it's already good, but maybe normalize it)
+    let name = jerseyName;
+    if (isPlayerEdition && !lowerName.includes('player')) name += ' Version Player';
+    
     // Generate Slug
-    let baseSlug = slugify(`${team} ${type} ${season || ''} ${isPlayerEdition ? 'player' : ''} ${isWomens ? 'femme' : ''} ${category === 'Enfant' ? 'enfant' : ''}`, { lower: true, strict: true });
+    let baseSlug = slugify(jerseyName, { lower: true, strict: true });
     let slug = baseSlug;
     let counter = 1;
     while (slugs.has(slug)) {
@@ -607,8 +607,6 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
 
     if (images.length === 0) continue;
 
-    const price = isPlayerEdition ? 34 : 29;
-    
     const shortDescription = isPlayerEdition
       ? `Achetez le ${name} au meilleur prix sur KIT FOOTBALL. Maillot haute performance, coupe ajustée, tissu premium ultra-respirant. Livraison express 48h.`
       : `Commandez votre ${name} pas cher (${price}€) sur KIT FOOTBALL. Maillot de foot haute qualité, idéal pour le terrain ou les supporters. Stock limité, livraison rapide.`;
@@ -620,8 +618,10 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
     longDescription += `#### Caractéristiques techniques :\n`;
     longDescription += `- **Équipe :** ${team}\n`;
     if (season) longDescription += `- **Saison :** ${season}\n`;
+    longDescription += `- **Ligue/Pays :** ${league}\n`;
     longDescription += `- **Type :** ${type}\n`;
     longDescription += isPlayerEdition ? `- **Version :** Player Edition (Coupe athlétique ajustée)\n` : `- **Version :** Fan Edition (Coupe standard confortable)\n`;
+    if (isManchesLongues) longDescription += `- **Manches :** Longues\n`;
     longDescription += `- **Tissu :** Technologie respirante pour une évacuation optimale de la transpiration\n`;
     longDescription += `- **Détails :** Logos brodés (Fan) ou thermocollés (Player) selon la version\n\n`;
     longDescription += `#### Pourquoi acheter sur KIT FOOTBALL ?\n`;
@@ -641,7 +641,8 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
       `maillot foot ${team} pas cher`,
       `achat maillot ${team}`,
       `boutique ${team}`,
-      `kit football ${team}`
+      `kit football ${team}`,
+      `maillot ${league}`
     ].filter(k => k.trim().length > 0);
 
     const badges: string[] = [];
@@ -659,28 +660,28 @@ function processProductsFromCatalog(catalogData: Array<{folderName: string, imag
       images,
       category,
       team,
+      league,
       season,
       type,
-      folderName: folder,
+      folderName: jerseyName,
       shortDescription,
       longDescription,
       isNew,
       isBestSeller,
       badges: badges.length > 0 ? badges : undefined,
-      keywords
+      keywords,
+      isPlayerEdition,
+      isWomens,
+      isKids,
+      isRetro: type === 'Rétro'
     });
   }
 
-  // ==========================================
-  // DEDUPLICATION
-  // Use folderName as key to show all 1000 maillots
-  // ==========================================
+  // Deduplication
   const deduped = new Map<string, Product>();
   for (const product of products) {
-    const key = product.folderName;
-
-    const existing = deduped.get(key);
-    if (!existing) {
+    const key = product.slug;
+    if (!deduped.has(key)) {
       deduped.set(key, product);
     }
   }
@@ -885,184 +886,18 @@ function getFallbackProducts(): Product[] {
 export function getAllProducts(): Product[] {
   if (cachedProducts) return cachedProducts;
 
-  const productsDir = path.join(process.cwd(), 'public', 'maillots');
-  
-  // Try to load from JSON catalog if directory doesn't exist
-  if (!fs.existsSync(productsDir)) {
-    console.warn(`Directory not found: ${productsDir}, trying JSON catalog`);
-    try {
-      const catalogPath = path.join(process.cwd(), 'src', 'data', 'maillots-catalog.json');
-      if (fs.existsSync(catalogPath)) {
-        const catalogData = JSON.parse(fs.readFileSync(catalogPath, 'utf-8'));
-        return processProductsFromCatalog(catalogData);
-      }
-    } catch (error) {
-      console.error('Error loading catalog:', error);
+  try {
+    const catalogPath = path.join(process.cwd(), 'src', 'data', 'maillots-catalog.json');
+    if (fs.existsSync(catalogPath)) {
+      const catalogData = JSON.parse(fs.readFileSync(catalogPath, 'utf-8'));
+      return processProductsFromCatalog(catalogData);
     }
-    console.warn('JSON catalog not found, using fallback products');
-    return getFallbackProducts();
+  } catch (error) {
+    console.error('Error loading catalog:', error);
   }
 
-  const folders = fs.readdirSync(productsDir, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name);
-
-  const products: Product[] = [];
-  const slugs = new Set<string>();
-
-  for (const folder of folders) {
-    const { team, season, type, category } = parseFolderName(folder);
-    
-    // Construct clean name
-    let name = `Maillot ${team}`;
-    if (type !== 'Domicile' && type !== 'Rétro' && type !== 'Training') {
-      name += ` ${type}`;
-    } else if (type === 'Rétro') {
-      name = `Maillot Rétro ${team}`;
-    } else if (type === 'Training') {
-      name = `Survêtement/Training ${team}`;
-    }
-
-    if (season) {
-      name += ` ${season}`;
-    }
-    
-    if (category === 'Enfant') {
-      name += ` (Enfant)`;
-    }
-
-    // Generate Slug
-    let baseSlug = slugify(`${team} ${type} ${season || ''} ${category === 'Enfant' ? 'enfant' : ''}`, { lower: true, strict: true });
-    let slug = baseSlug;
-    let counter = 1;
-    while (slugs.has(slug)) {
-      slug = `${baseSlug}-${counter}`;
-      counter++;
-    }
-    slugs.add(slug);
-
-    // Get images, filtering out invalid ones
-    const folderPath = path.join(productsDir, folder);
-    const files = fs.readdirSync(folderPath);
-    const badImages = getInvalidImages();
-    const images = files
-      .filter(f => /\.(jpg|jpeg|png|webp|avif)$/i.test(f))
-      .map(f => `/maillots/${folder}/${f}`)
-      .filter(imgPath => !badImages.has(imgPath));
-
-    if (images.length === 0) continue; // Skip if no valid images
-
-    // Sort images: prefer _1 filename as cover, then natural sort
-    images.sort((a, b) => {
-      const aIsMain = a.includes('_1.') ? -1 : 0;
-      const bIsMain = b.includes('_1.') ? -1 : 0;
-      if (aIsMain !== bIsMain) return aIsMain - bIsMain;
-      return a.localeCompare(b, undefined, { numeric: true });
-    });
-
-    // Detect Player Edition for pricing
-    const isPlayerEdition = /player|edition/i.test(folder);
-    const price = isPlayerEdition ? 34 : 29;
-    
-    const shortDescription = isPlayerEdition
-      ? `Achetez le ${name} (Version Player) au meilleur prix sur KIT FOOTBALL. Maillot haute performance, coupe ajustée, tissu premium ultra-respirant. Livraison express 48h.`
-      : `Commandez votre ${name} pas cher (29€) sur KIT FOOTBALL. Maillot de foot haute qualité, idéal pour le terrain ou les supporters. Stock limité, livraison rapide.`;
-    
-    let longDescription = isPlayerEdition
-      ? `### Version Player Edition - Qualité Professionnelle\n\nPropulsez votre jeu au niveau supérieur avec le **${name} Version Player**. Ce maillot est la réplique exacte de celui porté par les joueurs sur le terrain.\n\n`
-      : `### Maillot ${name} - Édition Supporter\n\nAffichez votre passion pour votre équipe avec le **${name}**. Conçu pour allier confort et style, ce maillot est parfait pour toutes les occasions.\n\n`;
-    
-    longDescription += `#### Caractéristiques techniques :\n`;
-    longDescription += `- **Équipe officielle :** ${team}\n`;
-    if (season) longDescription += `- **Saison :** ${season}\n`;
-    longDescription += `- **Type de maillot :** ${type}\n`;
-    longDescription += isPlayerEdition ? `- **Version :** Player Edition (Coupe athlétique ajustée)\n` : `- **Version :** Fan Edition (Coupe standard confortable)\n`;
-    longDescription += `- **Tissu :** Technologie respirante pour une évacuation optimale de la transpiration\n`;
-    longDescription += `- **Détails :** Logos brodés (Fan) ou thermocollés (Player) selon la version\n\n`;
-    longDescription += `#### Pourquoi acheter sur KIT FOOTBALL ?\n`;
-    longDescription += `- **Prix imbattable :** Votre maillot de foot à partir de 29€.\n`;
-    longDescription += `- **Qualité Premium :** Finitions soignées et matériaux durables.\n`;
-    longDescription += `- **Livraison Rapide :** Expédition sous 48h avec suivi.\n`;
-    longDescription += `- **Satisfaction Garantie :** Service client réactif à votre écoute.\n\n`;
-    longDescription += `*Disponible en tailles S, M, L, XL, XXL. Profitez-en avant la rupture de stock !*`;
-
-    const isNew = !season || season.includes('24') || season.includes('25') || season.includes('26');
-    const isBestSeller = TOP_CLUBS.includes(team) || TOP_NATIONS.includes(team);
-    
-    const keywords = [
-      `maillot ${team}`,
-      `maillot ${team} ${season || ''}`,
-      `maillot ${team} ${type}`,
-      `maillot foot ${team} pas cher`,
-      `achat maillot ${team}`,
-      `boutique ${team}`,
-      `kit football ${team}`
-    ].filter(k => k.trim().length > 0);
-
-    const badges: string[] = [];
-    if (isNew) badges.push('Nouveau');
-    if (isBestSeller) badges.push('Best-seller');
-    if (isPlayerEdition) badges.push('Player Edition');
-
-    products.push({
-      id: slug,
-      name,
-      slug,
-      price,
-      image: images[0],
-      hoverImage: images.length > 1 ? images[1] : undefined,
-      images,
-      category,
-      team,
-      season,
-      type,
-      folderName: folder,
-      shortDescription,
-      longDescription,
-      isNew,
-      isBestSeller,
-      badges: badges.length > 0 ? badges : undefined,
-      keywords
-    });
-  }
-
-  // ==========================================
-  // DEDUPLICATION
-  // Use folderName as key to show all 1000 maillots
-  // ==========================================
-  const deduped = new Map<string, Product>();
-  for (const product of products) {
-    const key = product.folderName;
-
-    const existing = deduped.get(key);
-    if (!existing) {
-      deduped.set(key, product);
-    }
-  }
-
-  const uniqueProducts = Array.from(deduped.values());
-
-  // Sort products: Top Clubs first, then Top Nations, then New, then alphabetical
-  uniqueProducts.sort((a, b) => {
-    const aIsTopClub = TOP_CLUBS.includes(a.team);
-    const bIsTopClub = TOP_CLUBS.includes(b.team);
-    if (aIsTopClub && !bIsTopClub) return -1;
-    if (!aIsTopClub && bIsTopClub) return 1;
-
-    const aIsTopNation = TOP_NATIONS.includes(a.team);
-    const bIsTopNation = TOP_NATIONS.includes(b.team);
-    if (aIsTopNation && !bIsTopNation) return -1;
-    if (!aIsTopNation && bIsTopNation) return 1;
-
-    // Inside same tier, put newest first
-    if (a.isNew && !b.isNew) return -1;
-    if (!a.isNew && b.isNew) return 1;
-
-    return a.name.localeCompare(b.name);
-  });
-
-  cachedProducts = uniqueProducts;
-  return uniqueProducts;
+  console.warn('JSON catalog not found, using fallback products');
+  return getFallbackProducts();
 }
 
 export function getProductBySlug(slug: string): Product | undefined {
@@ -1072,8 +907,7 @@ export function getProductBySlug(slug: string): Product | undefined {
 
 export function getProductsByTeam(team: string): Product[] {
   const products = getAllProducts();
-  const normalizedTarget = normalizeTeamFromTokens(team.split(' '));
-  return products.filter(p => p.team === normalizedTarget);
+  return products.filter(p => p.team.toLowerCase() === team.toLowerCase());
 }
 
 export function getProductsByType(type: string): Product[] {
@@ -1139,7 +973,7 @@ export function getAllSeasons() {
   const products = getAllProducts();
   const seasonMap = new Map<string, { name: string; slug: string; count: number }>();
   for (const p of products) {
-    if (!p.season || p.season === 'Inconnue') continue;
+    if (!p.season) continue;
     const slug = slugify(p.season, { lower: true, strict: true });
     const existing = seasonMap.get(slug);
     if (existing) {
@@ -1149,4 +983,44 @@ export function getAllSeasons() {
     }
   }
   return Array.from(seasonMap.values()).sort((a, b) => b.count - a.count);
+}
+
+export function getAllLeagues() {
+  const products = getAllProducts();
+  const leagueMap = new Map<string, { name: string; slug: string; count: number }>();
+  for (const p of products) {
+    if (!p.league) continue;
+    const slug = slugify(p.league, { lower: true, strict: true });
+    const existing = leagueMap.get(slug);
+    if (existing) {
+      existing.count++;
+    } else {
+      leagueMap.set(slug, { name: p.league, slug, count: 1 });
+    }
+  }
+  return Array.from(leagueMap.values()).sort((a, b) => b.count - a.count);
+}
+
+export function getMenuStructure() {
+  const products = getAllProducts();
+  const structure: Record<string, Set<{name: string, slug: string}>> = {};
+
+  products.forEach(p => {
+    if (p.league) {
+      if (!structure[p.league]) structure[p.league] = new Set();
+      const clubSlug = slugify(p.team, { lower: true, strict: true });
+      // Use JSON.stringify to ensure uniqueness in Set for objects
+      structure[p.league].add({ name: p.team, slug: clubSlug });
+    }
+  });
+
+  const menu: Record<string, Array<{name: string, slug: string}>> = {};
+  Object.keys(structure).sort().forEach(league => {
+    // Unique check based on name
+    const clubs = Array.from(structure[league]);
+    const uniqueClubs = Array.from(new Map(clubs.map(c => [c.name, c])).values());
+    menu[league] = uniqueClubs.sort((a, b) => a.name.localeCompare(b.name)).slice(0, 15);
+  });
+
+  return menu;
 }

@@ -68,7 +68,7 @@ function generateNginxConfig(domains) {
         nginxConfig += `    listen 80;\n`;
         nginxConfig += `    server_name ${d.domain} www.${d.domain};\n`;
         nginxConfig += `    # Redirection 301 furtive (transfert de Link Juice)\n`;
-        nginxConfig += `    return 301 https://www.kitfootball.com$request_uri;\n`;
+        nginxConfig += `    return 301 https://www.kitsfootball.fr$request_uri;\n`;
         nginxConfig += `}\n\n`;
     });
 

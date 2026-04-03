@@ -160,3 +160,22 @@ export function ArticleJsonLd({ article }: { article: { title: string; descripti
     <script id={`jsonld-article`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
   );
 }
+
+export function ItemListJsonLd({ items }: { items: { name: string; url: string; image?: string; price?: number }[] }) {
+  if (!items || items.length === 0) return null;
+  
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": items.map((item, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "url": item.url,
+      "name": item.name
+    }))
+  };
+
+  return (
+    <script id={`jsonld-itemlist`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+  );
+}

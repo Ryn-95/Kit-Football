@@ -18,7 +18,19 @@ export default function CheckoutPage() {
 
   useEffect(() => {
     setMounted(true);
-  }, []);
+    
+    // Notification Telegram pour l'arrivée sur la page de panier/paiement
+    if (!sessionStorage.getItem('checkout_notified')) {
+      sessionStorage.setItem('checkout_notified', 'true');
+      fetch('/api/telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: `🛒 <b>Un client est sur la page Panier !</b>\n💰 Total: ${totalPrice.toFixed(2)}€\n📦 Nombre d'articles: ${items.length}` 
+        })
+      }).catch(console.error);
+    }
+  }, [totalPrice, items.length]);
 
   const handleCheckout = async () => {
     try {

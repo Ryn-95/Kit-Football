@@ -5,12 +5,15 @@ import { ShoppingBag, Search, Menu, X, ChevronDown, User, Heart, ArrowRight } fr
 import { useState, useEffect } from 'react';
 import { useCart } from '../../context/CartContext';
 import { useRouter } from 'next/navigation';
+import MegaMenu from './MegaMenu';
+import { AnimatePresence } from 'framer-motion';
 
 import Image from 'next/image';
 
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const { totalItems, setIsCartOpen } = useCart();
   const [mounted, setMounted] = useState(false);
@@ -78,7 +81,11 @@ export default function Header() {
           </div>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center space-x-6 h-full font-bold text-[14px] tracking-wide">
+          <nav 
+            className="hidden lg:flex items-center space-x-6 h-full font-bold text-[14px] tracking-wide"
+            onMouseEnter={() => setIsMegaMenuOpen(true)}
+            onMouseLeave={() => setIsMegaMenuOpen(false)}
+          >
             <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">MAILLOTS</Link>
             <Link href="/maillots?type=Domicile" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">CLUBS</Link>
             <Link href="/maillots/type/retro" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">RÉTRO</Link>
@@ -86,6 +93,18 @@ export default function Header() {
             <Link href="/maillots?q=enfant" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">ENFANTS</Link>
             <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all text-red-600 hover:text-red-800">PROMO</Link>
           </nav>
+
+          {/* Mega Menu Overlay */}
+          <AnimatePresence>
+            {isMegaMenuOpen && (
+              <div 
+                onMouseEnter={() => setIsMegaMenuOpen(true)}
+                onMouseLeave={() => setIsMegaMenuOpen(false)}
+              >
+                <MegaMenu onClose={() => setIsMegaMenuOpen(false)} />
+              </div>
+            )}
+          </AnimatePresence>
 
           {/* Right Actions */}
           <div className="flex items-center gap-5">

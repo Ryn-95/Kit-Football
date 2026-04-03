@@ -44,15 +44,6 @@ export default function ProductCheckout({ product }: ProductCheckoutProps) {
       flocage: flocage.trim() !== '' ? flocage : undefined,
       quantity: quantity
     });
-
-    // Envoi de la notification Telegram
-    fetch('/api/telegram', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ 
-        message: `🛒 <b>Ajout au panier :</b>\nProduit : ${product.name}\nTaille : ${selectedSize}\nVersion : ${version}\nFlocage : ${flocage || 'Aucun'}\nQuantité : ${quantity}\nPrix total : ${finalPrice * quantity} €` 
-      })
-    }).catch(console.error);
   };
 
   const handleCheckout = async () => {

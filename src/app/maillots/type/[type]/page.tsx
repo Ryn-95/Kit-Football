@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import slugify from 'slugify';
 import { ImageWithFallback } from '@/components/ui/ImageWithFallback';
+import { BreadcrumbJsonLd, ItemListJsonLd } from '@/components/seo/JsonLd';
 
 export async function generateStaticParams() {
   const products = getAllProducts();
@@ -52,10 +53,24 @@ export default async function TypePage({ params }: { params: Promise<{ type: str
   const typeProducts = getProductsByType(typeName);
 
   return (
-    <div className="container mx-auto px-6 py-10">
-      <nav className="text-xs text-gray-500 mb-8 flex items-center gap-2 uppercase tracking-wide">
-        <Link href="/" className="hover:text-black hover:underline">Accueil</Link>
-        <span>/</span>
+    <>
+      <BreadcrumbJsonLd 
+        items={[
+          { name: "Accueil", url: "https://www.kitsfootball.fr/" },
+          { name: "Maillots", url: "https://www.kitsfootball.fr/maillots" },
+          { name: typeName, url: `https://www.kitsfootball.fr/maillots/type/${resolvedParams.type}` }
+        ]} 
+      />
+      <ItemListJsonLd
+        items={typeProducts.map(p => ({
+          name: p.name,
+          url: `https://www.kitsfootball.fr/maillots/${p.slug}`,
+        }))}
+      />
+      <div className="container mx-auto px-6 py-10">
+        <nav className="text-xs text-gray-500 mb-8 flex items-center gap-2 uppercase tracking-wide">
+          <Link href="/" className="hover:text-black hover:underline">Accueil</Link>
+          <span>/</span>
         <Link href="/maillots" className="hover:text-black hover:underline">Maillots</Link>
         <span>/</span>
         <span className="text-black font-bold">{typeName}</span>
@@ -93,5 +108,6 @@ export default async function TypePage({ params }: { params: Promise<{ type: str
         ))}
       </div>
     </div>
-  );
+  </>
+);
 }

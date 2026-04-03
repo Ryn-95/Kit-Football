@@ -16,6 +16,15 @@ const nextConfig: NextConfig = {
   reactCompiler: true,
   // Increase static generation timeout for large catalog
   staticPageGenerationTimeout: 300,
+  async redirects() {
+    return [
+      {
+        source: '/produit/:slug',
+        destination: '/maillots/:slug',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
