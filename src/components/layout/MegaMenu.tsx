@@ -32,7 +32,7 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
-        className="fixed inset-0 top-[80px] bg-black/40 backdrop-blur-sm z-40"
+        className="absolute top-full left-0 w-screen h-screen bg-black/40 backdrop-blur-sm -z-10"
         onClick={onClose}
       />
 
@@ -71,7 +71,7 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
                           <Link 
                             href={`/maillots/club/${teamSlug}`}
                             onClick={onClose}
-                            className="text-gray-500 hover:text-black hover:translate-x-2 transition-all duration-300 text-sm font-medium block"
+                            className="text-gray-500 hover:text-black hover:underline underline-offset-4 transition-all duration-300 text-sm font-medium block"
                           >
                             {team}
                           </Link>
@@ -82,9 +82,9 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
                       <Link 
                         href={`/maillots?q=${league}`}
                         onClick={onClose}
-                        className="text-black font-bold hover:text-gray-600 text-xs uppercase tracking-widest flex items-center gap-1 group/link transition-colors"
+                        className="text-black font-bold hover:text-gray-600 hover:underline underline-offset-4 text-xs uppercase tracking-widest flex items-center gap-1 group/link transition-colors"
                       >
-                        Tout afficher <span className="transition-transform duration-300 group-hover/link:translate-x-2">→</span>
+                        Tout afficher <span className="transition-transform duration-300 group-hover/link:translate-x-1">→</span>
                       </Link>
                     </li>
                   </ul>

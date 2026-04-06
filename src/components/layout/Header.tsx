@@ -49,7 +49,7 @@ export default function Header() {
         Livraison standard gratuite pour les membres <ChevronDown size={14} />
       </div>
 
-      <div className="w-full bg-white sticky top-0 z-[100] border-b border-gray-200">
+      <div className="w-full bg-white sticky top-0 z-[100] border-b border-gray-200 relative">
         
         {/* Top Right Mini Menu */}
         <div className="hidden lg:flex justify-end gap-5 px-10 py-1 text-[11px] text-gray-600">
@@ -81,30 +81,47 @@ export default function Header() {
           </div>
 
           {/* Desktop Nav */}
-          <nav 
-            className="hidden lg:flex items-center space-x-6 h-full font-bold text-[14px] tracking-wide"
-            onMouseEnter={() => setIsMegaMenuOpen(true)}
-            onMouseLeave={() => setIsMegaMenuOpen(false)}
-          >
-            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">MAILLOTS</Link>
-            <Link href="/maillots?type=Domicile" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">CLUBS</Link>
-            <Link href="/maillots/type/retro" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">RÉTRO</Link>
-            <Link href="/maillots/type/training" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">TRAINING</Link>
-            <Link href="/maillots?q=enfant" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">ENFANTS</Link>
-            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all text-red-600 hover:text-red-800">PROMO</Link>
-          </nav>
-
-          {/* Mega Menu Overlay */}
-          <AnimatePresence>
-            {isMegaMenuOpen && (
-              <div 
-                onMouseEnter={() => setIsMegaMenuOpen(true)}
-                onMouseLeave={() => setIsMegaMenuOpen(false)}
+          <nav className="hidden lg:flex items-center space-x-8 h-full font-bold text-[14px] tracking-wide">
+            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+              MAILLOTS
+            </Link>
+            
+            {/* CLUBS with MegaMenu Trigger */}
+            <div 
+              className="h-full flex items-center"
+              onMouseEnter={() => setIsMegaMenuOpen(true)}
+              onMouseLeave={() => setIsMegaMenuOpen(false)}
+            >
+              <Link 
+                href="/maillots?type=Domicile" 
+                className={`h-full flex items-center border-b-[3px] transition-all ${isMegaMenuOpen ? 'border-black' : 'border-transparent hover:border-black'}`}
               >
-                <MegaMenu onClose={() => setIsMegaMenuOpen(false)} />
-              </div>
-            )}
-          </AnimatePresence>
+                CLUBS
+              </Link>
+              
+              {/* Mega Menu Overlay - Rendered inside the nav item's hover context */}
+              <AnimatePresence>
+                {isMegaMenuOpen && (
+                  <div className="absolute top-full left-0 w-full cursor-default">
+                    <MegaMenu onClose={() => setIsMegaMenuOpen(false)} />
+                  </div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link href="/maillots/type/retro" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+              RÉTRO
+            </Link>
+            <Link href="/maillots/type/training" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+              TRAINING
+            </Link>
+            <Link href="/maillots?q=enfant" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+              ENFANTS
+            </Link>
+            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-red-600 transition-all text-red-600">
+              PROMO
+            </Link>
+          </nav>
 
           {/* Right Actions */}
           <div className="flex items-center gap-5">
