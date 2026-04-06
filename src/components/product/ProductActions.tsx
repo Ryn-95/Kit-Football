@@ -4,7 +4,63 @@ import { useState } from "react";
 import { ShoppingCart, ShieldCheck, Truck } from "lucide-react";
 import { useCart } from "../../context/CartContext";
 
-export function ProductActions({ product }: { product: { id: string; name: string; price: number; image: string; slug: string } }) {
+const normalizeKey = (value: string) =>
+  value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+const flocageSuggestionsByKey: Record<string, string[]> = {
+  "as-roma": ["DYBALA", "PELLEGRINI", "MANCINI"],
+  roma: ["DYBALA", "PELLEGRINI", "MANCINI"],
+  psg: ["DEMBELE", "MARQUINHOS", "VITINHA"],
+  "real-madrid": ["MBAPPE", "VINICIUS", "BELLINGHAM"],
+  "fc-barcelona": ["LEWANDOWSKI", "PEDRI", "YAMAL"],
+  barcelona: ["LEWANDOWSKI", "PEDRI", "YAMAL"],
+  "manchester-city": ["HAALAND", "DE-BRUYNE", "FODEN"],
+  "manchester-united": ["BRUNO", "GARNACHO", "RASHFORD"],
+  arsenal: ["SAKA", "ODEGAARD", "RICE"],
+  liverpool: ["SALAH", "VAN-DIJK", "ALEXANDER-ARNOLD"],
+  chelsea: ["PALMER", "ENZO", "JACKSON"],
+  "ac-milan": ["LEAO", "THEO", "MAIGNAN"],
+  milan: ["LEAO", "THEO", "MAIGNAN"],
+  "inter-milan": ["LAUTARO", "BARELLA", "BASTONI"],
+  inter: ["LAUTARO", "BARELLA", "BASTONI"],
+  juventus: ["VLAHOVIC", "CHIESA", "BREMER"],
+  napoli: ["OSIMHEN", "KVARATSKHELIA", "DI-LORENZO"],
+  "bayern-munich": ["KANE", "MUSIALA", "KIMMICH"],
+  bayern: ["KANE", "MUSIALA", "KIMMICH"],
+  "borussia-dortmund": ["BRANDT", "ADEYEMI", "CAN"],
+  dortmund: ["BRANDT", "ADEYEMI", "CAN"],
+  "atletico-madrid": ["GRIEZMANN", "MORATA", "DE-PAUL"],
+  atletico: ["GRIEZMANN", "MORATA", "DE-PAUL"],
+  "paris-saint-germain": ["DEMBELE", "MARQUINHOS", "VITINHA"],
+  france: ["MBAPPE", "GRIEZMANN", "DEMBELE"],
+  portugal: ["RONALDO", "BRUNO", "LEAO"],
+  argentina: ["MESSI", "DI-MARIA", "LAUTARO"],
+  brazil: ["VINICIUS", "RODRYGO", "MARQUINHOS"],
+  spain: ["MORATA", "PEDRI", "OLMO"],
+};
+
+const getFlocageSuggestions = (teamName?: string, clubSlug?: string) => {
+  const keys = [clubSlug, teamName].filter(Boolean).map((v) => normalizeKey(String(v)));
+  for (const key of keys) {
+    if (flocageSuggestionsByKey[key]) return flocageSuggestionsByKey[key].slice(0, 3);
+  }
+  return [];
+};
+
+export function ProductActions({
+  product,
+  teamName,
+  clubSlug,
+}: {
+  product: { id: string; name: string; price: number; image: string; slug: string };
+  teamName?: string;
+  clubSlug?: string;
+}) {
   const { addItem } = useCart();
   const [version, setVersion] = useState<"Fan" | "Player">("Fan");
   const [size, setSize] = useState<string>("");
@@ -12,6 +68,7 @@ export function ProductActions({ product }: { product: { id: string; name: strin
   const [customName, setCustomName] = useState("");
   const [customNumber, setCustomNumber] = useState("");
   const [error, setError] = useState("");
+  const suggestedNames = getFlocageSuggestions(teamName, clubSlug);
 
   const sizes = ["S", "M", "L", "XL", "XXL", "3XL"];
   
@@ -95,7 +152,7 @@ export function ProductActions({ product }: { product: { id: string; name: strin
         <label className="text-sm font-bold uppercase tracking-wider text-black mb-3 block">Flocage / Patchs (+10€)</label>
         <select 
           value={patch}
-          onChange={(e) => setPatch(e.target.value)}
+          onChange={(e) => { setPatch(e.target.value); setError(""); }}
           className="w-full border border-gray-200 rounded-xl p-3 text-sm font-medium focus:outline-none focus:border-black appearance-none bg-white cursor-pointer"
         >
           <option value="none">Sans patch</option>
@@ -106,28 +163,52 @@ export function ProductActions({ product }: { product: { id: string; name: strin
       </div>
 
       {patch === "custom" && (
-        <div className="grid grid-cols-2 gap-3 p-4 bg-gray-50 rounded-xl border border-gray-100">
-          <div>
-            <label className="text-xs font-bold text-gray-500 mb-1 block">Nom</label>
-            <input 
-              type="text" 
-              maxLength={12}
-              placeholder="MBAPPÉ"
-              value={customName}
-              onChange={(e) => setCustomName(e.target.value.toUpperCase())}
-              className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:border-black uppercase"
-            />
-          </div>
-          <div>
-            <label className="text-xs font-bold text-gray-500 mb-1 block">Numéro</label>
-            <input 
-              type="number" 
-              min="1" max="99"
-              placeholder="10"
-              value={customNumber}
-              onChange={(e) => setCustomNumber(e.target.value)}
-              className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:border-black"
-            />
+        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3">
+          {suggestedNames.length > 0 && (
+            <div>
+              <div className="text-xs font-bold text-gray-500 mb-2">Joueurs de {teamName}</div>
+              <div className="flex flex-wrap gap-2">
+                {suggestedNames.map((name) => (
+                  <button
+                    key={name}
+                    type="button"
+                    onClick={() => { setCustomName(name); setError(""); }}
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${
+                      customName === name
+                        ? "border-black bg-black text-white"
+                        : "border-gray-200 bg-white text-gray-700 hover:border-black"
+                    }`}
+                  >
+                    {name}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-bold text-gray-500 mb-1 block">Nom</label>
+              <input 
+                type="text" 
+                maxLength={12}
+                placeholder={suggestedNames[0] || "VOTRE NOM"}
+                value={customName}
+                onChange={(e) => { setCustomName(e.target.value.toUpperCase()); setError(""); }}
+                className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:border-black uppercase bg-white"
+              />
+            </div>
+            <div>
+              <label className="text-xs font-bold text-gray-500 mb-1 block">Numéro</label>
+              <input 
+                type="number" 
+                min="1" max="99"
+                placeholder="10"
+                value={customNumber}
+                onChange={(e) => { setCustomNumber(e.target.value); setError(""); }}
+                className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:border-black bg-white"
+              />
+            </div>
           </div>
         </div>
       )}

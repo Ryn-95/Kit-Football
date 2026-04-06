@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { ProductActions } from '@/components/product/ProductActions';
@@ -8,7 +7,6 @@ import { ProductAccordion } from '@/components/product/ProductAccordion';
 import { ProductGallery } from '@/components/product/ProductGallery';
 import { ProductCard } from '@/components/ui/ProductCard';
 import TeamMatches from '@/components/TeamMatches';
-import FlocageCustomizer from '@/components/FlocageCustomizer';
 
 interface ProductPageContentProps {
   product: any;
@@ -23,7 +21,130 @@ export default function ProductPageContent({
   sameClubProducts, 
   breadcrumbItems 
 }: ProductPageContentProps) {
-  const [currentFlocage, setCurrentFlocage] = useState('none');
+  const renderInline = (text: string) => {
+    const parts = text.split(/(\*\*[^*]+\*\*)/g).filter(Boolean);
+    return parts.map((part, idx) => {
+      const isBold = part.startsWith('**') && part.endsWith('**') && part.length >= 4;
+      if (!isBold) return <span key={idx}>{part}</span>;
+      return <strong key={idx}>{part.slice(2, -2)}</strong>;
+    });
+  };
+
+  const renderSimpleMarkdown = (content: string) => {
+    const lines = content.split('\n');
+    const blocks: Array<
+      | { type: 'h3'; text: string }
+      | { type: 'h4'; text: string }
+      | { type: 'p'; text: string }
+      | { type: 'ul'; items: string[] }
+    > = [];
+
+    let paragraphLines: string[] = [];
+    let listItems: string[] = [];
+
+    const flushParagraph = () => {
+      const text = paragraphLines.join(' ').trim();
+      if (text) blocks.push({ type: 'p', text });
+      paragraphLines = [];
+    };
+
+    const flushList = () => {
+      if (listItems.length > 0) blocks.push({ type: 'ul', items: listItems });
+      listItems = [];
+    };
+
+    for (const rawLine of lines) {
+      const line = rawLine.trimEnd();
+      const trimmed = line.trim();
+
+      if (!trimmed) {
+        flushList();
+        flushParagraph();
+        continue;
+      }
+
+      if (trimmed.startsWith('### ')) {
+        flushList();
+        flushParagraph();
+        const raw = trimmed.replace(/^###\s+/, '');
+        const [headingText, rest] = raw.split(/\s+-\s+/, 2);
+        blocks.push({ type: 'h3', text: headingText.trim() });
+        if (rest) {
+          const items = raw
+            .split(/\s+-\s+/)
+            .slice(1)
+            .map((v) => v.trim())
+            .filter(Boolean);
+          if (items.length > 0) blocks.push({ type: 'ul', items });
+        }
+        continue;
+      }
+
+      if (trimmed.startsWith('#### ')) {
+        flushList();
+        flushParagraph();
+        const raw = trimmed.replace(/^####\s+/, '');
+        const [headingText, rest] = raw.split(/\s+-\s+/, 2);
+        blocks.push({ type: 'h4', text: headingText.trim() });
+        if (rest) {
+          const items = raw
+            .split(/\s+-\s+/)
+            .slice(1)
+            .map((v) => v.trim())
+            .filter(Boolean);
+          if (items.length > 0) blocks.push({ type: 'ul', items });
+        }
+        continue;
+      }
+
+      if (trimmed.startsWith('- ')) {
+        flushParagraph();
+        listItems.push(trimmed.replace(/^-+\s+/, ''));
+        continue;
+      }
+
+      flushList();
+      paragraphLines.push(trimmed);
+    }
+
+    flushList();
+    flushParagraph();
+
+    return (
+      <div className="space-y-4">
+        {blocks.map((block, idx) => {
+          if (block.type === 'h3') {
+            return (
+              <h3 key={idx} className="text-lg font-heading font-black italic uppercase text-black tracking-tight">
+                {renderInline(block.text)}
+              </h3>
+            );
+          }
+          if (block.type === 'h4') {
+            return (
+              <h4 key={idx} className="text-sm font-bold uppercase tracking-wider text-black/80">
+                {renderInline(block.text)}
+              </h4>
+            );
+          }
+          if (block.type === 'ul') {
+            return (
+              <ul key={idx} className="list-disc pl-5 space-y-1 text-sm text-gray-700 leading-relaxed">
+                {block.items.map((item, itemIdx) => (
+                  <li key={itemIdx}>{renderInline(item)}</li>
+                ))}
+              </ul>
+            );
+          }
+          return (
+            <p key={idx} className="text-sm text-gray-700 leading-relaxed">
+              {renderInline(block.text)}
+            </p>
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <>
@@ -59,7 +180,9 @@ export default function ProductPageContent({
               </h1>
 
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-3xl font-bold text-black">{product.price},00€</span>
+                <span className="text-3xl font-bold text-black">
+                  {Number(product.price).toFixed(2).replace('.', ',')}€
+                </span>
                 <div className="flex text-yellow-500 text-sm">
                   ★★★★★{" "}
                   <span className="text-gray-400 ml-2">(128 avis vérifiés)</span>
@@ -67,12 +190,6 @@ export default function ProductPageContent({
               </div>
 
               <p className="text-gray-600 leading-relaxed mb-8">{product.shortDescription}</p>
-
-              {/* Flocage Customizer */}
-              <FlocageCustomizer 
-                onFlocageChange={setCurrentFlocage}
-                currentFlocage={currentFlocage}
-              />
 
               <ProductActions
                 product={{
@@ -82,6 +199,8 @@ export default function ProductPageContent({
                   image: product.images[0] || "/placeholder.jpg",
                   slug: product.slug,
                 }}
+                teamName={product.team || product.club}
+                clubSlug={product.clubSlug}
               />
 
               <ProductAccordion />
@@ -92,10 +211,8 @@ export default function ProductPageContent({
             <h2 className="text-xl font-heading font-black italic uppercase text-black tracking-tight mb-6">
               À propos du {product.name}
             </h2>
-            <div className="text-gray-600 leading-relaxed prose prose-sm max-w-none space-y-4">
-              {product.longDescription?.split("\n\n").map((paragraph: string, i: number) => (
-                <p key={i}>{paragraph}</p>
-              ))}
+            <div className="max-w-none">
+              {product.longDescription ? renderSimpleMarkdown(product.longDescription) : null}
             </div>
           </div>
 
