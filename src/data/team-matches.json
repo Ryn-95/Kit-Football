@@ -1,0 +1,290 @@
+{
+  "PSG": {
+    "matches": [
+      {
+        "date": "13/04/2026",
+        "competition": "Ligue 1",
+        "opponent": "Monaco",
+        "home": true,
+        "stadium": "Parc des Princes",
+        "time": "21:00"
+      },
+      {
+        "date": "20/04/2026",
+        "competition": "Ligue 1", 
+        "opponent": "Lyon",
+        "home": false,
+        "stadium": "Groupama Stadium",
+        "time": "20:45"
+      },
+      {
+        "date": "27/04/2026",
+        "competition": "Ligue 1",
+        "opponent": "Marseille",
+        "home": true,
+        "stadium": "Parc des Princes", 
+        "time": "21:00"
+      },
+      {
+        "date": "04/05/2026",
+        "competition": "Coupe de France",
+        "opponent": "Nice",
+        "home": false,
+        "stadium": "Allianz Riviera",
+        "time": "20:45"
+      }
+    ]
+  },
+  "Real Madrid": {
+    "matches": [
+      {
+        "date": "12/04/2026",
+        "competition": "La Liga",
+        "opponent": "Barcelone",
+        "home": true,
+        "stadium": "Santiago Bernabéu",
+        "time": "21:00"
+      },
+      {
+        "date": "19/04/2026",
+        "competition": "Champions League",
+        "opponent": "Manchester City",
+        "home": false,
+        "stadium": "Etihad Stadium",
+        "time": "21:00"
+      },
+      {
+        "date": "26/04/2026",
+        "competition": "La Liga",
+        "opponent": "Atlético Madrid",
+        "home": true,
+        "stadium": "Santiago Bernabéu",
+        "time": "18:30"
+      },
+      {
+        "date": "03/05/2026",
+        "competition": "La Liga",
+        "opponent": "Sevilla",
+        "home": false,
+        "stadium": "Ramón Sánchez Pizjuán",
+        "time": "21:00"
+      }
+    ]
+  },
+  "Barcelone": {
+    "matches": [
+      {
+        "date": "12/04/2026",
+        "competition": "La Liga",
+        "opponent": "Real Madrid",
+        "home": false,
+        "stadium": "Santiago Bernabéu",
+        "time": "21:00"
+      },
+      {
+        "date": "18/04/2026",
+        "competition": "La Liga",
+        "opponent": "Valencia",
+        "home": true,
+        "stadium": "Camp Nou",
+        "time": "20:00"
+      },
+      {
+        "date": "25/04/2026",
+        "competition": "Champions League",
+        "opponent": "Bayern Munich",
+        "home": true,
+        "stadium": "Camp Nou",
+        "time": "21:00"
+      },
+      {
+        "date": "02/05/2026",
+        "competition": "La Liga",
+        "opponent": "Real Betis",
+        "home": false,
+        "stadium": "Benito Villamarín",
+        "time": "21:00"
+      }
+    ]
+  },
+  "France": {
+    "matches": [
+      {
+        "date": "11/04/2026",
+        "competition": "Éliminatoires Coupe du Monde",
+        "opponent": "Pays-Bas",
+        "home": true,
+        "stadium": "Stade de France",
+        "time": "21:00"
+      },
+      {
+        "date": "18/04/2026",
+        "competition": "Match amical",
+        "opponent": "Allemagne",
+        "home": false,
+        "stadium": "Olympiastadion Berlin",
+        "time": "20:45"
+      },
+      {
+        "date": "25/04/2026",
+        "competition": "Éliminatoires Coupe du Monde",
+        "opponent": "Italie",
+        "home": true,
+        "stadium": "Stade de France",
+        "time": "21:00"
+      },
+      {
+        "date": "02/05/2026",
+        "competition": "Match amical",
+        "opponent": "Angleterre",
+        "home": false,
+        "stadium": "Wembley",
+        "time": "21:00"
+      }
+    ]
+  },
+  "Argentine": {
+    "matches": [
+      {
+        "date": "10/04/2026",
+        "competition": "Éliminatoires Coupe du Monde",
+        "opponent": "Brésil",
+        "home": true,
+        "stadium": "Estadio Monumental",
+        "time": "21:30"
+      },
+      {
+        "date": "17/04/2026",
+        "competition": "Éliminatoires Coupe du Monde",
+        "opponent": "Uruguay",
+        "home": false,
+        "stadium": "Estadio Centenario",
+        "time": "21:00"
+      },
+      {
+        "date": "24/04/2026",
+        "competition": "Match amical",
+        "opponent": "Mexique",
+        "home": true,
+        "stadium": "Estadio Monumental",
+        "time": "21:00"
+      },
+      {
+        "date": "01/05/2026",
+        "competition": "Éliminatoires Coupe du Monde",
+        "opponent": "Colombie",
+        "home": false,
+        "stadium": "Estadio Metropolitano",
+        "time": "20:30"
+      }
+    ]
+  },
+  "Liverpool": {
+    "matches": [
+      {
+        "date": "13/04/2026",
+        "competition": "Premier League",
+        "opponent": "Manchester United",
+        "home": true,
+        "stadium": "Anfield",
+        "time": "17:30"
+      },
+      {
+        "date": "19/04/2026",
+        "competition": "Champions League",
+        "opponent": "Inter Milan",
+        "home": false,
+        "stadium": "San Siro",
+        "time": "21:00"
+      },
+      {
+        "date": "26/04/2026",
+        "competition": "Premier League",
+        "opponent": "Chelsea",
+        "home": false,
+        "stadium": "Stamford Bridge",
+        "time": "18:30"
+      },
+      {
+        "date": "03/05/2026",
+        "competition": "FA Cup",
+        "opponent": "Arsenal",
+        "home": true,
+        "stadium": "Anfield",
+        "time": "16:00"
+      }
+    ]
+  },
+  "Manchester City": {
+    "matches": [
+      {
+        "date": "14/04/2026",
+        "competition": "Premier League",
+        "opponent": "Arsenal",
+        "home": true,
+        "stadium": "Etihad Stadium",
+        "time": "20:15"
+      },
+      {
+        "date": "19/04/2026",
+        "competition": "Champions League",
+        "opponent": "Real Madrid",
+        "home": true,
+        "stadium": "Etihad Stadium",
+        "time": "21:00"
+      },
+      {
+        "date": "27/04/2026",
+        "competition": "Premier League",
+        "opponent": "Tottenham",
+        "home": false,
+        "stadium": "Tottenham Hotspur Stadium",
+        "time": "20:00"
+      },
+      {
+        "date": "04/05/2026",
+        "competition": "Premier League",
+        "opponent": "Liverpool",
+        "home": false,
+        "stadium": "Anfield",
+        "time": "17:30"
+      }
+    ]
+  },
+  "Bayern Munich": {
+    "matches": [
+      {
+        "date": "12/04/2026",
+        "competition": "Bundesliga",
+        "opponent": "Borussia Dortmund",
+        "home": true,
+        "stadium": "Allianz Arena",
+        "time": "18:30"
+      },
+      {
+        "date": "19/04/2026",
+        "competition": "Champions League",
+        "opponent": "Barcelone",
+        "home": false,
+        "stadium": "Camp Nou",
+        "time": "21:00"
+      },
+      {
+        "date": "26/04/2026",
+        "competition": "Bundesliga",
+        "opponent": "RB Leipzig",
+        "home": false,
+        "stadium": "Red Bull Arena",
+        "time": "18:30"
+      },
+      {
+        "date": "03/05/2026",
+        "competition": "DFB Pokal",
+        "opponent": "Eintracht Francfort",
+        "home": true,
+        "stadium": "Allianz Arena",
+        "time": "20:45"
+      }
+    ]
+  }
+}
