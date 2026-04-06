@@ -33,23 +33,25 @@ export default function FourColumnGrid() {
   ];
 
   return (
-    <div className="w-full px-6 lg:px-10 py-10">
-      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+    <div className="w-full px-4 sm:px-6 lg:px-10 py-6 md:py-10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
         {items.map((item, index) => (
           <Link href={item.link} key={index} className="flex flex-col group cursor-pointer">
-            <div className="w-full aspect-square overflow-hidden mb-4 bg-gray-100 border border-transparent group-hover:border-black transition-colors">
+            <div className="w-full aspect-[4/5] sm:aspect-square overflow-hidden mb-2 md:mb-4 bg-gray-100 border border-transparent group-hover:border-black transition-colors relative">
               <img 
                 src={item.image} 
                 alt={`${item.title} - Acheter sur KIT FOOTBALL`} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
             </div>
-            <h3 className="font-bold text-black text-sm mb-2">{item.title}</h3>
-            <p className="text-black text-sm mb-4 line-clamp-3">{item.description}</p>
-            <span className="text-black font-bold text-sm underline underline-offset-4 mt-auto w-fit hover:text-gray-600 transition-colors">
-              {item.linkText}
-            </span>
+            <div className="px-1 flex flex-col flex-1">
+              <h3 className="font-bold text-black text-xs sm:text-sm mb-1 md:mb-2">{item.title}</h3>
+              <p className="text-gray-600 text-[10px] sm:text-xs md:text-sm mb-2 md:mb-4 line-clamp-2 md:line-clamp-3">{item.description}</p>
+              <span className="text-black font-bold text-[10px] sm:text-xs md:text-sm underline underline-offset-4 mt-auto w-fit hover:text-gray-600 transition-colors uppercase tracking-widest">
+                {item.linkText}
+              </span>
+            </div>
           </Link>
         ))}
       </div>

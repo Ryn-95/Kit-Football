@@ -51,14 +51,14 @@ export default function Home() {
         <FranceHero />
         
         {/* DÉCOUVRE LES NOUVEAUTÉS section */}
-        <div className="w-full px-6 lg:px-10 py-10 mt-6">
-          <h2 className="text-3xl lg:text-[40px] font-black uppercase mb-8 text-black tracking-tight" style={{fontFamily: "'AdihausDIN', Helvetica, Arial, sans-serif"}}>
+        <div className="w-full px-4 sm:px-6 lg:px-10 py-6 md:py-10 mt-2 md:mt-6">
+          <h2 className="text-2xl md:text-3xl lg:text-[40px] font-black uppercase mb-4 md:mb-8 text-black tracking-tight" style={{fontFamily: "'AdihausDIN', Helvetica, Arial, sans-serif"}}>
             DÉCOUVRE LES NOUVEAUTÉS
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 md:gap-6">
             {bestSellers.slice(0, 4).map((product, index) => (
               <a href={`/maillots/${product.slug}`} key={index} className="flex flex-col group cursor-pointer">
-                <div className="w-full aspect-square overflow-hidden mb-3 bg-[#eceff1] border border-transparent hover:border-black transition-colors relative">
+                <div className="w-full aspect-[4/5] overflow-hidden mb-2 md:mb-3 bg-[#eceff1] border border-transparent hover:border-black transition-colors relative">
                   <ImageWithFallback 
                     src={product.image} 
                     alt={product.name}
@@ -68,9 +68,11 @@ export default function Home() {
                     loading="lazy"
                   />
                 </div>
-                <p className="text-sm font-bold text-black mb-1">{product.price} €</p>
-                <h3 className="text-sm text-black mb-1 group-hover:text-gray-600 transition-colors line-clamp-1">{product.name}</h3>
-                <p className="text-sm text-gray-500">{product.type}</p>
+                <div className="px-1">
+                  <p className="text-sm md:text-base font-bold text-black mb-0.5 md:mb-1">{product.price} €</p>
+                  <h3 className="text-xs md:text-sm text-black mb-0.5 md:mb-1 group-hover:text-gray-600 transition-colors line-clamp-1">{product.name}</h3>
+                  <p className="text-[10px] md:text-xs text-gray-500">{product.type}</p>
+                </div>
               </a>
             ))}
           </div>

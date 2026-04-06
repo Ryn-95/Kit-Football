@@ -197,13 +197,20 @@ export default function Header() {
               <X size={32} />
             </button>
           </div>
-          <div className="p-6 flex flex-col gap-6 text-xl font-bold text-black">
-            <Link href="/maillots?type=Maillot" onClick={() => setIsMobileMenuOpen(false)}>MAILLOTS</Link>
-            <Link href="/maillots?type=Domicile" onClick={() => setIsMobileMenuOpen(false)}>CLUBS</Link>
-            <Link href="/maillots/type/retro" onClick={() => setIsMobileMenuOpen(false)}>RÉTRO</Link>
-            <Link href="/maillots/type/training" onClick={() => setIsMobileMenuOpen(false)}>TRAINING</Link>
-            <Link href="/maillots?q=enfant" onClick={() => setIsMobileMenuOpen(false)}>ENFANTS</Link>
-            <Link href="/maillots" onClick={() => setIsMobileMenuOpen(false)} className="text-red-600">PROMO</Link>
+          <div className="p-6 flex flex-col gap-6 text-xl font-bold text-black uppercase tracking-widest">
+            <Link href="/maillots?type=Maillot" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between border-b border-gray-100 pb-4">MAILLOTS <ArrowRight size={20} className="text-gray-400" /></Link>
+            <Link href="/maillots?type=Domicile" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between border-b border-gray-100 pb-4">CLUBS <ArrowRight size={20} className="text-gray-400" /></Link>
+            <Link href="/maillots/type/retro" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between border-b border-gray-100 pb-4">RÉTRO <ArrowRight size={20} className="text-gray-400" /></Link>
+            <Link href="/maillots/type/training" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between border-b border-gray-100 pb-4">TRAINING <ArrowRight size={20} className="text-gray-400" /></Link>
+            <Link href="/maillots?q=enfant" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center justify-between border-b border-gray-100 pb-4">ENFANTS <ArrowRight size={20} className="text-gray-400" /></Link>
+            <Link href="/maillots" onClick={() => setIsMobileMenuOpen(false)} className="text-red-600 flex items-center justify-between border-b border-gray-100 pb-4">PROMO <ArrowRight size={20} className="text-red-400" /></Link>
+            
+            <div className="mt-8 flex flex-col gap-4 text-sm font-medium text-gray-500 normal-case tracking-normal">
+              <Link href="#" className="flex items-center gap-3"><User size={20} /> Mon Compte</Link>
+              <Link href="#" className="flex items-center gap-3"><Heart size={20} /> Favoris</Link>
+              <Link href="#" className="flex items-center gap-3">Suivi de commande</Link>
+              <Link href="#" className="flex items-center gap-3">Aide & Contact</Link>
+            </div>
           </div>
         </div>
       )}
