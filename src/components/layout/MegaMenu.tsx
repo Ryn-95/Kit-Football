@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 interface MegaMenuProps {
   onClose: () => void;
+  category?: 'clubs' | 'nations';
 }
 
 const topTeamsPerLeague: Record<string, string[]> = {
@@ -19,9 +20,12 @@ const topTeamsPerLeague: Record<string, string[]> = {
   "Equipes Nationales": ["Argentine", "Bresil", "France", "Allemagne", "Espagne", "Portugal"],
 };
 
-const targetLeagues = ["Ligue 1", "Premier League", "Liga", "Serie A", "Bundesliga", "Equipes Nationales"];
+export default function MegaMenu({ onClose, category = 'clubs' }: MegaMenuProps) {
+  
+  const targetLeagues = category === 'clubs' 
+    ? ["Ligue 1", "Premier League", "Liga", "Serie A", "Bundesliga"] 
+    : ["Equipes Nationales"];
 
-export default function MegaMenu({ onClose }: MegaMenuProps) {
   const leagues = Object.keys(menuData).filter(league => targetLeagues.includes(league));
 
   return (
@@ -59,7 +63,7 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
                   <Link 
                     href={`/maillots?q=${league}`}
                     onClick={onClose}
-                    className="font-heading font-black italic text-black text-xl uppercase tracking-tighter mb-4 inline-block hover:text-[var(--color-brand-volt)] transition-colors duration-200"
+                    className="font-bold text-black text-sm md:text-base uppercase tracking-widest mb-4 inline-block hover:text-[var(--color-brand-volt)] transition-colors duration-200"
                   >
                     {league}
                   </Link>
@@ -71,7 +75,7 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
                           <Link 
                             href={`/maillots/club/${teamSlug}`}
                             onClick={onClose}
-                            className="text-gray-500 hover:text-black hover:underline underline-offset-4 transition-all duration-300 text-sm font-medium block"
+                            className="text-gray-500 hover:text-black hover:font-bold hover:translate-x-1 transition-all duration-300 text-sm font-medium block"
                           >
                             {team}
                           </Link>
@@ -82,7 +86,7 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
                       <Link 
                         href={`/maillots?q=${league}`}
                         onClick={onClose}
-                        className="text-black font-bold hover:text-gray-600 hover:underline underline-offset-4 text-xs uppercase tracking-widest flex items-center gap-1 group/link transition-colors"
+                        className="text-black font-bold hover:text-gray-600 hover:underline underline-offset-4 text-[11px] uppercase tracking-[0.2em] flex items-center gap-1 group/link transition-colors"
                       >
                         Tout afficher <span className="transition-transform duration-300 group-hover/link:translate-x-1">→</span>
                       </Link>
@@ -94,25 +98,27 @@ export default function MegaMenu({ onClose }: MegaMenuProps) {
           </div>
 
           {/* Promotional / Visual Area (Right - Hidden on small screens) */}
-          <div className="hidden lg:flex w-80 flex-col gap-6 border-l border-gray-100 pl-12">
-            <Link href="/maillots/type/retro" onClick={onClose} className="group relative block aspect-[4/5] bg-gray-100 overflow-hidden rounded-2xl">
-              <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-black/40 transition-colors duration-500" />
-              {/* Replace with a real path if you have a featured image, otherwise fallback to generic CSS pattern */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 scale-105 group-hover:scale-110 transition-transform duration-700" />
-              <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
-                <span className="bg-white text-black text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-3 inline-block">Nouveau</span>
-                <h4 className="text-white font-heading font-black italic text-3xl uppercase tracking-tighter leading-none mb-2 group-hover:-translate-y-1 transition-transform duration-300">
-                  Éditions<br/>Rétro
-                </h4>
-                <p className="text-white/80 text-sm font-medium mb-4 group-hover:-translate-y-1 transition-transform duration-300 delay-75">
-                  Revivez l'histoire.
-                </p>
-                <span className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:-translate-y-1 transition-transform duration-300 delay-100">
-                  Découvrir <span className="transition-transform group-hover:translate-x-2">→</span>
-                </span>
-              </div>
-            </Link>
-          </div>
+          {category === 'clubs' && (
+            <div className="hidden lg:flex w-80 flex-col gap-6 border-l border-gray-100 pl-12">
+              <Link href="/maillots/type/retro" onClick={onClose} className="group relative block aspect-[4/5] bg-gray-100 overflow-hidden rounded-2xl">
+                <div className="absolute inset-0 bg-black/20 z-10 group-hover:bg-black/40 transition-colors duration-500" />
+                {/* Replace with a real path if you have a featured image, otherwise fallback to generic CSS pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 scale-105 group-hover:scale-110 transition-transform duration-700" />
+                <div className="absolute bottom-0 left-0 p-6 z-20 w-full">
+                  <span className="bg-white text-black text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full mb-3 inline-block">Nouveau</span>
+                  <h4 className="text-white font-bold text-2xl uppercase tracking-widest leading-none mb-2 group-hover:-translate-y-1 transition-transform duration-300">
+                    Éditions<br/>Rétro
+                  </h4>
+                  <p className="text-white/80 text-sm font-medium mb-4 group-hover:-translate-y-1 transition-transform duration-300 delay-75">
+                    Revivez l'histoire.
+                  </p>
+                  <span className="text-white text-xs font-bold uppercase tracking-widest flex items-center gap-2 group-hover:-translate-y-1 transition-transform duration-300 delay-100">
+                    Découvrir <span className="transition-transform group-hover:translate-x-2">→</span>
+                  </span>
+                </div>
+              </Link>
+            </div>
+          )}
 
         </div>
         

@@ -13,7 +13,7 @@ import Image from 'next/image';
 export default function Header() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const { totalItems, setIsCartOpen } = useCart();
   const [mounted, setMounted] = useState(false);
@@ -86,39 +86,58 @@ export default function Header() {
               MAILLOTS
             </Link>
             
-            {/* CLUBS with MegaMenu Trigger */}
+            {/* CLUBS */}
             <div 
               className="h-full flex items-center"
-              onMouseEnter={() => setIsMegaMenuOpen(true)}
-              onMouseLeave={() => setIsMegaMenuOpen(false)}
+              onMouseEnter={() => setHoveredMenu('clubs')}
+              onMouseLeave={() => setHoveredMenu(null)}
             >
               <Link 
                 href="/maillots?type=Domicile" 
-                className={`h-full flex items-center border-b-[3px] transition-all ${isMegaMenuOpen ? 'border-black' : 'border-transparent hover:border-black'}`}
+                className={`h-full flex items-center border-b-[3px] transition-all ${hoveredMenu === 'clubs' ? 'border-black text-black' : 'border-transparent text-gray-800 hover:text-black hover:border-black'}`}
               >
                 CLUBS
               </Link>
-              
-              {/* Mega Menu Overlay - Rendered inside the nav item's hover context */}
               <AnimatePresence>
-                {isMegaMenuOpen && (
+                {hoveredMenu === 'clubs' && (
                   <div className="absolute top-full left-0 w-full cursor-default">
-                    <MegaMenu onClose={() => setIsMegaMenuOpen(false)} />
+                    <MegaMenu category="clubs" onClose={() => setHoveredMenu(null)} />
                   </div>
                 )}
               </AnimatePresence>
             </div>
 
-            <Link href="/maillots/type/retro" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+            {/* NATIONS */}
+            <div 
+              className="h-full flex items-center"
+              onMouseEnter={() => setHoveredMenu('nations')}
+              onMouseLeave={() => setHoveredMenu(null)}
+            >
+              <Link 
+                href="/maillots?q=Nationales" 
+                className={`h-full flex items-center border-b-[3px] transition-all ${hoveredMenu === 'nations' ? 'border-black text-black' : 'border-transparent text-gray-800 hover:text-black hover:border-black'}`}
+              >
+                NATIONS
+              </Link>
+              <AnimatePresence>
+                {hoveredMenu === 'nations' && (
+                  <div className="absolute top-full left-0 w-full cursor-default">
+                    <MegaMenu category="nations" onClose={() => setHoveredMenu(null)} />
+                  </div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            <Link href="/maillots/type/retro" className="h-full flex items-center border-b-[3px] border-transparent text-gray-800 hover:text-black hover:border-black transition-all">
               RÉTRO
             </Link>
-            <Link href="/maillots/type/training" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+            <Link href="/maillots/type/training" className="h-full flex items-center border-b-[3px] border-transparent text-gray-800 hover:text-black hover:border-black transition-all">
               TRAINING
             </Link>
-            <Link href="/maillots?q=enfant" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+            <Link href="/maillots?q=enfant" className="h-full flex items-center border-b-[3px] border-transparent text-gray-800 hover:text-black hover:border-black transition-all">
               ENFANTS
             </Link>
-            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-red-600 transition-all text-red-600">
+            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent text-red-600 hover:border-red-600 transition-all">
               PROMO
             </Link>
           </nav>
