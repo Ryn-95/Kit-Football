@@ -82,7 +82,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center space-x-8 h-full font-bold text-[14px] tracking-wide">
-            <Link href="/maillots" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
+            <Link href="/maillots?type=Maillot" className="h-full flex items-center border-b-[3px] border-transparent hover:border-black transition-all">
               MAILLOTS
             </Link>
             
@@ -198,7 +198,7 @@ export default function Header() {
             </button>
           </div>
           <div className="p-6 flex flex-col gap-6 text-xl font-bold text-black">
-            <Link href="/maillots" onClick={() => setIsMobileMenuOpen(false)}>MAILLOTS</Link>
+            <Link href="/maillots?type=Maillot" onClick={() => setIsMobileMenuOpen(false)}>MAILLOTS</Link>
             <Link href="/maillots?type=Domicile" onClick={() => setIsMobileMenuOpen(false)}>CLUBS</Link>
             <Link href="/maillots/type/retro" onClick={() => setIsMobileMenuOpen(false)}>RÉTRO</Link>
             <Link href="/maillots/type/training" onClick={() => setIsMobileMenuOpen(false)}>TRAINING</Link>

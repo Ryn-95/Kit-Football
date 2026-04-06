@@ -125,7 +125,12 @@ function CatalogContent({ initialProducts, topClubs, topNations }: MaillotsClien
       result = result.filter(p => p.team === filterTeam);
     }
     if (filterType) {
-      result = result.filter(p => p.type === filterType);
+      // Allow partial matches for 'Maillot' so 'Maillot Domicile' is caught
+      if (filterType.toLowerCase() === 'maillot') {
+        result = result.filter(p => p.type.toLowerCase().includes('maillot') || p.name.toLowerCase().includes('maillot'));
+      } else {
+        result = result.filter(p => p.type === filterType);
+      }
     }
     if (filterPrice) {
       if (filterPrice === 'under-30') result = result.filter(p => p.price < 30);
@@ -139,8 +144,21 @@ function CatalogContent({ initialProducts, topClubs, topNations }: MaillotsClien
     } else if (sortBy === 'price-desc') {
       result.sort((a, b) => b.price - a.price);
     } else {
-      // 'newest' / default (Assuming isNew flag or just keeping original order)
-      result.sort((a, b) => (b.isNew === a.isNew ? 0 : b.isNew ? 1 : -1));
+      // 'newest' / default
+      // We want to prioritize actual Shirts (Maillots) over Socks (Chaussettes) or Shorts
+      result.sort((a, b) => {
+        const aIsAccessory = a.name.toLowerCase().includes('chaussettes') || a.name.toLowerCase().includes('short') || a.type.toLowerCase().includes('accessoire');
+        const bIsAccessory = b.name.toLowerCase().includes('chaussettes') || b.name.toLowerCase().includes('short') || b.type.toLowerCase().includes('accessoire');
+        
+        if (aIsAccessory && !bIsAccessory) return 1; // b comes first
+        if (!aIsAccessory && bIsAccessory) return -1; // a comes first
+        
+        // Then by isNew flag
+        if (b.isNew && !a.isNew) return 1;
+        if (!b.isNew && a.isNew) return -1;
+        
+        return 0;
+      });
     }
     
     return result;
@@ -156,7 +174,13 @@ function CatalogContent({ initialProducts, topClubs, topNations }: MaillotsClien
   const allTeams = useMemo(() => Array.from(new Set(allProducts.map(p => p.team))), [allProducts]);
   const availableTopClubs = useMemo(() => topClubs.filter(t => allTeams.includes(t)), [allTeams, topClubs]);
   const availableTopNations = useMemo(() => topNations.filter(t => allTeams.includes(t)), [allTeams, topNations]);
-  const types = useMemo(() => Array.from(new Set(allProducts.map(p => p.type))).sort(), [allProducts]);
+  const types = useMemo(() => {
+    // Collect specific types, filter out messy ones, and add a generic "Maillot" option if missing
+    let tSet = new Set(allProducts.map(p => p.type));
+    const finalTypes = Array.from(tSet).filter(t => t.length > 2).sort();
+    if (!finalTypes.includes("Maillot")) finalTypes.unshift("Maillot");
+    return finalTypes;
+  }, [allProducts]);
 
   return (
     <div className="bg-white min-h-screen pb-24 font-sans">

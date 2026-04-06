@@ -13,41 +13,69 @@ const normalizeKey = (value: string) =>
     .replace(/(^-|-$)/g, "");
 
 const flocageSuggestionsByKey: Record<string, string[]> = {
-  "as-roma": ["DYBALA", "PELLEGRINI", "MANCINI"],
-  roma: ["DYBALA", "PELLEGRINI", "MANCINI"],
-  psg: ["DEMBELE", "MARQUINHOS", "VITINHA"],
-  "real-madrid": ["MBAPPE", "VINICIUS", "BELLINGHAM"],
-  "fc-barcelona": ["LEWANDOWSKI", "PEDRI", "YAMAL"],
-  barcelona: ["LEWANDOWSKI", "PEDRI", "YAMAL"],
-  "manchester-city": ["HAALAND", "DE-BRUYNE", "FODEN"],
-  "manchester-united": ["BRUNO", "GARNACHO", "RASHFORD"],
-  arsenal: ["SAKA", "ODEGAARD", "RICE"],
-  liverpool: ["SALAH", "VAN-DIJK", "ALEXANDER-ARNOLD"],
-  chelsea: ["PALMER", "ENZO", "JACKSON"],
-  "ac-milan": ["LEAO", "THEO", "MAIGNAN"],
-  milan: ["LEAO", "THEO", "MAIGNAN"],
-  "inter-milan": ["LAUTARO", "BARELLA", "BASTONI"],
-  inter: ["LAUTARO", "BARELLA", "BASTONI"],
-  juventus: ["VLAHOVIC", "CHIESA", "BREMER"],
-  napoli: ["OSIMHEN", "KVARATSKHELIA", "DI-LORENZO"],
-  "bayern-munich": ["KANE", "MUSIALA", "KIMMICH"],
-  bayern: ["KANE", "MUSIALA", "KIMMICH"],
-  "borussia-dortmund": ["BRANDT", "ADEYEMI", "CAN"],
-  dortmund: ["BRANDT", "ADEYEMI", "CAN"],
-  "atletico-madrid": ["GRIEZMANN", "MORATA", "DE-PAUL"],
-  atletico: ["GRIEZMANN", "MORATA", "DE-PAUL"],
-  "paris-saint-germain": ["DEMBELE", "MARQUINHOS", "VITINHA"],
-  france: ["MBAPPE", "GRIEZMANN", "DEMBELE"],
-  portugal: ["RONALDO", "BRUNO", "LEAO"],
-  argentina: ["MESSI", "DI-MARIA", "LAUTARO"],
-  brazil: ["VINICIUS", "RODRYGO", "MARQUINHOS"],
-  spain: ["MORATA", "PEDRI", "OLMO"],
+  // LIGUE 1
+  "paris-saint-germain": ["MBAPPE", "DEMBELE", "BARCOLA", "ZAIRE-EMERY", "MARQUINHOS", "HAKIMI"],
+  psg: ["MBAPPE", "DEMBELE", "BARCOLA", "ZAIRE-EMERY", "MARQUINHOS"],
+  "marseille": ["AUBAMEYANG", "CLAUSS", "HARIT", "VERETOUT", "MBEMBA"],
+  "om": ["AUBAMEYANG", "CLAUSS", "HARIT", "VERETOUT", "MBEMBA"],
+  "lyon": ["LACAZETTE", "CHERKI", "TOLISSO", "CAQUERET", "MATIC"],
+  "ol": ["LACAZETTE", "CHERKI", "TOLISSO", "CAQUERET", "MATIC"],
+  "monaco": ["BEN YEDDER", "GOLOVIN", "MINAMINO", "FOFANA", "ZAKARIA"],
+  "lens": ["SOTOCA", "MEDINA", "DANSO", "FRANKOWSKI", "SAMED"],
+  "lille": ["DAVID", "GOMES", "YORO", "ANDRE", "CHEVALIER"],
+
+  // PREMIER LEAGUE
+  "arsenal": ["SAKA", "ODEGAARD", "RICE", "MARTINELLI", "SALIBA", "GABRIEL"],
+  "chelsea": ["PALMER", "ENZO", "GALLAGHER", "JAMES", "SILVA"],
+  "liverpool": ["SALAH", "VAN DIJK", "NUNEZ", "DIAZ", "ALEXANDER-ARNOLD", "MAC ALLISTER"],
+  "manchester-city": ["HAALAND", "DE BRUYNE", "FODEN", "RODRI", "SILVA", "DIAS"],
+  "manchester-united": ["BRUNO", "RASHFORD", "GARNACHO", "MAINOO", "MARTINEZ", "HOJLUND"],
+  "tottenham": ["SON", "MADDISON", "ROMERO", "KULUSEVSKI", "RICHARLISON"],
+  "newcastle": ["ISAK", "GORDON", "BRUNO G.", "TRIPPIER", "BOTMAN"],
+
+  // LIGA
+  "real-madrid": ["BELLINGHAM", "VINICIUS JR", "RODRYGO", "VALVERDE", "CAMAVINGA", "MODRIC", "KROOS"],
+  "fc-barcelona": ["LEWANDOWSKI", "YAMAL", "PEDRI", "GAVI", "DE JONG", "ARAUJO"],
+  "barcelona": ["LEWANDOWSKI", "YAMAL", "PEDRI", "GAVI", "DE JONG", "ARAUJO"],
+  "atletico-madrid": ["GRIEZMANN", "MORATA", "KOKE", "DE PAUL", "OBLAK"],
+  "atletico": ["GRIEZMANN", "MORATA", "KOKE", "DE PAUL", "OBLAK"],
+
+  // SERIE A
+  "juventus": ["VLAHOVIC", "CHIESA", "RABIOT", "BREMER", "LOCATELLI"],
+  "ac-milan": ["LEAO", "GIROUD", "HERNANDEZ", "PULISIC", "MAIGNAN"],
+  "milan": ["LEAO", "GIROUD", "HERNANDEZ", "PULISIC", "MAIGNAN"],
+  "inter-milan": ["LAUTARO", "BARELLA", "THURAM", "CALHANOGLU", "BASTONI"],
+  "inter": ["LAUTARO", "BARELLA", "THURAM", "CALHANOGLU", "BASTONI"],
+  "as-roma": ["DYBALA", "LUKAKU", "PELLEGRINI", "MANCINI", "PAREDES"],
+  "roma": ["DYBALA", "LUKAKU", "PELLEGRINI", "MANCINI", "PAREDES"],
+  "napoli": ["OSIMHEN", "KVARATSKHELIA", "DI LORENZO", "ANGUISSA", "LOBOTKA"],
+
+  // BUNDESLIGA
+  "bayern-munich": ["KANE", "MUSIALA", "SANE", "KIMMICH", "MULLER", "DAVIES"],
+  "bayern": ["KANE", "MUSIALA", "SANE", "KIMMICH", "MULLER", "DAVIES"],
+  "borussia-dortmund": ["BRANDT", "FULLKRUG", "SANCHO", "CAN", "SCHLOTTERBECK"],
+  "dortmund": ["BRANDT", "FULLKRUG", "SANCHO", "CAN", "SCHLOTTERBECK"],
+  "bayer-leverkusen": ["WIRTZ", "FRIMPONG", "GRIMALDO", "XHAKA", "BONIFACE"],
+  "leipzig": ["OPENDA", "SIMONS", "OLMO", "SCHLAGER", "ORBAN"],
+
+  // NATIONS
+  "france": ["MBAPPE", "GRIEZMANN", "DEMBELE", "GIROUD", "TCHOUAMENI", "HERNANDEZ"],
+  "portugal": ["RONALDO", "BRUNO F.", "BERNARDO", "LEAO", "DIAS", "FELIX"],
+  "argentina": ["MESSI", "DI MARIA", "ALVAREZ", "FERNANDEZ", "MAC ALLISTER", "MARTINEZ"],
+  "brazil": ["VINICIUS JR", "RODRYGO", "NEYMAR JR", "RICHARLISON", "PAQUETA", "MARQUINHOS"],
+  "spain": ["MORATA", "PEDRI", "GAVI", "YAMAL", "RODRI", "WILLIAMS"],
+  "england": ["KANE", "BELLINGHAM", "SAKA", "FODEN", "RICE", "GREALISH"],
+  "germany": ["MUSIALA", "WIRTZ", "KROOS", "GUNDOGAN", "HAVERTZ", "FULLKRUG"],
+  "italy": ["CHIESA", "BARELLA", "DONNARUMMA", "DIMARCO", "PELLEGRINI"],
+  "belgium": ["DE BRUYNE", "LUKAKU", "DOKU", "TROSSARD", "ONANA"],
+  "netherlands": ["GAKPO", "SIMONS", "VAN DIJK", "DE LIGT", "DUMFRIES"],
+  "pays-bas": ["GAKPO", "SIMONS", "VAN DIJK", "DE LIGT", "DUMFRIES"],
 };
 
 const getFlocageSuggestions = (teamName?: string, clubSlug?: string) => {
   const keys = [clubSlug, teamName].filter(Boolean).map((v) => normalizeKey(String(v)));
   for (const key of keys) {
-    if (flocageSuggestionsByKey[key]) return flocageSuggestionsByKey[key].slice(0, 3);
+    if (flocageSuggestionsByKey[key]) return flocageSuggestionsByKey[key].slice(0, 6);
   }
   return [];
 };
