@@ -157,7 +157,7 @@ export default function ProductPageContent({
             <TeamMatches teamName={product.team} />
           )}
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 mb-24">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_450px] gap-8 lg:gap-16 mb-24">
             <ProductGallery
               images={product.images}
               altTexts={product.altTexts || []}
@@ -169,27 +169,21 @@ export default function ProductPageContent({
               {product.team && (
                 <Link
                   href={`/maillots/club/${product.clubSlug || ''}`}
-                  className="mb-2 text-sm font-bold text-gray-400 uppercase tracking-widest hover:text-[var(--color-brand-volt)] transition-colors"
+                  className="mb-2 text-xs font-bold text-gray-500 uppercase tracking-widest hover:text-black transition-colors"
                 >
                   {product.team}
                 </Link>
               )}
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-black italic uppercase text-black tracking-tight mb-4 leading-none">
+              <h1 className="text-2xl md:text-3xl font-medium text-black mb-4 leading-tight">
                 {product.name}
               </h1>
 
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-3xl font-bold text-black">
+              <div className="flex items-center gap-4 mb-8">
+                <span className="text-xl font-bold text-black">
                   {Number(product.price).toFixed(2).replace('.', ',')}€
                 </span>
-                <div className="flex text-yellow-500 text-sm">
-                  ★★★★★{" "}
-                  <span className="text-gray-400 ml-2">(128 avis vérifiés)</span>
-                </div>
               </div>
-
-              <p className="text-gray-600 leading-relaxed mb-8">{product.shortDescription}</p>
 
               <ProductActions
                 product={{
@@ -203,7 +197,9 @@ export default function ProductPageContent({
                 clubSlug={product.clubSlug}
               />
 
-              <ProductAccordion />
+              <div className="mt-8">
+                <ProductAccordion />
+              </div>
             </div>
           </div>
 

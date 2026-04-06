@@ -136,137 +136,127 @@ export function ProductActions({
       
       {/* Version Selection */}
       <div>
-        <div className="flex justify-between items-end mb-3">
-          <label className="text-sm font-bold uppercase tracking-wider text-black">Version du Maillot</label>
-        </div>
-        <div className="grid grid-cols-2 gap-3">
-          <button 
-            onClick={() => setVersion("Fan")}
-            className={`py-3 px-4 border rounded-xl text-sm font-bold transition-all ${version === "Fan" ? "border-[var(--color-brand-volt)] bg-[var(--color-brand-volt)]/10 text-black shadow-sm" : "border-gray-200 text-gray-500 hover:border-gray-300"}`}
-          >
-            Version Fan (Standard)
-          </button>
-          <button 
-            onClick={() => setVersion("Player")}
-            className={`py-3 px-4 border rounded-xl text-sm font-bold transition-all relative ${version === "Player" ? "border-[var(--color-brand-volt)] bg-[var(--color-brand-volt)]/10 text-black shadow-sm" : "border-gray-200 text-gray-500 hover:border-gray-300"}`}
-          >
-            Version Player Pro
-            <span className="absolute -top-2 -right-2 bg-black text-white text-[9px] px-1.5 py-0.5 rounded-sm">+5€</span>
-          </button>
-        </div>
-      </div>
-
-      {/* Size Selection */}
-      <div>
-        <div className="flex justify-between items-end mb-3">
-          <label className="text-sm font-bold uppercase tracking-wider text-black">Taille <span className="text-red-500">*</span></label>
-          <a href="/guides/guide-des-tailles-marques" className="text-xs text-blue-600 hover:underline">Guide des tailles</a>
-        </div>
-        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-          {sizes.map((s) => (
-            <button 
-              key={s}
-              onClick={() => { setSize(s); setError(""); }}
-              className={`py-2 border rounded-lg text-sm font-bold transition-all ${size === s ? "border-black bg-black text-white" : "border-gray-200 text-gray-600 hover:border-black"}`}
+        <div className="flex items-center gap-4 mb-2">
+          <label className="text-xs font-bold uppercase tracking-widest text-gray-500 w-16">VERSION</label>
+          <div className="relative flex-1">
+            <select 
+              value={version}
+              onChange={(e) => { setVersion(e.target.value as "Fan" | "Player"); }}
+              className="w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-black appearance-none bg-white cursor-pointer transition-colors"
             >
-              {s}
-            </button>
-          ))}
+              <option value="Fan">Version Fan (Standard)</option>
+              <option value="Player">Version Player Pro (+5€)</option>
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Patch Selection */}
+      {/* Size Selection (Dropdown style like Maxikits) */}
       <div>
-        <label className="text-sm font-bold uppercase tracking-wider text-black mb-3 block">Flocage / Patchs (+10€)</label>
+        <div className="flex items-center gap-4 mb-2">
+          <label className="text-xs font-bold uppercase tracking-widest text-gray-500 w-16">TAILLE</label>
+          <div className="relative flex-1">
+            <select 
+              value={size}
+              onChange={(e) => { setSize(e.target.value); setError(""); }}
+              className="w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-black appearance-none bg-white cursor-pointer transition-colors"
+            >
+              <option value="" disabled>Choisir une option</option>
+              {sizes.map(s => <option key={s} value={s}>{s}</option>)}
+            </select>
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+        </div>
+        <div className="ml-20 mt-2">
+          <a href="/guides/guide-des-tailles-marques" className="inline-block bg-[#00b0ff] text-white text-xs font-bold px-4 py-2 hover:bg-[#0090d0] transition-colors">Guide des tailles</a>
+        </div>
+      </div>
+
+      {/* Flocage / Patch (Only inputs if custom is selected, maybe simplify this) */}
+      <div className="pt-4 border-t border-gray-100">
+        <label className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 block">Flocage / Patchs (+10€)</label>
         <select 
           value={patch}
           onChange={(e) => { setPatch(e.target.value); setError(""); }}
-          className="w-full border border-gray-200 rounded-xl p-3 text-sm font-medium focus:outline-none focus:border-black appearance-none bg-white cursor-pointer"
+          className="w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-black appearance-none bg-white cursor-pointer mb-4"
         >
           <option value="none">Sans patch</option>
           <option value="ligue1">Patch Championnat officiel</option>
           <option value="champion">Patch Champions League</option>
-          <option value="custom">Flocage Nom + Numéro personnalisé</option>
+          <option value="custom">Flocage Nom + Numéro personnalisé (+10€)</option>
         </select>
-      </div>
 
-      {patch === "custom" && (
-        <div className="p-4 bg-gray-50 rounded-xl border border-gray-100 space-y-3">
-          {suggestedNames.length > 0 && (
-            <div>
-              <div className="text-xs font-bold text-gray-500 mb-2">Joueurs de {teamName}</div>
-              <div className="flex flex-wrap gap-2">
+        {patch === "custom" && (
+          <div className="space-y-4 mt-4">
+            {suggestedNames.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
                 {suggestedNames.map((name) => (
                   <button
                     key={name}
                     type="button"
                     onClick={() => { setCustomName(name); setError(""); }}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold border transition-colors ${
+                    className={`px-3 py-1.5 text-xs font-bold border transition-colors ${
                       customName === name
                         ? "border-black bg-black text-white"
-                        : "border-gray-200 bg-white text-gray-700 hover:border-black"
+                        : "border-gray-200 bg-gray-50 text-gray-700 hover:border-black"
                     }`}
                   >
                     {name}
                   </button>
                 ))}
               </div>
-            </div>
-          )}
+            )}
 
-          <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-bold text-gray-500 mb-1 block">Nom</label>
+              <label className="text-sm text-gray-700 mb-2 block">Nom</label>
               <input 
                 type="text" 
                 maxLength={12}
-                placeholder={suggestedNames[0] || "VOTRE NOM"}
                 value={customName}
                 onChange={(e) => { setCustomName(e.target.value.toUpperCase()); setError(""); }}
-                className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:border-black uppercase bg-white"
+                className="w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-black uppercase bg-white transition-colors"
               />
             </div>
             <div>
-              <label className="text-xs font-bold text-gray-500 mb-1 block">Numéro</label>
+              <label className="text-sm text-gray-700 mb-2 block">Numéro</label>
               <input 
                 type="number" 
                 min="1" max="99"
-                placeholder="10"
                 value={customNumber}
                 onChange={(e) => { setCustomNumber(e.target.value); setError(""); }}
-                className="w-full border border-gray-200 rounded-lg p-2 text-sm focus:outline-none focus:border-black bg-white"
+                className="w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-black bg-white transition-colors"
               />
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
 
       {error && <p className="text-red-500 text-sm font-bold">{error}</p>}
 
-      {/* Price & CTA */}
-      <div className="pt-4 border-t border-gray-100 flex flex-col space-y-4">
-        <div className="flex items-center justify-between">
-          <span className="text-gray-500 text-sm">Prix total calculé</span>
-          <span className="font-heading font-black italic text-3xl text-black">{currentPrice.toFixed(2).replace('.', ',')}€</span>
+      {/* Add to Cart Area (Quantity + Button) */}
+      <div className="pt-6 flex items-center gap-4">
+        <div className="flex border border-gray-200 h-12 w-32 shrink-0">
+          <button className="w-10 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors">-</button>
+          <div className="flex-1 flex items-center justify-center font-bold text-sm">1</div>
+          <button className="w-10 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors">+</button>
         </div>
         <button 
           onClick={handleAddToCart}
-          className="w-full bg-[var(--color-brand-volt)] hover:bg-[#b3e600] text-black font-heading font-black italic text-lg uppercase tracking-wide py-5 rounded-2xl flex items-center justify-center gap-3 transition-colors shadow-[0_4px_14px_0_rgba(204,255,0,0.39)]"
+          className="flex-1 h-12 bg-[#1a1a1a] hover:bg-black text-white text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
         >
-          <ShoppingCart size={22} />
-          Ajouter au panier
+          AJOUTER AU PANIER
         </button>
       </div>
 
-      {/* Micro-Trust / Re-assurances sous le bouton */}
-      <div className="grid grid-cols-2 gap-4 pt-4">
-        <div className="flex items-center gap-2 text-xs text-gray-500 font-medium">
-          <ShieldCheck size={16} className="text-[var(--color-brand-volt)]" />
-          Paiement crypté sécurisé
-        </div>
-        <div className="flex items-center gap-2 text-xs text-gray-500 font-medium">
-          <Truck size={16} className="text-[var(--color-brand-volt)]" />
-          Livraison suivie garantie
+      {/* Meta info like Maxikits */}
+      <div className="pt-6 border-t border-gray-100 flex flex-col gap-4">
+        <div className="text-sm text-gray-500">
+          Catégories : <a href="/maillots" className="text-gray-800 hover:underline">Maillots</a>, {teamName && <a href={`/maillots/club/${clubSlug}`} className="text-gray-800 hover:underline">{teamName}</a>}
         </div>
       </div>
     </div>

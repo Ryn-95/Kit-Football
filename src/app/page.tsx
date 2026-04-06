@@ -10,7 +10,36 @@ import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 
 export default function Home() {
   const allProducts = getAllProducts();
-  const bestSellers = allProducts.slice(0, 12); // Just taking first 12 for now
+  
+  // Filter out accessories and get only primary shirts for "Nouveautés"
+  // Deduplicate by team and type (so we don't show Home Fan, Home Player, Home Enfant of the same team)
+  const uniqueMaillots = [];
+  const seenCombos = new Set();
+  
+  for (const product of allProducts) {
+    const isAccessory = product.name.toLowerCase().includes('chaussettes') || 
+                        product.name.toLowerCase().includes('short') || 
+                        product.name.toLowerCase().includes('survêtement') || 
+                        product.name.toLowerCase().includes('coupe vent') ||
+                        product.type.toLowerCase().includes('accessoire');
+                        
+    const isVariant = product.name.toLowerCase().includes('enfant') || 
+                      product.name.toLowerCase().includes('player');
+                      
+    if (isAccessory || isVariant) continue;
+    
+    // We try to show unique teams in the first 4 slots
+    const comboKey = `${product.team}-${product.type}`;
+    if (!seenCombos.has(comboKey)) {
+      seenCombos.add(comboKey);
+      uniqueMaillots.push(product);
+    }
+  }
+  
+  // Sort them so that isNew items come first, or just take the first ones
+  uniqueMaillots.sort((a, b) => (b.isNew === a.isNew ? 0 : b.isNew ? 1 : -1));
+  
+  const bestSellers = uniqueMaillots.slice(0, 12); 
 
   return (
     <>
