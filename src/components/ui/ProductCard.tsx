@@ -1,7 +1,7 @@
 import { Product } from "../../types";
 import Image from "next/image";
 import Link from "next/link";
-import { ShoppingCart, Star } from "lucide-react";
+import { ShoppingCart } from "lucide-react";
 
 export interface ProductCardProps {
   product: Product;
@@ -9,20 +9,20 @@ export interface ProductCardProps {
 
 export function ProductCard({ product }: ProductCardProps) {
   return (
-    <div className="group relative flex flex-col h-full bg-white transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] border-2 border-transparent hover:border-gray-100 rounded-[2rem] p-4 overflow-hidden">
+    <div className="group relative flex flex-col h-full bg-white transition-all duration-300 hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-transparent hover:border-gray-100 rounded-none md:rounded-lg overflow-hidden pb-4">
       
-      <Link href={`/maillots/${product.slug}`} className="relative aspect-[4/5] w-full overflow-hidden bg-gray-50/50 rounded-3xl flex items-center justify-center mb-6 transition-colors group-hover:bg-gray-100/50">
+      <Link href={`/maillots/${product.slug}`} className="relative aspect-[4/5] w-full overflow-hidden bg-[#F6F6F6] mb-4">
         
-        {/* Badges - Premium Look */}
-        <div className="absolute top-4 left-4 z-10 flex flex-col gap-2">
+        {/* Badges - Premium Look (Adidas/Nike style) */}
+        <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
           {product.isNew && (
-            <span className="bg-black text-white text-[10px] font-black px-3 py-1.5 uppercase tracking-[0.2em] rounded-full shadow-lg">
+            <span className="bg-white text-black text-[10px] font-black px-2 py-1 uppercase tracking-[0.1em]">
               Nouveau
             </span>
           )}
           {product.isBestSeller && (
-            <span className="bg-[var(--color-brand-volt)] text-black text-[10px] font-black px-3 py-1.5 uppercase tracking-[0.2em] rounded-full shadow-[0_5px_15px_rgba(204,255,0,0.3)] flex items-center gap-1">
-              <Star size={10} className="fill-black" /> Top Vente
+            <span className="bg-black text-white text-[10px] font-black px-2 py-1 uppercase tracking-[0.1em]">
+              Top Vente
             </span>
           )}
         </div>
@@ -33,7 +33,7 @@ export function ProductCard({ product }: ProductCardProps) {
           title={`${product.name} Officiel`}
           fill
           sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-          className="object-cover mix-blend-multiply opacity-95 transition-all duration-700 ease-out group-hover:scale-110"
+          className="object-cover mix-blend-multiply transition-transform duration-[800ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
         />
         
         {/* Hover image if available */}
@@ -43,44 +43,32 @@ export function ProductCard({ product }: ProductCardProps) {
             alt={`Vue arrière ${product.name}`}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 20vw"
-            className="object-cover mix-blend-multiply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-out"
+            className="object-cover mix-blend-multiply absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-out"
           />
         )}
-
-        {/* Quick Add Overlay Mobile */}
-        <div className="absolute bottom-4 left-4 right-4 lg:hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button className="w-full bg-black/90 backdrop-blur-md text-white font-bold py-3 rounded-xl text-xs uppercase tracking-widest flex items-center justify-center gap-2">
-            <ShoppingCart size={14} /> Ajouter
-          </button>
-        </div>
       </Link>
 
-      <div className="flex flex-col flex-1 px-2 relative z-20">
-        {/* Category / Team hint */}
-        <div className="text-[10px] text-gray-400 font-bold uppercase tracking-widest mb-2">
-          {product.team || product.category || 'Football'}
-        </div>
+      <div className="flex flex-col flex-1 px-3 md:px-4 relative z-20">
         
-        <Link href={`/maillots/${product.slug}`} className="hover:text-[var(--color-brand-volt)] transition-colors group/title mb-4">
-          <h3 className="text-gray-900 font-black text-sm md:text-base leading-snug line-clamp-2 transition-colors group-hover/title:text-[var(--color-brand-volt)]">
-            {product.name}
-          </h3>
-        </Link>
-        
-        <div className="mt-auto flex items-end justify-between">
-          <div className="flex flex-col">
-            <span className="text-xs text-gray-400 font-medium mb-1">À partir de</span>
-            <span className="text-gray-900 font-black text-xl tracking-tighter">
+        <Link href={`/maillots/${product.slug}`} className="group/title flex-1">
+          <div className="flex justify-between items-start gap-2 mb-1">
+            <h3 className="text-black font-bold text-sm md:text-base leading-tight line-clamp-2">
+              {product.name}
+            </h3>
+            <span className="text-black font-bold text-sm md:text-base whitespace-nowrap">
               {product.price.toFixed(2).replace('.', ',')} €
             </span>
           </div>
-          
-          {/* Expanding Cart Button */}
-          <button className="h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-600 group-hover:bg-black group-hover:text-white transition-all duration-300 overflow-hidden relative px-3 group/btn">
-            <ShoppingCart size={20} strokeWidth={2} className="relative z-10 group-hover/btn:-translate-x-1 transition-transform" />
-            <span className="w-0 overflow-hidden text-[10px] font-black uppercase tracking-widest whitespace-nowrap transition-all duration-300 group-hover/btn:w-auto group-hover/btn:pl-2 group-hover/btn:opacity-100 opacity-0 relative z-10">
-              Ajouter
-            </span>
+          <div className="text-sm text-gray-500 font-medium mb-4">
+            {product.type === 'retro' ? 'Édition Rétro' : 'Maillot de Football'}
+          </div>
+        </Link>
+        
+        <div className="mt-auto">
+          {/* Expanding Cart Button (Desktop only hover, mobile visible) */}
+          <button className="w-full h-10 border border-gray-200 flex items-center justify-center gap-2 text-black text-xs font-bold uppercase tracking-widest hover:border-black hover:bg-black hover:text-white transition-all duration-300">
+            <ShoppingCart size={16} />
+            Acheter
           </button>
         </div>
       </div>
