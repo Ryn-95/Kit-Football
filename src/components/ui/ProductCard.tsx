@@ -66,10 +66,10 @@ export function ProductCard({ product }: ProductCardProps) {
         
         <div className="mt-auto">
           {/* Expanding Cart Button (Desktop only hover, mobile visible) */}
-          <button className="w-full h-10 border border-gray-200 flex items-center justify-center gap-2 text-black text-xs font-bold uppercase tracking-widest hover:border-black hover:bg-black hover:text-white transition-all duration-300">
+          <Link href={`/maillots/${product.slug}`} className="w-full h-10 border border-gray-200 flex items-center justify-center gap-2 text-black text-xs font-bold uppercase tracking-widest hover:border-black hover:bg-black hover:text-white transition-all duration-300">
             <ShoppingCart size={16} />
             Acheter
-          </button>
+          </Link>
         </div>
       </div>
     </div>

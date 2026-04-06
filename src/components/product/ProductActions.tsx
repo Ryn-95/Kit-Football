@@ -92,22 +92,23 @@ export function ProductActions({
   const { addItem } = useCart();
   const [version, setVersion] = useState<"Fan" | "Player">("Fan");
   const [size, setSize] = useState<string>("");
-  const [patch, setPatch] = useState<string>("none");
+  const [flocage, setFlocage] = useState<string>("none");
   const [customName, setCustomName] = useState("");
   const [customNumber, setCustomNumber] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [error, setError] = useState("");
   const suggestedNames = getFlocageSuggestions(teamName, clubSlug);
 
   const sizes = ["S", "M", "L", "XL", "XXL", "3XL"];
   
-  const currentPrice = product.price + (version === "Player" ? 5 : 0) + (patch !== "none" ? 10 : 0);
+  const currentPrice = product.price + (version === "Player" ? 5 : 0) + (flocage === "custom" ? 10 : 0);
 
   const handleAddToCart = () => {
     if (!size) {
       setError("Veuillez sélectionner une taille.");
       return;
     }
-    if (patch === "custom" && (!customName || !customNumber)) {
+    if (flocage === "custom" && (!customName || !customNumber)) {
       setError("Veuillez renseigner le nom et le numéro pour le flocage personnalisé.");
       return;
     }
@@ -115,9 +116,7 @@ export function ProductActions({
     setError("");
     
     let flocageText = undefined;
-    if (patch === "ligue1") flocageText = "Patch Championnat";
-    if (patch === "champion") flocageText = "Patch LDC";
-    if (patch === "custom") flocageText = `${customName.toUpperCase()} - ${customNumber}`;
+    if (flocage === "custom") flocageText = `${customName.toUpperCase()} - ${customNumber}`;
 
     addItem({
       productId: product.id,
@@ -127,7 +126,7 @@ export function ProductActions({
       size,
       version,
       flocage: flocageText,
-      quantity: 1
+      quantity: quantity
     });
   };
 
@@ -179,19 +178,17 @@ export function ProductActions({
 
       {/* Flocage / Patch (Only inputs if custom is selected, maybe simplify this) */}
       <div className="pt-4 border-t border-gray-100">
-        <label className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 block">Flocage / Patchs (+10€)</label>
+        <label className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-3 block">Flocage (+10€)</label>
         <select 
-          value={patch}
-          onChange={(e) => { setPatch(e.target.value); setError(""); }}
+          value={flocage}
+          onChange={(e) => { setFlocage(e.target.value); setError(""); }}
           className="w-full border border-gray-200 p-3 text-sm focus:outline-none focus:border-black appearance-none bg-white cursor-pointer mb-4"
         >
-          <option value="none">Sans patch</option>
-          <option value="ligue1">Patch Championnat officiel</option>
-          <option value="champion">Patch Champions League</option>
+          <option value="none">Sans flocage</option>
           <option value="custom">Flocage Nom + Numéro personnalisé (+10€)</option>
         </select>
 
-        {patch === "custom" && (
+        {flocage === "custom" && (
           <div className="space-y-4 mt-4">
             {suggestedNames.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-4">
@@ -241,9 +238,9 @@ export function ProductActions({
       {/* Add to Cart Area (Quantity + Button) */}
       <div className="pt-6 flex items-center gap-4">
         <div className="flex border border-gray-200 h-12 w-32 shrink-0">
-          <button className="w-10 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors">-</button>
-          <div className="flex-1 flex items-center justify-center font-bold text-sm">1</div>
-          <button className="w-10 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors">+</button>
+          <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-10 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors">-</button>
+          <div className="flex-1 flex items-center justify-center font-bold text-sm">{quantity}</div>
+          <button onClick={() => setQuantity(quantity + 1)} className="w-10 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors">+</button>
         </div>
         <button 
           onClick={handleAddToCart}
