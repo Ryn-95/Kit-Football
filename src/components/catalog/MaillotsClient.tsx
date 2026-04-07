@@ -119,7 +119,11 @@ function CatalogContent({ initialProducts, topClubs, topNations }: MaillotsClien
     // Filtering
     if (query) {
       const q = query.toLowerCase();
-      result = result.filter(p => p.name.toLowerCase().includes(q) || p.team.toLowerCase().includes(q));
+      result = result.filter(p => 
+        p.name.toLowerCase().includes(q) || 
+        p.team.toLowerCase().includes(q) ||
+        (p.league && p.league.toLowerCase().includes(q))
+      );
     }
     if (filterTeam) {
       result = result.filter(p => p.team === filterTeam);

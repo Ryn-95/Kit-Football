@@ -314,8 +314,8 @@ export const TOP_CLUBS = [
 ];
 
 export const TOP_NATIONS = [
-  'France', 'Argentine', 'Brésil', 'Allemagne', 'Espagne', 
-  'Italie', 'Angleterre', 'Portugal', 'Maroc', 'Algérie', 'Sénégal',
+  'France', 'Argentine', 'Bresil', 'Allemagne', 'Espagne', 
+  'Italie', 'Angleterre', 'Portugal', 'Maroc', 'Algerie', 'Senegal',
   'Pays-Bas', 'Belgique', 'Croatie'
 ];
 

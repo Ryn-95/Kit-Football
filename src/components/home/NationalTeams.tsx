@@ -5,6 +5,9 @@ import Link from 'next/link';
 
 const teams = [
   { name: 'France', logo: 'https://crests.football-data.org/773.svg', link: '/maillots/club/france' },
+  { name: 'Algérie', logo: 'https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_Algeria.svg', link: '/maillots/club/algerie' },
+  { name: 'Maroc', logo: 'https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg', link: '/maillots/club/maroc' },
+  { name: 'Sénégal', logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg', link: '/maillots/club/senegal' },
   { name: 'Argentine', logo: 'https://crests.football-data.org/762.svg', link: '/maillots/club/argentine' },
   { name: 'Allemagne', logo: 'https://crests.football-data.org/759.svg', link: '/maillots/club/allemagne' },
   { name: 'Espagne', logo: 'https://crests.football-data.org/760.svg', link: '/maillots/club/espagne' },
