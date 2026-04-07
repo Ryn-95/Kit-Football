@@ -7,6 +7,7 @@ import ProductCarousel from "../components/home/ProductCarousel";
 import { WebSiteJsonLd, OrganizationJsonLd } from "../components/seo/JsonLd";
 import { getAllProducts } from "@/lib/catalog";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
+import { Truck, Tag, ShieldCheck, Headphones } from 'lucide-react';
 
 export default function Home() {
   const allProducts = getAllProducts();
@@ -129,25 +130,25 @@ export default function Home() {
               <section className="mt-10 bg-white p-8 border border-gray-200 rounded-lg">
                 <h3 className="text-2xl font-bold text-black mb-4 text-center">Pourquoi commander sur KIT FOOTBALL ?</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                  <div>
-                    <div className="text-3xl mb-2">🚚</div>
-                    <h4 className="font-bold">Livraison Express</h4>
-                    <p className="text-sm">Expédition sous 48h avec suivi complet.</p>
+                  <div className="flex flex-col items-center">
+                    <div className="text-black mb-4"><Truck size={32} strokeWidth={1.5} /></div>
+                    <h4 className="font-bold text-black uppercase tracking-wider">Livraison Express</h4>
+                    <p className="text-sm text-gray-500 mt-2">Expédition sous 48h avec suivi complet.</p>
                   </div>
-                  <div>
-                    <div className="text-3xl mb-2">💰</div>
-                    <h4 className="font-bold">Prix Garantis</h4>
-                    <p className="text-sm">Les meilleurs tarifs du marché sans intermédiaire.</p>
+                  <div className="flex flex-col items-center">
+                    <div className="text-black mb-4"><Tag size={32} strokeWidth={1.5} /></div>
+                    <h4 className="font-bold text-black uppercase tracking-wider">Prix Garantis</h4>
+                    <p className="text-sm text-gray-500 mt-2">Les meilleurs tarifs du marché sans intermédiaire.</p>
                   </div>
-                  <div>
-                    <div className="text-3xl mb-2">🔒</div>
-                    <h4 className="font-bold">Paiement Sûr</h4>
-                    <p className="text-sm">Transactions sécurisées par Stripe et PayPal.</p>
+                  <div className="flex flex-col items-center">
+                    <div className="text-black mb-4"><ShieldCheck size={32} strokeWidth={1.5} /></div>
+                    <h4 className="font-bold text-black uppercase tracking-wider">Paiement Sûr</h4>
+                    <p className="text-sm text-gray-500 mt-2">Transactions sécurisées par Stripe et PayPal.</p>
                   </div>
-                  <div>
-                    <div className="text-3xl mb-2">⭐</div>
-                    <h4 className="font-bold">Service Client</h4>
-                    <p className="text-sm">Une équipe à votre écoute 7j/7 pour vous aider.</p>
+                  <div className="flex flex-col items-center">
+                    <div className="text-black mb-4"><Headphones size={32} strokeWidth={1.5} /></div>
+                    <h4 className="font-bold text-black uppercase tracking-wider">Service Client</h4>
+                    <p className="text-sm text-gray-500 mt-2">Une équipe à votre écoute 7j/7 pour vous aider.</p>
                   </div>
                 </div>
               </section>

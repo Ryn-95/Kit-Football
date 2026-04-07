@@ -55,9 +55,9 @@ export default function Footer() {
               <h4 className="text-[#111] font-bold text-lg mb-4">Langue</h4>
               <div className="relative">
                 <select className="w-full border border-gray-200 rounded p-3 text-sm text-gray-700 bg-white appearance-none cursor-pointer focus:outline-none focus:border-black">
-                  <option value="fr">🇫🇷 Français</option>
-                  <option value="en">🇬🇧 English</option>
-                  <option value="es">🇪🇸 Español</option>
+                  <option value="fr">FR Français</option>
+                  <option value="en">EN English</option>
+                  <option value="es">ES Español</option>
                 </select>
               </div>
             </div>
